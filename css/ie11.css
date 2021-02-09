@@ -1,0 +1,7 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .modal-footer { width: 400px; }
+    .modal .modal-footer .button--secondary { margin-right: 0; }
+    .modal-dialog {
+        opacity: 1 !important;
+    }
+}
