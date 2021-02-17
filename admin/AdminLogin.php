@@ -5,7 +5,10 @@
  if (!$dbconn){  
 echo "<center><h1>Doesn't work =(</h1></center>";  
 }else  
- echo "<center><h1>Good connection</h1></center>"; 
+{
+    // echo "<center><h1>Good connection</h1></center>"; 
+}
+
  if(isset($_POST['login'])&&!empty($_POST['login'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);

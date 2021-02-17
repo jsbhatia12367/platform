@@ -6,7 +6,7 @@
 echo "<center><h1>Doesn't work =(</h1></center>";  
 }else  
  echo "<center><h1>Good connection</h1></center>"; 
- if(isset($_POST['login'])&&!empty($_POST['login'])){
+ if(isset($_POST['reset'])&&!empty($_POST['reset'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
     $sql ="select * from public.admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
@@ -238,15 +238,20 @@ The content from cdnjs.cloudflare.com is all open source -->
                 <label>Email</label>
                 <input type="text" id="email" name="email" class="form-control" >
                 <span class="help-block"></span>
+            </div>
+            <div class="form-group ">
+                <label>Email</label>
+                <input type="text" id="email" name="email" class="form-control" >
+                <span class="help-block"></span>
             </div>    
             <div class="form-group ">
-                <label>Password</label>
+                <label>New Password</label>
                 <input type="password" id="password" name="password" class="form-control">
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
 
-                <input type="submit" class="btn btn-primary" name="login" value="login">
+                <input type="submit" class="btn btn-primary" name="reset" value="Reset">
             </div>
             <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
         </form>

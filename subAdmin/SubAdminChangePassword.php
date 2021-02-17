@@ -5,11 +5,8 @@
  if (!$dbconn){  
 echo "<center><h1>Doesn't work =(</h1></center>";  
 }else  
-{
-  //echo "<center><h1>Good connection</h1></center>";   
-}
- 
- if(isset($_POST['login'])&&!empty($_POST['login'])){
+ echo "<center><h1>Good connection</h1></center>"; 
+ if(isset($_POST['change'])&&!empty($_POST['change'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
     $sql ="select * from public.sub_admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
@@ -18,9 +15,22 @@ echo "<center><h1>Doesn't work =(</h1></center>";
     //console.log("testing2");
     if($login_check > 0){ 
       //  console.log("testing3");
-        session_start();
-        $_SESSION["Email"] = $_POST['email'];
-        header('Location: SubAdminPanel.php');    
+        //session_start();
+        //$_SESSION["Email"] = $_POST['email'];
+
+                $sql = "UPDATE public.sub_admin 
+                        SET password = '".md5($_POST['new_password'])."' WHERE email = '".$_POST['email']."'";
+            $ret = pg_query($dbconn, $sql);
+            if($ret){
+                
+                    echo "Data saved Successfully";
+                    header('Location: SubAdminLogin.php');
+            }else{
+                
+                    echo "Something Went Wrong";
+            }
+
+       // header('Location: SubAdminLogin.php');    
     }else{
         //console.log("testing4");
         
@@ -241,15 +251,21 @@ The content from cdnjs.cloudflare.com is all open source -->
                 <label>Email</label>
                 <input type="text" id="email" name="email" class="form-control" >
                 <span class="help-block"></span>
-            </div>    
+            </div> 
+           
             <div class="form-group ">
-                <label>Password</label>
+                <label>Old Password</label>
                 <input type="password" id="password" name="password" class="form-control">
+                <span class="help-block"></span>
+            </div>   
+            <div class="form-group ">
+                <label>New Password</label>
+                <input type="password" id="new_password" name="new_password" class="form-control">
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
 
-                <input type="submit" class="btn btn-primary" name="login" value="login">
+                <input type="submit" class="btn btn-primary" name="change" value="Change Password">
             </div>
             <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
         </form>
