@@ -12,7 +12,8 @@
       $ret = pg_query($db, $RegisterSql);
       if($ret){
           
-              echo "Data saved Successfully";
+              //alert( 'Data saved Successfully');
+              header('Location: user/StudentLogin.php'); 
       }else{
           
               echo "Soething Went Wrong";

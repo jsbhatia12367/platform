@@ -31,8 +31,8 @@
                 <th>Sr.No</th>
                 <th>Course Name</th>
                 <th>Course Data</th>
-                <!-- <th>Completed</th>
-                <th>Certificate</th> -->
+                <th>Completed</th>
+                <!--<th>Certificate</th>-->
               </tr>
             </thead>
             <tbody>
@@ -40,21 +40,27 @@
 
               <?php
               $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-              $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id IN (SELECT course_id FROM public.enroll where roll_no='" . pg_escape_string($_SESSION['Roll_no']) . "');"));
+              $sql = pg_query(sprintf("SELECT * FROM public.enroll where emailaddress ='" . pg_escape_string($_SESSION['Email']) . "';"));
               $sr_no = 1;
 
               while ($row = pg_fetch_assoc($sql)) {
 
+                $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.courses where course_id =". htmlspecialchars($row['course_id']).";")));
 
                 echo "<tr>";
 
                 echo "<td>$sr_no</td>";
-                echo "<td><a href='../Courses.php'></a> " . htmlspecialchars($row['course_name']) . " </td>";
+                echo "<td>".htmlspecialchars($sql2['course_name']) . " </td>";
                 // echo $row['course_data'];
-                echo "<td><a href='../admin/uploads/".htmlspecialchars($row['course_data'])."'>".htmlspecialchars($row['course_data'])."</a></td>";
-                // echo "<td><input type='text' id='completed' name='completed'></td>";
-                // echo "<td><select name='task' id='task'><option value='yes'>Yes</option><option value='no'>No</option></td>";
-                // echo "<td>Bye</td>";
+                echo "<td><a href='../admin/uploads/".htmlspecialchars($sql2['course_data'])."'>".htmlspecialchars($sql2['course_data'])."</a></td>";
+
+                // $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT completed FROM public.enroll where roll_no = 'MT2019052' and course_id = 1;")));
+                $status = $row['completed'] === 'f';
+
+                if($status)
+                  echo "<td><form method='post'><input type='submit' class='btn btn-primary' value='yes'></form></td>";
+                else
+                  echo "<td>Completed</td>";
                 echo "</tr>";
                 $sr_no++;
               }

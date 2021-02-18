@@ -83,7 +83,7 @@ if(isset($_POST['submit_enroll_courses'])&&!empty($_POST['submit_enroll_courses'
     //     $session_email = "error value";
     // }
     
-    $sql = "insert into public.enroll(course_id,roll_no)values('".$_POST['selected_course']."','".$_SESSION['Roll_no']."')";
+    $sql = "insert into public.enroll(course_id,emailaddress)values('".$_POST['selected_course']."','".$_SESSION['Email']."')";
     $ret = pg_query($dbconn, $sql);
     if($ret){
         
