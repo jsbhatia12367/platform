@@ -4,19 +4,22 @@
  $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
  if (!$dbconn){  
 echo "<center><h1>Doesn't work =(</h1></center>";  
-}else  
- echo "<center><h1>Good connection</h1></center>"; 
+}else 
+{
+   //echo "<center><h1>Good connection</h1></center>"; 
+} 
+  
  if(isset($_POST['login'])&&!empty($_POST['login'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.student where roll_no = '".pg_escape_string($_POST['roll_no'])."' and password ='".$hashpassword."'";
+    $sql ="select * from public.cmhauser where emailaddress = '".pg_escape_string($_POST['emailaddress'])."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     //console.log("testing2");
     if($login_check > 0){ 
       //  console.log("testing3");
         session_start();
-        $_SESSION["Roll_no"] = $_POST['roll_no'];
+        $_SESSION["Email"] = $_POST['emailaddress'];
         header('Location: StudentDashboard.php');    
     }else{
         //console.log("testing4");
@@ -235,8 +238,8 @@ The content from cdnjs.cloudflare.com is all open source -->
         <p>Please fill in your credentials to login.</p>
         <form  method="post">
             <div class="form-group ">
-                <label>Username</label>
-                <input type="text" id="roll_no" name="roll_no" class="form-control" >
+                <label>Email</label>
+                <input type="text" id="emailaddress" name="emailaddress" class="form-control" >
                 <span class="help-block"></span>
             </div>    
             <div class="form-group ">
@@ -248,7 +251,7 @@ The content from cdnjs.cloudflare.com is all open source -->
 
                 <input type="submit" class="btn btn-primary" name="login" value="login">
             </div>
-            <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="../AddNewStudentNew.php">Sign up now</a>.</p>
         </form>
     </div>  
 </div>

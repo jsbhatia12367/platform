@@ -1,8 +1,8 @@
 <?php
 session_start();
-$Roll_no=$_SESSION['Roll_no'];
+$Email=$_SESSION['Email'];
 
-if(!isset($_SESSION['Roll_no']))
+if(!isset($_SESSION['Email']))
 {
 	header("Location:StudentLogin.php");
 }

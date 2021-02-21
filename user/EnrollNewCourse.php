@@ -44,7 +44,7 @@
 
   <?php
         $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres"); 
-        $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (SELECT course_id FROM public.enroll WHERE roll_no='".pg_escape_string($_SESSION['Roll_no'])."')")) ;       
+        $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (SELECT course_id FROM public.enroll WHERE emailaddress='".pg_escape_string($Email)."')")) ;       
         while ($row = pg_fetch_assoc($sql)) {
             echo '<option value="'.htmlspecialchars($row['course_id']).'">'.htmlspecialchars($row['course_name']).'</option>';
         }

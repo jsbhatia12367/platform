@@ -1,101 +1,25 @@
 <?php
-// Initialize the session
-//session_start();
- $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
- if (!$dbconn){  
-echo "<center><h1>Doesn't work =(</h1></center>";  
-}else  
-{
-  //echo "<center><h1>Good connection</h1></center>";   
-}
- 
- if(isset($_POST['login'])&&!empty($_POST['login'])){
-    //console.log("testing1");
-    $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.sub_admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
-    $data = pg_query($dbconn,$sql); 
-    $login_check = pg_num_rows($data);
-    //console.log("testing2");
-    if($login_check > 0){ 
-      //  console.log("testing3");
-        session_start();
-        $_SESSION["Email"] = $_POST['email'];
-        header('Location: SubAdminPanel.php');    
-    }else{
-        //console.log("testing4");
-        
-        echo "Invalid Details";
-    }
-}
+ $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+ if (!$db){  
+  echo "<center><h1>Doesn't work =(</h1></center>";  
+  }else
+  {  
+   //echo "<center><h1>Good connection</h1></center>";  
+  }
+ if(isset($_POST['save'])&&!empty($_POST['save'])){
+      $RegisterSql = "INSERT INTO cmhauser (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($_POST['password'])."')";
+      $ret = pg_query($db, $RegisterSql);
+      if($ret){
+          
+              echo "Data saved Successfully";
+      }else{
+          
+              echo "Soething Went Wrong";
+      }
+ }
 
-
-pg_close($dbconn); 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//   header("location: StudentDashboard.php");
-//   exit;
-//}
- 
-// Include config file
-// require_once "../php/config.php";
-
- 
-// Define variables and initialize with empty values
-// $username = $password = "";
-// $username_err = $password_err = "";
- 
-
-// if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-  
-//     if(empty(trim($_POST["username"]))){
-//         $username_err = "Please enter username.";
-//     } else{
-//         $username = trim($_POST["username"]);
-//     }
-
-//     if(empty(trim($_POST["password"]))){
-//         $password_err = "Please enter your password.";
-//     } else{
-//         $password = trim($_POST["password"]);
-//     }
-    
-    
-//     if(empty($username_err) && empty($password_err)){
-
-
-
-
-//         require_once "../php/sql.php";
-        
-//         $statement = pg_query($db_connection, $LoginSql);
-
-//         $login_check = pg_num_rows($statement);
-//     if($login_check > 0){ 
-        
-    
-//                             session_start();
-                            
-                         
-//                             $_SESSION["loggedin"] = true;
-//                             $_SESSION["username"] = $username;                            
-                            
-                          
-//                             header("location: StudentDashboard.php");
-
-//     }else{
-       
-//                             $password_err = "Invalid password or username";
-
-//     }
-    
-  
-//     pg_close($db_connection);
-// }
-// }
+pg_close($db);
 ?>
-
-
 
 
 
@@ -170,12 +94,12 @@ The content from cdnjs.cloudflare.com is all open source -->
 <div id="site-menu" class="main-nav">
 
     
-    <div class="sitewide-banner" data-modified="1588200144">
+    <!-- <div class="sitewide-banner" data-modified="1588200144">
         <div class="sitewide-banner-container">
             <h4>CMHA Recovery College classes are now being offered online.</h4><a href="COURSESONLINEPLACEHOLDER" class="button">Register here.</a>        </div>
 
         <i class="icon ion-md-close hide-banner"></i>
-    </div>
+    </div> -->
 
     <div class="d-md-none">
         <div class="nav-trigger d-lg-none">
@@ -226,45 +150,134 @@ The content from cdnjs.cloudflare.com is all open source -->
 
 
 
-
-
-
-
-<!-- Login form -->
+<!-- Registration form -->
         
 <div class="header header-simple">
-<div class="login">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-        <form  method="post">
-            <div class="form-group ">
-                <label>Email</label>
-                <input type="text" id="email" name="email" class="form-control" >
+    
+        <div class="login">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+
+        <form method="post">
+ 
+            <div class="form-group">
+                <label>*firstname</label>
+                <input type="text" name="firstname" class="form-control">
                 <span class="help-block"></span>
-            </div>    
-            <div class="form-group ">
-                <label>Password</label>
-                <input type="password" id="password" name="password" class="form-control">
+            </div> 
+            <div>
+                <label>middlename</label>
+                <input type="text" name="middlename" class="form-control">
+                <span class="help-block"></span>
+            </div> 
+            <div class="form-group">
+                <label>*lastname</label>
+                <input type="text" name="lastname" class="form-control">
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
-
-                <input type="submit" class="btn btn-primary" name="login" value="login">
+                <label>emailaddress</label>
+                <input type="email" name="emailaddress" class="form-control">
+                <span class="help-block"></span>
             </div>
-            <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
+
+            <div>
+                <label>phonenumber</label>
+                <input type="te" name="phonenumber" class="form-control" >
+                <span class="help-block"></span>
+            </div>           
+            <div>
+                <label>dateofbirth</label>
+                <input type="date" name="dateofbirth" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>city</label>
+                <input type="text" name="city" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>province</label>
+                <input type="text" name="province" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>gender</label>
+                <input type="text" name="gender" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>ethnicity</label>
+                <input type="text" name="ethnicity" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>Cultural Considerations:</label>
+                <input type="text" name="culturalconsiderations" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>indigenousidentity</label>
+                <input type="text" name="indigenousidentity" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>languagespoken</label>
+                <input type="text" name="languagespoken" class="form-control">
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>housingstatus</label>
+                <input type="text" name="housingstatus" class="form-control">
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>Living Arrangement:</label>
+                <input type="text" name="livingarrangement" class="form-control">
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>sourceofincome</label>
+                <input type="text" name="sourceofincome" class="form-control" >
+                <span class="help-block"></span>
+            </div> 
+            <div>
+                <label>occupation</label>
+                <input type="text" name="occupation" class="form-control">
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" >
+                <span class="help-block"></span>
+            </div>    
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" >
+                <span class="help-block"></span>
+            </div>
+            <!-- <div class="form-group ">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="">
+                <span class="help-block"></span>
+            </div> -->
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="save" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
-    </div>  
+    </div>    
+
+
 </div>
 
 
 
 
 
-
-
-
 </div><!-- #content -->
-    <!-- Sitewide Pop-up -->
+    <!-- Sitewide Pop-up/Modal -->
                     <footer id="site-footer" class="footer" role="contentinfo">
         <div class="container footer-container">
             <div class="row">
