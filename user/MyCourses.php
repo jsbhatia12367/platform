@@ -45,26 +45,52 @@
 
               while ($row = pg_fetch_assoc($sql)) {
 
-                $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.courses where course_id =". htmlspecialchars($row['course_id']).";")));
+                $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.courses where course_id =" . htmlspecialchars($row['course_id']) . ";")));
 
                 echo "<tr>";
 
                 echo "<td>$sr_no</td>";
-                echo "<td>".htmlspecialchars($sql2['course_name']) . " </td>";
+                echo "<td>" . htmlspecialchars($sql2['course_name']) . " </td>";
                 // echo $row['course_data'];
-                echo "<td><a href='../admin/uploads/".htmlspecialchars($sql2['course_data'])."'>".htmlspecialchars($sql2['course_data'])."</a></td>";
+                echo "<td><a href='../admin/uploads/" . htmlspecialchars($sql2['course_data']) . "'>" . htmlspecialchars($sql2['course_data']) . "</a></td>";
 
                 // $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT completed FROM public.enroll where roll_no = 'MT2019052' and course_id = 1;")));
                 $status = $row['completed'] === 'f';
 
-                if($status)
-                  echo "<td><form method='post'><input type='submit' class='btn btn-primary' value='yes'></form></td>";
-                else
+                if ($status) {
+                  echo "<td><button id='" . $row['course_id'] . "' value='" . $row['emailaddress'] . "' class='btn btn-primary'>Yes</button></td>";
+                  // echo "<td><form><input name='accept' type='submit' id='".$row['course_id']."' value='".$row['emailaddress']."'></td></form>";
+                } else
                   echo "<td>Completed</td>";
                 echo "</tr>";
                 $sr_no++;
               }
               pg_close($db); ?>
+
+               
+
+              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+              <script>
+                $(document).ready(function() {
+                  $("button").click(function() {
+                   
+                    $.ajax({
+                      type: "POST",
+                      url: 'ajax.php',
+                      data: {
+                        action: 'call_this',
+                        course_id:  $(this).attr('id'),
+                        emailaddress: $(this).attr('value'),
+                      },
+                      success: function(html) {
+                        location.reload();
+                      }
+
+                    });
+
+                  });
+                });
+              </script>
 
 
 
