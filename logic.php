@@ -6,7 +6,7 @@ $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres pas
 if (!$dbconn){  
 echo "<center><h1>Doesn't work =(</h1></center>";  
 }else  
- echo "<center><h1>Good connection</h1></center>"; 
+//  echo "<center><h1>Good connection</h1></center>"; 
 
 // $host = "localhost";
 // $port = "5432";
@@ -86,8 +86,8 @@ if(isset($_POST['submit_enroll_courses'])&&!empty($_POST['submit_enroll_courses'
     $sql = "insert into public.enroll(course_id,emailaddress)values('".$_POST['selected_course']."','".$_SESSION['Email']."')";
     $ret = pg_query($dbconn, $sql);
     if($ret){
-        
-            echo "Data saved Successfully";
+            echo '<script>alert("Data saved Successfully");window.location.href = "user/EnrollNewCourse.php";</script>';
+            // header('Location: user/EnrollNewCourse.php');
     }else{
         
             echo "Something Went Wrong";

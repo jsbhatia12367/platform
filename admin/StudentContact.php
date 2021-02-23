@@ -32,21 +32,23 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
               </tr>
             </thead>
             <tbody>
-             
-          
-              <tr>
-                <td>id</td>
-                <td>name</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-        
+            <?php
+            $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+            $sql= pg_query(sprintf("select * from cmhauser"));
+            while ($row = pg_fetch_assoc($sql)) {
+              echo "<tr><td>".htmlspecialchars($row['cmhauserid'])."</td>
+              <td>".htmlspecialchars($row['username'])."</td>
+              <td>".htmlspecialchars($row['firstname'])."</td>
+              <td>".htmlspecialchars($row['lastname'])."</td>
+              <td>".htmlspecialchars($row['emailaddress'])."</td>
+              <td>".htmlspecialchars($row['phonenumber'])."</td>
+              <tr>";
+            }
+            ?>
             </tbody>
           </table>
     </article>
