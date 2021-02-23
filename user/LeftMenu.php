@@ -41,7 +41,7 @@
             </a>
         </li>
         <li>
-          <a href="logout_user.php" class="btn btn-danger"><button type="button"><h4>Sign Out</h4></button>  </a>
+          <a href="logout_user.php" ><button type="button"><h4>Sign Out</h4></button>  </a>
         </li>
         <br>
       </ul>
