@@ -137,7 +137,6 @@
 					<div class="cart-actions">
 						<button id="finalize-registration">Finalize Registration</button>
 						<a class="d-none" href="REGISTRATIONPAGEPLACEHOLDER" id="navigate-finalize-registration"></a>
-						<!--https://recoverycollegeedmonton.ca/registration/-->
 
 						<button id="dismiss-cart" class="button button--secondary">Keep Browsing</button>
 					</div>
