@@ -29,7 +29,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
     if (move_uploaded_file($_FILES["course_data"]["tmp_name"], $target_file)) {
       // echo "The file ". htmlspecialchars( basename( $_FILES["course_data"]["name"])). " has been uploaded.";
       $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-      $sql = "insert into public.courses(course_name,owner_email,course_data)values('" . $_POST['course_name'] . "','" . $session_email . "','" . basename($_FILES["course_data"]["name"]) . "')";
+      $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
       $ret = pg_query($dbconn, $sql);
       if ($ret) {
 
@@ -46,47 +46,6 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 }
 
 ?>
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>PHP PostgreSQL Registration & Login Example </title>
-  <meta name="keywords" content="PHP,PostgreSQL,Insert,Login">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="container">
-  <h2>Login Here </h2>
-  <form method="post" enctype="multipart/form-data">
-  
-     
-    <div class="form-group">
-      <label for="course">Course Name:</label>
-      <input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name">
-    </div>
-
-    <div class="form-group">
-      <label for="course">Data File:</label>
-      <input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data">
-    </div>
-
-    <input type="submit" name="submit2" class="btn btn-primary" value="Submit">
-
-  </form>
-</div>
-
-<form method="post" action="../logic.php">
-<input type="submit" class="btn btn-primary" name="logout" value="Logout">
-</form>
-
-</body>
-</html>
- -->
-
 
 
 <!DOCTYPE html>
@@ -117,14 +76,41 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
 
                 <div class="form-group">
-                  <label for="course">Course Name:</label>
+                  <label for="course_name">Course Name:</label>
                   <input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name">
                 </div>
 
                 <div class="form-group">
-                  <label for="course">Data File:</label>
+                  <label for="owner_email">Owner Email:</label>
+                  <input type="email" class="form-control" id="owner_email" placeholder="Enter Owner Email" name="owner_email">
+                </div>
+
+                <div class="form-group">
+                  <label for="course_data">Data File:</label>
                   <input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data">
                 </div>
+
+                <div class="form-group">
+                  <label for="start_date">Start Date:</label>
+                  <input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date">
+                </div>
+
+                <div class="form-group">
+                  <label for="end_date">End Date:</label>
+                  <input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date">
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description" ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="capacity">End Date:</label>
+                  <input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity">
+                </div>
+
+
                 <br><br>
                 <div class="form-group">
                 <input type="submit" name="submit2" class="btn btn-primary" value="Submit">

@@ -251,7 +251,7 @@ The content from cdnjs.cloudflare.com is all open source -->
 
                 <input type="submit" class="btn btn-primary" name="login" value="login">
             </div>
-            <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
+            <p>For subadmin account, contact admin </p>
         </form>
     </div>  
 </div>

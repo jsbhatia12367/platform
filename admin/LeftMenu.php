@@ -37,7 +37,7 @@
           </a>
       </li> 
       <li>
-        <a href="add_courses.php">
+        <a href="AddCourses.php">
             <span class="iconify" data-icon="fluent:news-20-regular" data-inline="false"></span>
             <span>Add Courses</span>
           </a>

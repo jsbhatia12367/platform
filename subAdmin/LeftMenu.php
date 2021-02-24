@@ -4,10 +4,10 @@
     </a>   
     <ul class="admin-menu">
       <li class="menu-heading">
-        <h3>Admin</h3>
+        <h3>Sub Admin</h3>
       </li>
       <li>
-        <a href="AdminPanel.php">
+        <a href="SubAdminPanel.php">
             <span class="iconify" data-icon="fa-solid:house-user" data-inline="false"></span>
           <span>Home</span>
         </a>
@@ -76,7 +76,7 @@
         </a>
       </li>   
       <li>
-          <a href="logout_admin.php" class="btn btn-danger"><button type="button"><h4>Sign Out</h4></button>  </a>
+          <a href="logout_sub_admin.php" class="btn btn-danger"><button type="button"><h4>Sign Out</h4></button>  </a>
         </li>
       <br>
     </ul>

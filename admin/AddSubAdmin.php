@@ -15,7 +15,6 @@ if(isset($_POST['register'])&&!empty($_POST['register'])){
     if($ret){
         
             echo "Data saved Successfully";
-            header('Location: ../subAdmin/SubAdminLogin.php');
     }else{
         
             echo "Something Went Wrong";
