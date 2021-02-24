@@ -24,15 +24,12 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
   if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["course_data"]["tmp_name"], $target_file)) {
-      // echo "The file ". htmlspecialchars( basename( $_FILES["course_data"]["name"])). " has been uploaded.";
       $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
       $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description,capacity)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
       $ret = pg_query($dbconn, $sql);
       if ($ret) {
-
         echo "Data saved Successfully";
       } else {
 
@@ -82,7 +79,16 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
                 <div class="form-group">
                   <label for="owner_email">Owner Email:</label>
-                  <input type="email" class="form-control" id="owner_email" placeholder="Enter Owner Email" name="owner_email">
+                  <select class="form-control" id="owner_email" name="owner_email">
+                  <?php
+                  $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+                  $sql = pg_query(sprintf("SELECT * FROM public.sub_admin "));
+                  while ($row = pg_fetch_assoc($sql)) {
+                    echo '<option value="' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</option>';
+                  }
+                  pg_close($db);
+                  ?>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -102,7 +108,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
                 <div class="form-group">
                   <label for="description">Description:</label>
-                  <textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description" ></textarea>
+                  <textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -113,7 +119,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
                 <br><br>
                 <div class="form-group">
-                <input type="submit" name="submit2" class="btn btn-primary" value="Submit">
+                  <input type="submit" name="submit2" class="btn btn-primary" value="Submit">
                 </div>
 
               </form>
@@ -124,7 +130,8 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
       </article>
     </section>
   </section>
-    <footer class="page-footer">
-    </footer>
+  <footer class="page-footer">
+  </footer>
 </body>
+
 </html>
