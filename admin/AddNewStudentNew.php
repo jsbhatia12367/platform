@@ -106,7 +106,7 @@ The content from cdnjs.cloudflare.com is all open source -->
             <button class="menu-toggle button--primary" id="main-nav-toggle" aria-haspopup="true" aria-expanded="false"><span class="text">Menu</span> <span class="hamburger-bars"><span class="bar-helper"></span></span></button>
         </div>
         <div class="brand brand--mobile">
-                            <a href="../HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="../HomePage.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="../images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
@@ -126,14 +126,14 @@ The content from cdnjs.cloudflare.com is all open source -->
 </ul>       </nav>
 
         <div class="brand brand--desktop d-none d-md-block">
-                            <a href="../HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="../HomePage.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="../images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
 
         <nav class="utility-nav">
             <div class="searchform-wrapper">
-                <form class="searchform" method="get" action="../HomePage.html">
+                <form class="searchform" method="get" action="../HomePage.php">
     <input type="text" name="s" aria-label="Site search" placeholder="What are you looking for?" />
     <button aria-labelledby="searchform--5fbf0e6edf4e3__label"><i class="ion ion-md-search"></i><span class="text" id="searchform--5fbf0e6edf4e3__label">Search</span></button>
 </form>

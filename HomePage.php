@@ -33,7 +33,7 @@
 	<link rel="dns-prefetch" href="//s.w.org">
 	<link rel="alternate" type="application/rss+xml" title="Recovery College Edmonton » Feed" href="https://recoverycollegeedmonton.ca/feed/">
 	<link rel="alternate" type="application/rss+xml" title="Recovery College Edmonton » Comments Feed" href="https://recoverycollegeedmonton.ca/comments/feed/">
-	<link rel="alternate" type="text/calendar" title="Recovery College Edmonton » iCal Feed" href="https://recoverycollegeedmonton.ca/events/?ical=1">
+	
 
 
 	<!--JavaScript files-->
@@ -86,10 +86,6 @@
 				<i class="icon ion-md-close hide-banner"></i>
 			</div>
 
-			<div class="cart-button-outer">
-				<div class="cart-button-quantity" style="opacity: 1;">2</div>
-				<button id="cart-toggle" class="button-cart" aria-label="Hide / Show Cart"><img src="images/svg/cart.svg" alt="Cart"></button>
-			</div>
 
 			<div id="cart">
 
@@ -158,12 +154,7 @@
 					<div class="nav-trigger d-lg-none">
 						<button class="menu-toggle button--primary" id="main-nav-toggle" aria-haspopup="true" aria-expanded="false"><span class="text">Menu</span> <span class="hamburger-bars"><span class="bar-helper"></span></span></button>
 					</div>
-					<div class="brand brand--mobile">
-						<a href="home.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
-							<!--https://recoverycollegeedmonton.ca-->
-							<img src="images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
-						</a>
-					</div>
+					
 				</div>
 
 				<div class="navigation-wrapper">
@@ -171,7 +162,7 @@
 						<ul id="menu-main-menu" class="menu">
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.html" class="nav-link">About Recovery College</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item">
-								<a title="Find a Course" href="Courses.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-23">Find a Course</a>
+								
 								<ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1994 nav-item"><a title="Online Classes" href="COURSESONLINEPLACEHOLDER" class="dropdown-item">Online Classes</a></li>
@@ -182,27 +173,13 @@
 						</ul>
 					</nav>
 
-					<div class="brand brand--desktop d-none d-md-block">
-						<a href="home.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
-							<!--https://recoverycollegeedmonton.ca-->
-							<img src="images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
-						</a>
-					</div>
+			
 
 					<nav class="utility-nav">
-						<div class="searchform-wrapper">
-							<form class="searchform" method="get" action="#">
-								<!--https://recoverycollegeedmonton.ca/-->
-								<input type="text" name="s" aria-label="Site search" placeholder="What are you looking for?">
-								<button aria-labelledby="searchform--5f9870a909a7a__label"><span class="iconify" data-icon="bx:bx-search" data-inline="false"></span><span class="text" id="searchform--5f9870a909a7a__label">Search</span></button>
-							</form>
-							<button class="searchform-toggle" aria-label="Search the site"><span class="iconify" data-icon="bx:bx-search" data-inline="false"></span></button>
-						</div>
+						
 						<ul id="menu-utility-menu" class="menu">
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19 nav-item"><a title="News &amp; Updates" href="news.html" class="nav-link">News &amp; Updates</a></li>
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20 nav-item"><a title="Donate" target="_blank" href="DONATEPLACEHOLDER" class="nav-link">Donate</a></li>
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="nav-link">FAQs</a></li>
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.html" class="nav-link">Contact</a></li>
+						
+							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.php" class="nav-link">Contact</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="AddNewStudentNew.php" class="nav-link">Register</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
@@ -229,7 +206,7 @@
 
 							</p>
 
-							<a class="button button--reversed" href="Courses.html">Find a Course</a>
+					
 							<!--http://recoverycollegeedmonton.ca/courses/-->
 						</div>
 
@@ -307,7 +284,7 @@
 
 						<div class="col-12">
 							<h2>Find an online class here. </h2>
-							<p class="big">Register for an online virtual course or get more information in our <a href="Courses.html">course catalogue</a>.</p>
+							<p class="big">Register for an online virtual course or get more information in our <!-- <a href="Courses.html"> -->course catalogue<!-- </a> -->.</p>
 							<!--http://recoverycollegeedmonton.ca/courses-->
 						</div>
 
@@ -433,7 +410,7 @@
 
 											<p>As we work toward an honest effort to honor and learn about Indigenous we better ...</p>
 
-											<button class="button button--secondary">Read More</button>
+										<!--	<button class="button button--secondary">Read More</button>-->
 
 										</div>
 
@@ -461,7 +438,6 @@
 
 							<h3 class="title-2">Develop your own resourcefulness</h3>
 
-							<a href="Courses.html" title="Find a Course" class="button button--reversed">Find a Course</a>
 							<!--http://recoverycollegeedmonton.ca/courses/-->
 
 						</div>
@@ -506,10 +482,10 @@
 
 						<ul id="menu-footer-menu" class="menu">
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
-								<a title="Find a Course" href="Courses.html" class="nav-link">Find a Course</a>
+						
 								<ul role="menu">
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
-									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
+						
 								</ul>
 							</li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-31 nav-item">
@@ -519,7 +495,7 @@
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
 								</ul>
 							</li>
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.html" class="nav-link">Contact Us</a>
+							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.php" class="nav-link">Contact Us</a>
 								<ul role="menu" aria-role="menu">
 									<li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br>Edmonton, AB T5J 1C4</li>
 									<li class="nav-item" aria-role="menuitem">780-414-6300</li>
@@ -591,20 +567,20 @@
 				<div class="footer-meta">
 					<div class="row">
 
-						<div class="col-12 col-sm-4 col-md-6">
+						<div class="col-12 col-sm-4 col-md-6"><!--
 
 							<span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
-							<!--https://recoverycollegeedmonton.ca/privacy-policy/-->
+						
 							<span class="footer-meta-sep">|</span>
 
 							<span class="footer-meta-item"><a href="Terms.html">Terms of Use</a></span>
-							<!--https://recoverycollegeedmonton.ca/terms-conditions/-->
+				
 							<span class="footer-meta-sep">|</span>
 
 							<span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span>
-							<!--https://recoverycollegeedmonton.ca/copyright-permissions/-->
+							
 
-						</div>
+						--></div>
 
 						<div class="col-12 col-sm-8 col-md-6">
 							<span class="copy-registration"><span class="footer-meta-item">© Recovery College Edmonton 2020, All Rights Reserved</span><span class="footer-meta-item">Registered Charity Number: 118834316RR</span></span>

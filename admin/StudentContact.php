@@ -21,7 +21,7 @@
             <div class="main__greeting">
               <h1>Student Information</h1>
             </div>
-             <a href="AddNewStudent.php" target="_blank" class="btn btn-danger btn-xs"> Add New Student</a>
+            
             </div>
         <table class="content-table">
             <thead>
