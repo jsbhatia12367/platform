@@ -323,7 +323,7 @@
 
 															<div class='card__footer'>
 																<button class='add-to-cart button--plus button--online' data-download-id='5069' data-event-id='5068' data-title='Stress Management: Online' data-schedule='[{&quot;start&quot;:&quot;2020-12-10T10:00:00-0700&quot;,&quot;end&quot;:&quot;2020-12-10T11:00:00-0700&quot;}]' data-tag='online' data-nice-date='December 10 2020, 10:00 am - 11:00 am MDT' data-sessions='1'>Add to Cart</button>
-																<a href='#' class='button button--secondary'>Learn More</a>
+																<a href='learnmore.php?course_id=101' class='button button--secondary'>Learn More</a>
 															</div>
 														</div><!-- #tribe-events-content -->
 													</div>";

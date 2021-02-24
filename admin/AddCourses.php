@@ -29,7 +29,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
     if (move_uploaded_file($_FILES["course_data"]["tmp_name"], $target_file)) {
       // echo "The file ". htmlspecialchars( basename( $_FILES["course_data"]["name"])). " has been uploaded.";
       $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-      $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
+      $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description,capacity)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
       $ret = pg_query($dbconn, $sql);
       if ($ret) {
 
@@ -106,7 +106,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                 </div>
 
                 <div class="form-group">
-                  <label for="capacity">End Date:</label>
+                  <label for="capacity">Capacity:</label>
                   <input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity">
                 </div>
 
