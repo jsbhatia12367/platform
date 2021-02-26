@@ -84,7 +84,7 @@
                               </div>
 
                               <div class='card__footer'>
-                                <button class='add-to-cart button--plus button--online' id='".$row['course_id']."' onclick='myFunction(this.id)'>Add to Cart</button>
+                                <button class='btn btn-primary' id='".$row['course_id']."' onclick='myFunction(this.id)'>Start Learning</button>
                               </div>
                             </div><!-- #tribe-events-content -->
                           </div>";

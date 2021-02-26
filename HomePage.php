@@ -33,7 +33,7 @@
 	<link rel="dns-prefetch" href="//s.w.org">
 	<link rel="alternate" type="application/rss+xml" title="Recovery College Edmonton » Feed" href="https://recoverycollegeedmonton.ca/feed/">
 	<link rel="alternate" type="application/rss+xml" title="Recovery College Edmonton » Comments Feed" href="https://recoverycollegeedmonton.ca/comments/feed/">
-	
+
 
 
 	<!--JavaScript files-->
@@ -52,9 +52,6 @@
 	<meta name="msapplication-TileImage" content="images/png/cropped-RecoveryCollege_Favicon-270x270.png">
 	<link rel="cart" href="images/svg/cart.svg" sizes="192x192" />
 	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-
-
-
 
 	<!--Style Sheets-->
 	<link rel="stylesheet" id="tribe-common-skeleton-style-css" href="css/common-skeleton.min.css?ver=4.12.5" type="text/css" media="all">
@@ -78,6 +75,12 @@
 	<!-- End Google Tag Manager (noscript) -->
 	<div id="page" class="site">
 		<div id="content" class="site-content">
+
+			<div class="cart-button-outer">
+				<div class="cart-button-quantity" style="opacity: 0;">0</div>
+				<button id="cart-toggle" class="button-cart cart-open" aria-label="Hide / Show Cart"></button>
+			</div>
+
 			<div class="sitewide-banner" data-modified="1588200144">
 				<div class="sitewide-banner-container">
 					<h4>CMHA Recovery College classes are now being online.</h4><a href="AddNewStudentNew.php" class="button">Register here.</a>
@@ -99,19 +102,19 @@
 						<span><b>Added Courses</b></span>
 						<hr>
 						<ul class="cart-items">
-							<li class="cart-item" data-title="Stress Management: Online" data-download-id="5067">
-								<div class="cart-item-inner">
-									<div class="cart-title">
-										<p><b>Stress Management: Online<span class="muted"> (1 sessions)</span></b></p>
+							<li class='cart-item' data-title='Stress Management: Online' data-download-id='5067'>
+								<div class='cart-item-inner'>
+									<div class='cart-title'>
+										<p><b>Stress Management: Online<span class='muted'> (2 sessions)</span></b></p>
 									</div>
-									<div class="cart-meta">
-										<div class="tag-circle-container">
-											<span class="tag-circle tag-circle--online"></span>
+									<div class='cart-meta'>
+										<div class='tag-circle-container'>
+											<span class='tag-circle tag-circle--online'></span>
 										</div>
-										<p class="small"><b>November 25 2020, 10:00 am - 11:00 am MDT</b></p>
+										<p class='small'><b>November 25 2020, 10:00 am - 11:00 am MDT</b></p>
 									</div>
 								</div>
-								<i class="ion ion-md-close-circle remove-from-cart"></i>
+								<i class='ion ion-md-close-circle remove-from-cart'></i>
 							</li>
 							<li class="cart-item" data-title="Developing Self Compassion: Online" data-download-id="5065">
 								<div class="cart-item-inner">
@@ -154,7 +157,7 @@
 					<div class="nav-trigger d-lg-none">
 						<button class="menu-toggle button--primary" id="main-nav-toggle" aria-haspopup="true" aria-expanded="false"><span class="text">Menu</span> <span class="hamburger-bars"><span class="bar-helper"></span></span></button>
 					</div>
-					
+
 				</div>
 
 				<div class="navigation-wrapper">
@@ -162,7 +165,7 @@
 						<ul id="menu-main-menu" class="menu">
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.html" class="nav-link">About Recovery College</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item">
-								
+
 								<ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1994 nav-item"><a title="Online Classes" href="COURSESONLINEPLACEHOLDER" class="dropdown-item">Online Classes</a></li>
@@ -173,12 +176,12 @@
 						</ul>
 					</nav>
 
-			
+
 
 					<nav class="utility-nav">
-						
+
 						<ul id="menu-utility-menu" class="menu">
-						
+
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.php" class="nav-link">Contact</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="AddNewStudentNew.php" class="nav-link">Register</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item">
@@ -206,7 +209,7 @@
 
 							</p>
 
-					
+
 							<!--http://recoverycollegeedmonton.ca/courses/-->
 						</div>
 
@@ -284,7 +287,10 @@
 
 						<div class="col-12">
 							<h2>Find an online class here. </h2>
-							<p class="big">Register for an online virtual course or get more information in our <!-- <a href="Courses.html"> -->course catalogue<!-- </a> -->.</p>
+							<p class="big">Register for an online virtual course or get more information in our
+								<!-- <a href="Courses.html"> -->course catalogue
+								<!-- </a> -->.
+							</p>
 							<!--http://recoverycollegeedmonton.ca/courses-->
 						</div>
 
@@ -295,13 +301,13 @@
 
 						while ($row = pg_fetch_assoc($sql)) {
 
-						echo "
+							echo "
 													<div class='col-12 col-md-6 card-container'>
 														<div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
 															<div class='location-meta' data-location='online'></div>
 															<div class='tags' data-filter-target='' data-tags='online'></div>
 															<div class='card__header'>
-																<div class='card__title title-4 tribe-events-single-event-title'>". htmlspecialchars($row['course_name']) . "</div>	
+																<div class='card__title title-4 tribe-events-single-event-title'>" . htmlspecialchars($row['course_name']) . "</div>	
 																</div>
 
 															<div class='card__body small'>
@@ -311,24 +317,27 @@
 																	<tbody>
 																		<tr>
 																			<th>Start</th>
-																			<td>". htmlspecialchars($row['start_date'])."</td>
+																			<td>" . htmlspecialchars($row['start_date']) . "</td>
 																		</tr>
 																		<tr>
 																			<th>End</th>
-																			<td>". htmlspecialchars($row['end_date'])."</td>
+																			<td>" . htmlspecialchars($row['end_date']) . "</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
 
-															<div class='card__footer'>
-																<button class='add-to-cart button--plus button--online' data-download-id='5069' data-event-id='5068' data-title='Stress Management: Online' data-schedule='[{&quot;start&quot;:&quot;2020-12-10T10:00:00-0700&quot;,&quot;end&quot;:&quot;2020-12-10T11:00:00-0700&quot;}]' data-tag='online' data-nice-date='December 10 2020, 10:00 am - 11:00 am MDT' data-sessions='1'>Add to Cart</button>
-																<a href='learnmore.php?course_id=".$row['course_id']."' class='button button--secondary'>Learn More</a>
+															<div class='card__footer'>";
+
+
+
+							echo "<button class='add-to-cart button--plus button--online' data-download-id='".$row['course_id']."' data-event-id='5066' data-title='" . $row['course_name'] . "' data-schedule='[{&quot;start&quot;:&quot;2020-11-25T10:00:00-0700&quot;,&quot;end&quot;:&quot;2020-11-25T11:00:00-0700&quot;}]' data-tag='online' data-nice-date='".$row['start_date']." to ".$row['end_date']."' data-sessions='5'
+							>Add to Cart</button>";
+							echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
 															</div>
 														</div><!-- #tribe-events-content -->
 													</div>";
-
-																	}
+						}
 
 						?>
 
@@ -336,7 +345,7 @@
 							<div class="card card-view-all">
 								<div class="card-view-all__body">
 									<h3>View all Courses</h3>
-									<a class="button" title="View All Courses" href="courses.php">Courses</a>
+									<a class="button" title="View All Courses" href="AllCourses.php">Courses</a>
 								</div>
 							</div>
 						</div>
@@ -410,7 +419,7 @@
 
 											<p>As we work toward an honest effort to honor and learn about Indigenous we better ...</p>
 
-										<!--	<button class="button button--secondary">Read More</button>-->
+											<!--	<button class="button button--secondary">Read More</button>-->
 
 										</div>
 
@@ -482,10 +491,10 @@
 
 						<ul id="menu-footer-menu" class="menu">
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
-						
+
 								<ul role="menu">
 									<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
-						
+
 								</ul>
 							</li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-31 nav-item">
@@ -567,7 +576,8 @@
 				<div class="footer-meta">
 					<div class="row">
 
-						<div class="col-12 col-sm-4 col-md-6"><!--
+						<div class="col-12 col-sm-4 col-md-6">
+							<!--
 
 							<span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
 						
@@ -580,7 +590,8 @@
 							<span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span>
 							
 
-						--></div>
+						-->
+						</div>
 
 						<div class="col-12 col-sm-8 col-md-6">
 							<span class="copy-registration"><span class="footer-meta-item">© Recovery College Edmonton 2020, All Rights Reserved</span><span class="footer-meta-item">Registered Charity Number: 118834316RR</span></span>
