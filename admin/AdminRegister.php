@@ -1,102 +1,21 @@
-<?php
-// Initialize the session
-//session_start();
- $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
- if (!$dbconn){  
-echo "<center><h1>Doesn't work =(</h1></center>";  
-}else  
-{
-    // echo "<center><h1>Good connection</h1></center>"; 
-}
-
- if(isset($_POST['login'])&&!empty($_POST['login'])){
-    //console.log("testing1");
-    $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
-    $data = pg_query($dbconn,$sql); 
-    $login_check = pg_num_rows($data);
-    //console.log("testing2");
-    if($login_check > 0){ 
-      //  console.log("testing3");
-        session_start();
-        $_SESSION["Email"] = $_POST['email'];
-        header('Location: AdminPanel.php');    
-    }else{
-        //console.log("testing4");
+<?php  
+$dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres"); 
+if(isset($_POST['submit'])&&!empty($_POST['submit'])){
+    
+      $sql = "insert into public.admin(first_name,last_name,email,password,mobile_no)values('".$_POST['first_name']."','".$_POST['last_name']."','".$_POST['email']."','".md5($_POST['password'])."','".$_POST['mobile_no']."')";
+    $ret = pg_query($dbconn, $sql);
+    if($ret){
         
-        echo "Invalid Details";
+            echo "Data saved Successfully";
+            header('Location: AdminLogin.php');
+
+    }else{
+        
+            echo "Something Went Wrong";
     }
 }
-
-
-pg_close($dbconn); 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//   header("location: StudentDashboard.php");
-//   exit;
-//}
- 
-// Include config file
-// require_once "../php/config.php";
-
- 
-// Define variables and initialize with empty values
-// $username = $password = "";
-// $username_err = $password_err = "";
- 
-
-// if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-  
-//     if(empty(trim($_POST["username"]))){
-//         $username_err = "Please enter username.";
-//     } else{
-//         $username = trim($_POST["username"]);
-//     }
-
-//     if(empty(trim($_POST["password"]))){
-//         $password_err = "Please enter your password.";
-//     } else{
-//         $password = trim($_POST["password"]);
-//     }
-    
-    
-//     if(empty($username_err) && empty($password_err)){
-
-
-
-
-//         require_once "../php/sql.php";
-        
-//         $statement = pg_query($db_connection, $LoginSql);
-
-//         $login_check = pg_num_rows($statement);
-//     if($login_check > 0){ 
-        
-    
-//                             session_start();
-                            
-                         
-//                             $_SESSION["loggedin"] = true;
-//                             $_SESSION["username"] = $username;                            
-                            
-                          
-//                             header("location: StudentDashboard.php");
-
-//     }else{
-       
-//                             $password_err = "Invalid password or username";
-
-//     }
-    
-  
-//     pg_close($db_connection);
-// }
-// }
+pg_close($dbconn);
 ?>
-
-
-
 
 
 
@@ -104,17 +23,6 @@ pg_close($dbconn);
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 <head>
-    <script>document.documentElement.classList = '';</script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PLHBZ39');</script>
-    <!-- End Google Tag Manager -->
-
-
-    <!-- Encoding -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -234,25 +142,38 @@ The content from cdnjs.cloudflare.com is all open source -->
         
 <div class="header header-simple">
 <div class="login">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-        <form  method="post">
-            <div class="form-group ">
-                <label>Email</label>
-                <input type="text" id="email" name="email" class="form-control" >
-                <span class="help-block"></span>
-            </div>    
-            <div class="form-group ">
-                <label>Password</label>
-                <input type="password" id="password" name="password" class="form-control">
-                <span class="help-block"></span>
-            </div>
-            <div class="form-group">
+        <h2>Register</h2>
+        <p>Please fill in your credentials to register.</p>
+        <form method="post">
+  
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" class="form-control" id="first_name" placeholder="Enter First name" name="first_name" required>
+    </div>
 
-                <input type="submit" class="btn btn-primary" name="login" value="login">
-            </div>
-            <p>Don't have an account? <a href="AdminRegister.php">Sign up now</a>.</p>
-        </form>
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" class="form-control" id="last_name" placeholder="Enter Last name" name="last_name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    
+    <div class="form-group">
+      <label for="mobile_no">Mobile No:</label>
+      <input type="text" class="form-control" maxlength="10" id="mobile_no" placeholder="Enter Mobile Number" name="mobile_no">
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+     
+    <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+    <p>Have an account? <a href="AdminLogin.php">Login now</a>.</p>
+  </form>
     </div>  
 </div>
 
@@ -414,29 +335,5 @@ The content from cdnjs.cloudflare.com is all open source -->
     </div>
 </div>
 </div>
-<!-- #page -->
 
 
-
-<script>
-    ( function ( body ) {
-        'use strict';
-        body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
-    } )( document.body );
-</script>
-
-
-
-
-<!-- Final shopping cart script -->
-
-<!-- This is the last thing remaining from WP. It will need to be updated to the shopping cart works -->
-<script type='text/javascript' id='ajax_scripts-js-extra'>
-    /* <![CDATA[ */
-    var ajaxscript = {"ajax_url":"https:\/\/recoverycollegeedmonton.ca\/wp-admin\/admin-ajax.php","home_url":"https:\/\/recoverycollegeedmonton.ca","theme_url":"https:\/\/recoverycollegeedmonton.ca\/wp-content\/themes\/cmha","checkout_url":"https:\/\/recoverycollegeedmonton.ca\/registration\/","nonce":"3a6a7b2efb"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='js/ajax_script.js' id='ajax_scripts-js'></script>
-    
-    </body>
-    </html>

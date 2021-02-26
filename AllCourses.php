@@ -193,105 +193,22 @@
 					</nav>
 				</div>
 			</div>
-			<div id="skip-anchor" tabindex="-1"></div>
-			<div class="header header-hero">
-
-				<div class="container">
-					<div class="row">
-
-						<div class="col-12 col-md-6 hero-title">
-							<h2 class="title-1">Real people sharing what works</h2>
-							<p class="big">
-								Recovery College provides free courses that help you develop your own resourcefulness.
-
-							</p>
-
-					
-							<!--http://recoverycollegeedmonton.ca/courses/-->
-						</div>
-
-
-						<div class="d-none d-md-block col-12 col-md-6 hero-image">
-							<div class="hero-image-container">
-								<div class="hero-image hero-image-active" style="background-image: url(images/svg/RecoveryCollege-FreeMentalHealthCourses-HeaderGraphic1.svg );"></div>
-								<div class="hero-image hero-image-fade" style="background-image: url(images/svg/RecoveryCollege-FreeMentalHealthCourses-HeaderGraphic2.svg );"></div>
-								<div class="hero-image hero-image-fade" style="background-image: url(images/svg/RecoveryCollege-FreeMentalHealthCourses-HeaderGraphic3.svg );"></div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-			<section class="intro" id="intro-frontpage">
-
-				<div class="brush-stroke brush-stroke-top" style="background-image: url(images/svg/white-top.svg);"></div>
-
-				<div class="container intro-container">
-					<div class="row">
-
-						<div class="col-12 col-md-6">
-							<h2>Learning experiences for everyone</h2>
-
-							<div class="intro-icons">
-								<div class="intro-icon" data-relationship="individuals">
-									<img src="images/svg/CMHA_Anybody.svg" alt="">
-								</div>
-								<div class="intro-icon" data-relationship="young-adults">
-									<img src="images/svg/CMHA_Students.svg" alt="">
-								</div>
-								<div class="intro-icon" data-relationship="">
-									<img src="images/svg/CMHA_OlderAdults.svg" alt="">
-								</div>
-								<div class="intro-icon" data-relationship="family-friends">
-									<img src="images/svg/CMHA_Families.svg" alt="">
-								</div>
-								<div class="intro-icon" data-relationship="">
-									<img src="images/svg/CMHA_NativeAmericans.svg" alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-12 col-md-6">
-							<div class="intro-copy">
-								<p><strong><a class="intro-copy-content intro-copy--online" href="COURSESONLINEPLACEHOLDER" data-relationship=" online">We are currently offering CMHA Recovery College classes through online virtual delivery.</a>
-										<!--https://recoverycollegeedmonton.ca/courses/?filter=online-->
-									</strong> Usually, we have 6 courses to choose from, there is something for everyone. There are courses for <a class="intro-copy-content intro-copy--individuals" href="#" data-relationship="individuals">anyone,</a>
-									<!--https://recoverycollegeedmonton.ca/courses/?filter=individuals--> <a class="intro-copy-content intro-copy--young-adults" href="#" data-relationship="young-adults">youth,</a>
-									<!--https://recoverycollegeedmonton.ca/courses/?filter=young-adults--> and <a class="intro-copy-content intro-copy--family-friends" href="#" data-relationship="family-friends">family, friends, and parents,</a>
-									<!--https://recoverycollegeedmonton.ca/courses/?filter=family-friends--> so you can easily find one that is right for you. All of our courses are developed and delivered in partnership with our peer supporters who are experts by experience: they have their own personal story of a mental health or substance use concern, or are supporting a loved one.
-								</p>
-								<p>To learn more about CMHA Recovery College, please visit <a href="about.html">About Recovery College</a>.</p>
-								<!--http://recoverycollegeedmonton.ca/about-recovery-college/-->
-								<p>For more wellness-focused courses in Edmonton visit the <a href="#" target="_blank" rel="noopener">The Wellness Network</a>.</p>
-								<!--http://wellnessnetworkedmonton.com/-->
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="brush-stroke brush-stroke-bottom" style="background-image: url(images/svg/white-top.svg);"></div>
-
-			</section>
-
-
-
+			
 			<section class="upcoming-courses">
 
 				<div class="container">
 					<div class="row">
 
 						<div class="col-12">
-							<h2>Find an online class here. </h2>
-							<p class="big">Register for an online virtual course or get more information in our <!-- <a href="Courses.html"> -->course catalogue<!-- </a> -->.</p>
+							<h2>Find All Courses here. </h2>
+							<p class="big">Register for an course or get more information in our <!-- <a href="Courses.html"> -->course catalogue<!-- </a> -->.</p>
 							<!--http://recoverycollegeedmonton.ca/courses-->
 						</div>
 
 						<?php
 
 						$db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-						$sql = pg_query(sprintf("SELECT * FROM public.courses limit 3 "));
+						$sql = pg_query(sprintf("SELECT * FROM public.courses"));
 
 						while ($row = pg_fetch_assoc($sql)) {
 
@@ -332,15 +249,6 @@
 
 						?>
 
-						<div class="col-12 col-md-6 card-container">
-							<div class="card card-view-all">
-								<div class="card-view-all__body">
-									<h3>View all Courses</h3>
-									<a class="button" title="View All Courses" href="courses.php">Courses</a>
-								</div>
-							</div>
-						</div>
-
 						<div class="col-12">
 							<p>If you require any help registering for courses please call us at <a href="tel:780-414-6300">780-414-6300</a> or email us at <a href="CALENDARPAGEPLACEHOLDER">recoverycollege@cmha-edmonton.ab.ca</a>
 								<!--https://recoverycollegeedmonton.ca/events/-->.
@@ -353,77 +261,7 @@
 			</section>
 
 
-			<section class="dynamic-content ">
-
-				<div class="container">
-					<div class="row">
-
-
-						<div class="col-12 ">
-							<div class="wysiwyg">
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-
-			</section>
-
-
-
-
-			<section class="featured-news-home">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-
-							<div class="card news-card">
-
-
-								<a href="at-home-in-alberta-together.html" title="At Home in Alberta, Together">
-									<!--https://recoverycollegeedmonton.ca/news/at-home-in-alberta-together/-->
-
-
-									<div class="news-card-inner">
-
-										<div class="card-image">
-											<div class="responsive-background ">
-												<div class="image-controller d-block d-sm-none">
-													<div class="image" style="background-image: url(images/png/Podcast-Episode-15_-2020_-TW_FB-576x288.png);"></div>
-												</div>
-												<div class="image-controller d-none d-sm-block">
-													<div class="image" style="background-image: url(https://recoverycollegeedmonton.ca/wp-content/uploads/sites/3/2020/06/Podcast-Episode-15_-2020_-TW_FB-768x384.png);"></div>
-												</div>
-											</div>
-										</div>
-
-										<div class="card-body">
-
-
-
-
-
-											<h6 class="label">News</h6>
-
-											<h3>At Home in Alberta, Together</h3>
-
-											<p>As we work toward an honest effort to honor and learn about Indigenous we better ...</p>
-
-										<!--	<button class="button button--secondary">Read More</button>-->
-
-										</div>
-
-									</div>
-
-								</a>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
+			
 
 			<section class="cta">
 

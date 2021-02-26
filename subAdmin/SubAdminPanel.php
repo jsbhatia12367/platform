@@ -15,8 +15,8 @@
       <div class="main__container">
         <div class="main__title">
             <div class="main__greeting">
-              <h1>Admin Dashboard</h1>
-              <p>Welcome to your CMHA admin dashboard</p>
+              <h1>Sub Admin Dashboard</h1>
+              <p>Welcome to your CMHA sub-admin dashboard</p>
             </div>
             </div>
      <?php 
