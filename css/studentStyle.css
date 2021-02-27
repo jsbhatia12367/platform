@@ -5,7 +5,7 @@
 :root {
   --page-header-bgColor: #20bcb7;
   --page-header-bgColor-hover: #1d2636;
-  --page-header-txtColor: #dde9f8;
+  --page-header-txtColor: #295150;
   --page-header-headingColor: #0b091a;
   --page-header-width: 220px;
   --page-content-bgColor: #f0f1f6;
@@ -89,7 +89,7 @@ body {
 
 .page-header .logo {
   display: block;
-  max-width: 120px;
+  /* max-width: 120px; */
   margin: 0 15px;
 }
 
@@ -147,7 +147,7 @@ body {
 .page-header .admin-menu button {
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
   transition: background 0.2s, color 0.2s;
 }
 
