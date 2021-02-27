@@ -12,14 +12,14 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <svg style="display:none;"></svg>
   <script type="text/javascript">
-    function myFunction(clicked_id) {
+    function myFunction(clicked_id,data) {
       $.ajax({
         type: "POST",
         url: 'ajax.php',
         data: {
           action: 'enroll_this',
           course_id: clicked_id,
-          Email: 'kavish.agnihotri@gmail.com'
+          Email: data
         },
         success: function(html) {
           location.reload();
@@ -66,8 +66,6 @@
                                 </div>
 
                               <div class='card__body small'>
-                              
-
                                 <table class='details'>
                                   <tbody>
                                     <tr>
@@ -78,12 +76,16 @@
                                       <th>End</th>
                                       <td>" . htmlspecialchars($row['end_date']) . "</td>
                                     </tr>
+                                    <tr>
+                                      <th>Description</th>
+                                      <td>" . htmlspecialchars($row['description']) . "</td>
+                                    </tr>
                                   </tbody>
                                 </table>
                               </div>
 
                               <div class='card__footer'>
-                                <button class='btn btn-primary' id='" . $row['course_id'] . "' onclick='myFunction(this.id)'>Enroll</button>
+                                <button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)'>Enroll</button>
                               </div>
                             </div><!-- #tribe-events-content -->
                           </div>";

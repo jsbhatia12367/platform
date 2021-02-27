@@ -28,8 +28,10 @@
                 <th>Course ID</th>
                 <th>Course Name</th>
                 <th>Course Data</th>
-                <!--<th>Instructor Name</th>-->
-                <!-- <th>Status</th> -->
+                <th>Owner Email</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Capacity</th>
               </tr>
             </thead>
             <tbody>
@@ -42,6 +44,10 @@
                       <td>".htmlspecialchars($row['course_id'])."</td>
                       <td>". htmlspecialchars($row['course_name'])."</td>
                       <td><a href='../admin/uploads/". htmlspecialchars($row['course_data'])."'>". htmlspecialchars($row['course_data']) ."</a></td>
+                      <td>". htmlspecialchars($row['owner_email'])."</td>
+                      <td>". htmlspecialchars($row['start_date'])."</td>
+                      <td>". htmlspecialchars($row['end_date'])."</td>
+                      <td>". htmlspecialchars($row['capacity'])."</td>
                   </tr>";
                   }
                 ?>

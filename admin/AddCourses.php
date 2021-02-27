@@ -49,7 +49,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 <html lang="en-CA" class="no-js">
 
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
 
   <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
   <link href='../css/add_courses.css' rel='stylesheet' type="text/css" />
