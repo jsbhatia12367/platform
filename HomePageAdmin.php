@@ -81,13 +81,13 @@
 				<button id="cart-toggle" class="button-cart cart-open" aria-label="Hide / Show Cart"></button>
 			</div>
 
-			<div class="sitewide-banner" data-modified="1588200144">
+			<!-- <div class="sitewide-banner" data-modified="1588200144">
 				<div class="sitewide-banner-container">
 					<h4>CMHA Recovery College classes are now being online.</h4><a href="AddNewStudentNew.php" class="button">Register here.</a>
 				</div>
 
 				<i class="icon ion-md-close hide-banner"></i>
-			</div>
+			</div> -->
 
 
 			<div id="cart">
@@ -144,13 +144,13 @@
 			</div>
 
 			<div id="site-menu" class="main-nav">
-				<div class="sitewide-banner" data-modified="1588200144">
+				<!-- <div class="sitewide-banner" data-modified="1588200144">
 					<div class="sitewide-banner-container">
 						<h4>CMHA Recovery College classes are now being offered online.</h4><a href="AddNewStudentNew.php" class="button">Register here.</a>
 					</div>
 
 					<i class="icon ion-md-close hide-banner"><span class="iconify" data-icon="gridicons:cross-small" data-inline="false"></span></i>
-				</div>
+				</div> -->
 
 
 				<div class="d-md-none">
@@ -184,16 +184,16 @@
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="about.php" class="nav-link">About Us</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.php" class="nav-link">Contact</a></li>
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="AddNewStudentNew.php" class="nav-link">Register</a></li>
-							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Login" href="user/StudentLogin.php" class="nav-link">Login</a></li>
-							<!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"> -->
+							
+							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item">
 
-								<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-								<ul class="dropdown-menu"> -->
-									<!-- <li><a href="admin/AdminLogin.php">Admin Login</a></li>
-									<li><a href="subAdmin/SubAdminLogin.php">Sub Admin Login</a></li> -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="admin/AdminLogin.php">Admin Login</a></li>
+									<li><a href="subAdmin/SubAdminLogin.php">Sub Admin Login</a></li>
 									<!-- <li><a href="user/StudentLogin.php">Student Login</a></li> -->
-								<!-- </ul> -->
-							<!-- </li> -->
+								</ul>
+							</li>
 						</ul>
 					</nav>
 				</div>
