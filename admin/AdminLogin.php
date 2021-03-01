@@ -170,12 +170,12 @@ The content from cdnjs.cloudflare.com is all open source -->
 <div id="site-menu" class="main-nav">
 
     
-    <div class="sitewide-banner" data-modified="1588200144">
+    <!-- <div class="sitewide-banner" data-modified="1588200144">
         <div class="sitewide-banner-container">
             <h4>CMHA Recovery College classes are now being offered online.</h4><a href="COURSESONLINEPLACEHOLDER" class="button">Register here.</a>        </div>
 
         <i class="icon ion-md-close hide-banner"></i>
-    </div>
+    </div> -->
 
     <div class="d-md-none">
         <div class="nav-trigger d-lg-none">
@@ -208,18 +208,19 @@ The content from cdnjs.cloudflare.com is all open source -->
                     </div>
 
         <nav class="utility-nav">
-            <div class="searchform-wrapper">
-                <form class="searchform" method="get" action="../HomePage.html">
-    <input type="text" name="s" aria-label="Site search" placeholder="What are you looking for?" />
-    <button aria-labelledby="searchform--5fbf0e6edf4e3__label"><i class="ion ion-md-search"></i><span class="text" id="searchform--5fbf0e6edf4e3__label">Search</span></button>
-</form>
-                <button class="searchform-toggle" aria-label="Search the site"><i class="ion ion-md-search"></i></button>
-            </div>
-            <ul id="menu-utility-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19 nav-item"><a title="News &amp; Updates" href="../news.html" class="nav-link">News &#038; Updates</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20 nav-item"><a title="Donate" target="_blank" href="DONATEPLACEHOLDER" class="nav-link">Donate</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="nav-link">FAQs</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../contact.html" class="nav-link">Contact</a></li>
-</ul>       </nav>
+            <ul id="menu-utility-menu" class="menu">
+                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../about.php" class="nav-link">About Us</a></li>
+                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../contact.php" class="nav-link">Contact</a></li>
+                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="../AddNewStudentNew.php" class="nav-link">Register</a></li>
+                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <!-- <span class="caret"></span> --></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../admin/AdminLogin.php">Admin Login</a></li>
+                                    <li><a href="../subAdmin/SubAdminLogin.php">Sub Admin Login</a></li>
+                                    <li><a href="../user/StudentLogin.php">Student Login</a></li>
+                                </ul>
+                            </li>
+                        </ul>     </nav>
     </div>
 </div>
 

@@ -231,7 +231,7 @@ pg_close($dbconn);
                     <div class="row">
 
                         <div class="col-12 ">
-                            <h1>Contact</h1>
+                            <h1>FAQs</h1>
                         </div>
 
 

@@ -208,7 +208,7 @@ pg_close($dbconn);
                     </div>
 
                     <nav class="utility-nav">
-                     <ul id="menu-utility-menu" class="menu">
+                    <ul id="menu-utility-menu" class="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="about.php" class="nav-link">About Us</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.php" class="nav-link">Contact</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="AddNewStudentNew.php" class="nav-link">Register</a></li>
@@ -231,7 +231,7 @@ pg_close($dbconn);
                     <div class="row">
 
                         <div class="col-12 ">
-                            <h1>Contact</h1>
+                            <h1>About Recovery College</h1>
                         </div>
 
 
@@ -255,8 +255,24 @@ pg_close($dbconn);
                     <div class="row">
 
                         <div class="col-12 col-md-6">
-                            <h2>Get in touch with us</h2>
+                            <h1>Recovery is a journey, not a destination</h1>
+                            
+                            <br/>
+                            <h5>Please note: At this time, all our classes are being held online, via Zoom.  
 
+At CMHA Recovery College, our educational-based approach focuses on helping people recognize and develop their own resourcefulness and awareness in order to support themselves or their loved one’s recovery journey. All of our courses are developed and delivered in partnership with our peer supporters who are experts by experience: they have their own story of a mental health or substance concern, or are supporting a loved one.
+
+Everyone is welcome to attend our free courses. No previous experience is required and with a variety of courses to choose from, there is something for everyone.
+
+Our CMHA Recovery College courses are interactive and create positive learning experiences, emphasizing connection, hope and belonging. An emphasis is placed on individual’s talents and strengths. Our courses inspire optimism, encourage students to consider future opportunities, and more people towards personal empowerment. Recovery is a journey, not a destination.
+
+You can find more information here: Frequently Asked Questions
+
+If you have any further questions, do not hesitate to contact our Recovery College Coordinator at 780-414-6333 (direct line) or recoverycollege@cmha-edmonton.ab.ca. We look forward to connecting with  you.
+
+We are proud to work with many community partners, including:
+Bissell Centre, County of Strathcona FCSS, The Family Centre, L.Y. Cairns, REACH Edmonton, and Stony Plain FCSS.  If your community organization would like to partner with us, please contact Gail Haynes (ghaynes@cmha-edmonton.ab.ca) or call 780-414-6300.</h5><br/><br/>
+<h2>Get in touch with us</h2>
                             <div class="intro-icons">
                                 <div class="intro-icon" data-relationship="individuals">
                                     <img src="images/svg/CMHA_Anybody.svg" alt="">
@@ -283,7 +299,8 @@ pg_close($dbconn);
                                 <strong>Phone</strong> 780-414-6333 <br>
                                 <strong>Address</strong> 300, 10010-105 St NW, Edmonton, AB CA T5J 1C4<br>
                                 <strong>Email</strong> <a href="mailto:recoverycollege@cmha-edmonton.ab.ca">recoverycollege@cmha-edmonton.ab.ca</a>
-                            </p>
+                            </p><br/><br/><br/><br/><br/>
+                            <img src="images/jpg/about.jpg" alt="">
                         </div>
 
                     </div>
@@ -295,49 +312,7 @@ pg_close($dbconn);
 
 
 
-            <section class="" id="contact-form-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="">Send Us a Message</h2>
-                        </div>
-                        <div class="contact-form col-12">
-
-                            <div class="gf_browser_gecko gform_wrapper" id="gform_wrapper_2">
-                                <form method="post" enctype="multipart/form-data" id="gform_2">
-                                    <div class="gform_body">
-                                        <ul id="gform_fields_2" class="gform_fields top_label form_sublabel_below description_below">
-                                            <li id="field_2_1" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_1">Name</label>
-                                                <div class="ginput_container ginput_container_text"><input name="name" id="input_2_1" type="text" value="" class="large" placeholder="First and last name" aria-invalid="false"></div>
-                                            </li>
-                                            <li id="field_2_2" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_2">Email</label>
-                                                <div class="ginput_container ginput_container_email">
-                                                    <input name="email" id="input_2_2" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false">
-                                                </div>
-                                            </li>
-                                            <li id="field_2_3" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_3">Message<span class="gfield_required">*</span></label>
-                                                <div class="ginput_container ginput_container_textarea"><textarea name="message" id="input_2_3" class="textarea medium" placeholder="What do you have questions about?" aria-required="true" aria-invalid="false" rows="10" cols="50"></textarea></div>
-                                            </li>
-                                            <li id="field_2_4" class="gfield field_sublabel_below field_description_below hidden_label gfield_visibility_visible"><label class="gfield_label" for="input_2_4"></label>
-                                                <div id="input_2_4" class="ginput_container ginput_recaptcha" data-sitekey="6LeAl7wUAAAAALVQpY_PsXKlRqf3wJ45MH5pPiZN" data-theme="light" data-tabindex="-1" data-size="invisible" data-badge="bottomright" style="">
-                                                    <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
-                                                        <div class="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeAl7wUAAAAALVQpY_PsXKlRqf3wJ45MH5pPiZN&amp;co=aHR0cHM6Ly9yZWNvdmVyeWNvbGxlZ2VlZG1vbnRvbi5jYTo0NDM.&amp;hl=en&amp;v=pRiAUlKgZOMcFLsfzZTeGtOA&amp;theme=light&amp;size=invisible&amp;badge=bottomright&amp;cb=nomjpxlndigf" role="presentation" name="a-ky27wnnpfmiz" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" tabindex="-1" width="256" height="60" frameborder="0"></iframe></div>
-                                                        <div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                                                    </div><iframe style="display: none;"></iframe>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="gform_footer top_label"> 
-                                            <input class="button gform_button" name="message_submit" id="gform_submit_button_2" type="submit" value="Submit">
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           
 
 
         <footer id="site-footer" class="footer" role="contentinfo">
@@ -355,16 +330,16 @@ pg_close($dbconn);
                         <ul id="menu-footer-menu" class="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
                               
-                                <ul role="menu">
+                              <!--   <ul role="menu">
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-31 nav-item">
                                 <a title="Get Help" href="#" class="nav-link">Get Help</a>
                                 <ul role="menu">
                                     
-                                    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
+                                    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="faqs.php" class="dropdown-item">FAQs</a></li>
                                 </ul>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.php" class="nav-link">Contact Us</a>
@@ -441,16 +416,16 @@ pg_close($dbconn);
 
                         <div class="col-12 col-sm-4 col-md-6">
 
-                            <span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
-                            <!--https://recoverycollegeedmonton.ca/privacy-policy/-->
+                            <!-- <span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
+                            
                             <span class="footer-meta-sep">|</span>
 
                             <span class="footer-meta-item"><a href="Terms.html">Terms of Use</a></span>
-                            <!--https://recoverycollegeedmonton.ca/terms-conditions/-->
+                           
                             <span class="footer-meta-sep">|</span>
 
-                            <span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span>
-                            <!--https://recoverycollegeedmonton.ca/copyright-permissions/-->
+                            <span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span> -->
+                            
 
                         </div>
 
