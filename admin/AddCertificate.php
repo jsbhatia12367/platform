@@ -41,29 +41,52 @@
                                         echo "<tr>
                       <td>" . htmlspecialchars($row['emailaddress']) . "</td>
                       <td>" . htmlspecialchars($sql2['course_name']) . "</td>
-                      <td><input type='file' id='" . $row['emailaddress'] . "' name='" . $row['course_id'] . "'  onchange='readFile(this.id,this.name,this.value)' ></td>
+                     <td><input type='file' name='".$row['course_id'].$row['emailaddress']."' id='".$row['course_id'].$row['emailaddress']."'>
+                     <input type='button' name='" . $row['emailaddress']."' id='".$row['course_id']."' 
+                        value='Upload' 
+                        onclick='uploadFile(this.id,this.name);' ></td>
                   </tr>";
                                     }
                                     ?>
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
                                     <script>
-                                        function readFile(email, course_id, value) {
-                                            var fileInput = document.getElementById(email);
-                                            var filename = fileInput.files[0].name;
-                                            $.ajax({
-                                                type: "POST",
-                                                url: 'admin_ajax.php',
-                                                data: {
-                                                    action: 'add_certificate',
-                                                    course_id: course_id,
-                                                    emailaddress: email,
-                                                    value: filename
-                                                },
-                                                success: function(html) {
-                                                    location.reload();
-                                                }
+                                        function uploadFile(course_id,email) {
 
-                                            });
+                                            var files = document.getElementById(course_id+email).files;
+
+                                            if (files.length > 0) {
+
+                                                var formData = new FormData();
+                                                formData.append("file", files[0]);
+                                                formData.append("course_id", course_id);
+                                                formData.append("emailaddress",email);
+
+                                                var xhttp = new XMLHttpRequest();
+
+                                                // Set POST method and ajax file path
+                                                xhttp.open("POST", "admin_ajax.php", true);
+
+                                                // call on request changes state
+                                                xhttp.onreadystatechange = function() {
+                                                    if (this.readyState == 4 && this.status == 200) {
+
+                                                        var response = this.responseText;
+                                                        if (response == 1) {
+                                                            alert("Upload successfully.");
+                                                            location.reload();
+                                                        } else {
+                                                            alert("File not uploaded.");
+                                                        }
+                                                    }
+                                                };
+
+                                                // Send request with data
+                                                xhttp.send(formData);
+
+                                            } else {
+                                                alert("Please select a file");
+                                            }
+
                                         }
                                     </script>
 
