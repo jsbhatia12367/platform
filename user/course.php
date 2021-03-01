@@ -1,4 +1,4 @@
-
+<?php include 'userinfo_user.php'; ?>
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 
