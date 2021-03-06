@@ -16,7 +16,7 @@
         <div class="main__title">
             <div class="main__greeting">
               <h1>Sub Admin Dashboard</h1>
-              <p>Welcome to your CMHA admin dashboard</p>
+              <p>Welcome to your CMHA sub-admin dashboard</p>
             </div>
             </div>
      <?php 
@@ -30,49 +30,33 @@
         
         <div class="card_inner">
           <p class="text-primary-p">Students Enrolled</p>
-            <?php
-              $sr_no = 1;
-              $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-              $sql1 = pg_fetch_assoc(pg_query(sprintf("SELECT count(*) as total FROM public.cmhauser;")));
-              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT count(*) as total FROM public.courses;")));
-              $sql3 = pg_fetch_assoc(pg_query(sprintf("SELECT count(*) as total FROM public.enroll;")));
-              $sql4 = pg_fetch_assoc(pg_query(sprintf("SELECT count(*) as total FROM public.enroll WHERE certificate_generated ='true';")));
-          echo"<span class='font-bold text-title'>&nbsp;&nbsp;".$sql1['total']."</span>
+          <span class="font-bold text-title">7</span>
         </div>
       </div>
 
-      
-
-      <div class='card'>
+      <div class="card">
         
-        <div class='card_inner'>
-          <p class='text-primary-p'>Courses Available</p>
-          <span class='font-bold text-title'>&nbsp;&nbsp;".$sql2['total']."</span>
+        <div class="card_inner">
+          <p class="text-primary-p">Active Students</p>
+          <span class="font-bold text-title">0</span>
         </div>
       </div>
 
-      <div class='card'>
+      <div class="card">
         
-        <div class='card_inner'>
-          <p class='text-primary-p'>Total enrollment</p>
-          <span class='font-bold text-title'>&nbsp;&nbsp;".$sql3['total']."</span>
+        <div class="card_inner">
+          <p class="text-primary-p">Courses Available</p>
+          <span class="font-bold text-title">3</span>
         </div>
       </div>
-      <div class='card'>
-        
-        <div class='card_inner'>
-          <p class='text-primary-p'>Certificate Generated</p>
-          <span class='font-bold text-title'>&nbsp;&nbsp;".$sql4['total']."</span>
+
+      <div class="card">
+
+        <div class="card_inner">
+          <p class="text-primary-p">New Student enrolled</p>
+          <span class="font-bold text-title">0</span>
         </div>
       </div>
-      "
-
-     
-
-        
-          ?>
-        
-     
     </div>
     <article>
       <div id="piechart"></div>

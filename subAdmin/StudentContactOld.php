@@ -21,7 +21,7 @@
             <div class="main__greeting">
               <h1>Student Information</h1>
             </div>
-            
+             <a href="AddNewStudent.php" target="_blank" class="btn btn-danger btn-xs"> Add New Student</a>
             </div>
         <table class="content-table">
             <thead>
@@ -32,23 +32,21 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <!-- <th>Action</th> -->
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-            <?php
-            $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-            $sql= pg_query(sprintf("select * from cmhauser"));
-            while ($row = pg_fetch_assoc($sql)) {
-              echo "<tr><td>".htmlspecialchars($row['cmhauserid'])."</td>
-              <td>".htmlspecialchars($row['username'])."</td>
-              <td>".htmlspecialchars($row['firstname'])."</td>
-              <td>".htmlspecialchars($row['lastname'])."</td>
-              <td>".htmlspecialchars($row['emailaddress'])."</td>
-              <td>".htmlspecialchars($row['phonenumber'])."</td>
-              <tr>";
-            }
-            ?>
+             
+          
+              <tr>
+                <td>id</td>
+                <td>name</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+        
             </tbody>
           </table>
     </article>
