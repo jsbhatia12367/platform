@@ -44,41 +44,46 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
 
 ?>
 
-
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
-
 <head>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
-
-  <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
-  <link href='../css/add_courses.css' rel='stylesheet' type="text/css" />
-  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <svg style="display:none;">
-  </svg>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href='../css/studentStyle.css' rel='stylesheet' type="text/css"/>
+<link href='../css/admin_table.css' rel='stylesheet' type="text/css"/>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<svg style="display:none;">
+</svg>
 </head>
 
 <body>
-  <header class="page-header">
-    <?php include 'LeftMenu.php'; ?>
-  </header>
-  <section class="page-content">
-    <section class="grid">
-      <article style="margin:100px;">
-        <div class="main__container">
-          <div class="main__title">
+<header class="page-header">
+  <?php include 'LeftMenu.php';?>
+
+</header>
+<section class="page-content">
+  <section class ="grid">
+    <article style="height: 800px">
+      <div class="main__container">
+        <div class="main__title">
             <div class="main__greeting">
-
-              <form method="post" enctype="multipart/form-data">
-
-
-                <div class="form-group">
-                  <label for="course_name">Course Name:</label>
-                  <input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name">
-                </div>
-
-                <div class="form-group">
-                  <label for="owner_email">Owner Email:</label>
+              <h1>Add Courses</h1>
+              <form  method="post">
+              <table class="content-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Course Name : </td>
+                <td><input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name"></td>
+              </tr>
+              <tr>
+                <td>Owner Email : </td>
+                <td>
                   <select class="form-control" id="owner_email" name="owner_email">
                   <?php
                   $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
@@ -89,49 +94,39 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                   pg_close($db);
                   ?>
                   </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="course_data">Data File:</label>
-                  <input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data">
-                </div>
-
-                <div class="form-group">
-                  <label for="start_date">Start Date:</label>
-                  <input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date">
-                </div>
-
-                <div class="form-group">
-                  <label for="end_date">End Date:</label>
-                  <input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date">
-                </div>
-
-                <div class="form-group">
-                  <label for="description">Description:</label>
-                  <textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description"></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label for="capacity">Capacity:</label>
-                  <input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity">
-                </div>
-
-
-                <br><br>
-                <div class="form-group">
-                  <input type="submit" name="submit2" class="btn btn-primary" value="Submit">
-                </div>
-
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-  </section>
+                </td>
+              </tr>
+              <tr>
+              <tr>
+                <td>Data File : </td>
+                <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data"></td>
+              </tr>
+              <tr>
+                <td>Start Date : </td>
+                <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date"></td>
+              </tr>
+              <tr>
+                <td>End Date : </td>
+                <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date"></td>
+              </tr>
+              <tr>
+                <td>Description : </td>
+                <td><textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description"></textarea></td>
+              </tr>
+              <tr>
+                <td>Capacity : </td>
+                <td><input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity"></td>
+              </tr>
+                <td colspan="2"><center><input type="submit" name="submit2" class="btn btn-primary" value="Submit"></center></td>
+                
+              </tr>
+            </tbody>
+          </table>
+          </form>
+    </article>
   <footer class="page-footer">
   </footer>
+</section>
 </body>
-
+</head>
 </html>
