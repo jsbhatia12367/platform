@@ -96,64 +96,64 @@ pg_close($db);
                 echo"<td><input type='text' name='username' class='form-control' disabled='true' value='".$sql2['username']."'></td>
                
                 <td>Email Address :</td>
-                <td>  <input type='email' name='emailaddress' class='form-control' disabled='true' value='".$sql2['emailaddress']."'></td>
+                <td>  <input type='email' name='emailaddress' class='form-control' disabled='true' value='".$sql2['emailaddress']."' required></td>
                </tr>
                <tr>
                 <td>First Name :</td>
-                <td> <input type='text' name='firstname' class='form-control' value='".$sql2['firstname']."'></td>
+                <td> <input type='text' name='firstname' class='form-control' value='".$sql2['firstname']."' required></td>
                
                 <td>Middle Name :</td>
-                <td> <input type='text' name='middlename' class='form-control' value='".$sql2['middlename']."'></td>
+                <td> <input type='text' name='middlename' class='form-control' value='".$sql2['middlename']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Last Name :</td>
-                <td> <input type='text' name='lastname' class='form-control' value='".$sql2['lastname']."'></td>
+                <td> <input type='text' name='lastname' class='form-control' value='".$sql2['lastname']."' placeholder='Optional'></td>
                
                
                 <td>Phone Number :</td>
-                <td> <input type='tel' name='phonenumber' class='form-control'  value='".$sql2['phonenumber']."'></td>
+                <td> <input type='tel' name='phonenumber' class='form-control'  value='".$sql2['phonenumber']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Date Of Birth :</td>
-                <td> <input type='date' name='dateofbirth' class='form-control'  value='".$sql2['dateofbirth']."'></td>
+                <td> <input type='date' name='dateofbirth' class='form-control'  value='".$sql2['dateofbirth']."' required></td>
               
                 <td>City :</td>
-                <td> <input type='text' name='city' class='form-control'  value='".$sql2['city']."'></td>
+                <td> <input type='text' name='city' class='form-control'  value='".$sql2['city']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Province :</td>
-                <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."'></td>
+                <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>
                
                 <td>Gender :</td>
-                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."'></td>
+                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Ethnicity :</td>
-                <td> <input type='text' name='ethnicity' class='form-control'  value='".$sql2['ethnicity']."'></td>
+                <td> <input type='text' name='ethnicity' class='form-control'  value='".$sql2['ethnicity']."' placeholder='Optional'></td>
                
                 <td>Cultural Considerations :</td>
-                <td>  <input type='text' name='culturalconsiderations' class='form-control'  value='".$sql2['culturalconsiderations']."'></td>
+                <td>  <input type='text' name='culturalconsiderations' class='form-control'  value='".$sql2['culturalconsiderations']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Indigenous Identity :</td>
-                <td><input type='text' name='indigenousidentity' class='form-control'  value='".$sql2['indigenousidentity']."'></td>
+                <td><input type='text' name='indigenousidentity' class='form-control'  value='".$sql2['indigenousidentity']."' placeholder='Optional'></td>
                
                 <td>Language Spoken :</td>
-                <td>  <input type='text' name='languagespoken' class='form-control' value='".$sql2['languagespoken']."'></td>
+                <td>  <input type='text' name='languagespoken' class='form-control' value='".$sql2['languagespoken']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Housing Status :</td>
-                <td> <input type='text' name='housingstatus' class='form-control' value='".$sql2['housingstatus']."'></td>
+                <td> <input type='text' name='housingstatus' class='form-control' value='".$sql2['housingstatus']."' placeholder='Optional'></td>
                
                 <td>Living Arrangement :</td>
-                <td> <input type='text' name='livingarrangement' class='form-control' value='".$sql2['livingarrangement']."'></td>
+                <td> <input type='text' name='livingarrangement' class='form-control' value='".$sql2['livingarrangement']."' placeholder='Optional'></td>
                </tr>
                <tr>
                 <td>Source Of Income :</td>
-                <td> <input type='text' name='sourceofincome' class='form-control'  value='".$sql2['sourceofincome']."'></td>
+                <td> <input type='text' name='sourceofincome' class='form-control'  value='".$sql2['sourceofincome']."' placeholder='Optional'></td>
                
                 <td>Occupation :</td>
-                <td> <input type='text' name='occupation' class='form-control' value='".$sql2['occupation']."'></td>"
+                <td> <input type='text' name='occupation' class='form-control' value='".$sql2['occupation']."' placeholder='Optional'></td>"
                  ?>
                </tr>
                <tr>

@@ -12,7 +12,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
     $session_email = "error value";
   }
 
-  $target_dir = "../admin/uploads/";
+  $target_dir = "uploads/";
   $target_file = $target_dir . basename($_FILES["course_data"]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -79,7 +79,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
             <tbody>
               <tr>
                 <td>Course Name : </td>
-                <td><input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name"></td>
+                <td><input type="text" class="form-control" id="course_name" placeholder="Enter Course Name" name="course_name" required></td>
               </tr>
               <tr>
                 <td>Owner Email : </td>
@@ -99,23 +99,23 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
               <tr>
               <tr>
                 <td>Data File : </td>
-                <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data"></td>
+                <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data" required></td>
               </tr>
               <tr>
                 <td>Start Date : </td>
-                <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date"></td>
+                <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date" required></td>
               </tr>
               <tr>
                 <td>End Date : </td>
-                <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date"></td>
+                <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date" required></td>
               </tr>
               <tr>
                 <td>Description : </td>
-                <td><textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description"></textarea></td>
+                <td><textarea rows="4" cols="50" name="description" class="form-control" id="description" placeholder="Enter Description"  required></textarea></td>
               </tr>
               <tr>
                 <td>Capacity : </td>
-                <td><input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity"></td>
+                <td><input type="number" class="form-control" id="capacity" placeholder="Enter Capacity" name="capacity" min="1" required></td>
               </tr>
                 <td colspan="2"><center><input type="submit" name="submit2" class="btn btn-primary" value="Submit"></center></td>
                 
