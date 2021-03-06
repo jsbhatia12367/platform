@@ -43,12 +43,8 @@
         <div id="content" class="site-content">
           <div id="skip-anchor" tabindex="-1"></div>
           <section class="upcoming-courses">
-              
             <div class="container">
               <div class="row">
-
-
-
                 <?php
 
                 $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
@@ -84,9 +80,16 @@
                                 </table>
                               </div>
 
-                              <div class='card__footer'>
-                                <button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)'>Enroll</button>
-                              </div>
+                              <div class='card__footer'>";
+                              if($row['capacity']>$row['currently_enrolled'])
+                              {
+                              echo "<button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)'>Enroll</button>";
+                              }
+                              else
+                              {
+                                echo "<button class='btn btn-primary' id='class_full' disabled>Class Full</button>";
+                              }
+                              echo "</div>
                             </div><!-- #tribe-events-content -->
                           </div>";
                 }
