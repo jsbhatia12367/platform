@@ -165,98 +165,100 @@ The content from cdnjs.cloudflare.com is all open source -->
  
             <div class="form-group">
                 <label>*firstname</label>
-                <input type="text" name="firstname" class="form-control">
+                <input type="text" name="firstname">
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>middlename</label>
-                <input type="text" name="middlename" class="form-control">
+                <input type="text" name="middlename">
                 <span class="help-block"></span>
             </div> 
             <div class="form-group">
                 <label>*lastname</label>
-                <input type="text" name="lastname" class="form-control">
+                <input type="text" name="lastname" >
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
                 <label>emailaddress</label>
-                <input type="email" name="emailaddress" class="form-control">
+                <input type="email" name="emailaddress" >
                 <span class="help-block"></span>
             </div>
 
             <div>
                 <label>phonenumber</label>
-                <input type="tel" name="phonenumber" class="form-control" >
+                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber">
                 <span class="help-block"></span>
             </div>           
             <div>
                 <label>dateofbirth</label>
-                <input type="date" name="dateofbirth" class="form-control" >
+                <input type="date" name="dateofbirth"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>city</label>
-                <input type="text" name="city" class="form-control" >
+                <input type="text" name="city"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>province</label>
-                <input type="text" name="province" class="form-control" >
+                <input type="text" name="province"  >
                 <span class="help-block"></span>
             </div> 
             <div>
-                <label>gender</label>
-                <input type="text" name="gender" class="form-control" >
+                <label>gender</label><br>
+                <input type="radio" name="gender" value="male"> Male<br>
+                <input type="radio" name="gender"  value="female"> Female<br>
+                <input type="radio" name="gender"  value="other"> Other
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>ethnicity</label>
-                <input type="text" name="ethnicity" class="form-control" >
+                <input type="text" name="ethnicity"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Cultural Considerations:</label>
-                <input type="text" name="culturalconsiderations" class="form-control" >
+                <input type="text" name="culturalconsiderations"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>indigenousidentity</label>
-                <input type="text" name="indigenousidentity" class="form-control" >
+                <input type="text" name="indigenousidentity"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>languagespoken</label>
-                <input type="text" name="languagespoken" class="form-control">
+                <input type="text" name="languagespoken">
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>housingstatus</label>
-                <input type="text" name="housingstatus" class="form-control">
+                <input type="text" name="housingstatus" >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Living Arrangement:</label>
-                <input type="text" name="livingarrangement" class="form-control">
+                <input type="text" name="livingarrangement" >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>sourceofincome</label>
-                <input type="text" name="sourceofincome" class="form-control" >
+                <input type="text" name="sourceofincome"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>occupation</label>
-                <input type="text" name="occupation" class="form-control">
+                <input type="text" name="occupation" >
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" >
+                <input type="text" name="username"  >
                 <span class="help-block"></span>
             </div>    
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" >
+                <input type="password" name="password"  >
                 <span class="help-block"></span>
             </div>
             <!-- <div class="form-group ">
