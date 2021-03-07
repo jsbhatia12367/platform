@@ -68,7 +68,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
         <div class="main__title">
             <div class="main__greeting">
               <h1>Add Courses</h1>
-              <form  method="post">
+              <form  method="post" enctype="multipart/form-data">
               <table class="content-table">
             <thead>
               <tr>

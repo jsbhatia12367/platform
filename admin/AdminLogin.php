@@ -22,9 +22,11 @@ echo "<center><h1>Doesn't work =(</h1></center>";
         $_SESSION["Email"] = $_POST['email'];
         header('Location: AdminPanel.php');    
     }else{
-        //console.log("testing4");
-        
-        echo "Invalid Details";
+        echo "<div class='alert alert-danger'>
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>
+        <p><strong>Alert!</strong></p>
+        Email or password wrong! Please try again!.
+    </div>'";
     }
 }
 

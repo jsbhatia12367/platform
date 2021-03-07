@@ -31,6 +31,7 @@
                 <th>Owner Email</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Currently Enrolled</th>
                 <th>Capacity</th>
               </tr>
             </thead>
@@ -47,6 +48,7 @@
                       <td>". htmlspecialchars($row['owner_email'])."</td>
                       <td>". htmlspecialchars($row['start_date'])."</td>
                       <td>". htmlspecialchars($row['end_date'])."</td>
+                      <td>". htmlspecialchars($row['currently_enrolled'])."</td>
                       <td>". htmlspecialchars($row['capacity'])."</td>
                   </tr>";
                   }
