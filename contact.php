@@ -188,7 +188,7 @@ pg_close($dbconn);
                 <div class="navigation-wrapper">
                     <nav class="primary-nav">
                         <ul id="menu-main-menu" class="menu">
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.html" class="nav-link">About Recovery College</a></li>
+                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.php" class="nav-link">About Recovery College</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom men
                                 <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
                                     <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
@@ -308,15 +308,15 @@ pg_close($dbconn);
                                     <div class="gform_body">
                                         <ul id="gform_fields_2" class="gform_fields top_label form_sublabel_below description_below">
                                             <li id="field_2_1" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_1">Name</label>
-                                                <div class="ginput_container ginput_container_text"><input name="name" id="input_2_1" type="text" value="" class="large" placeholder="First and last name" aria-invalid="false"></div>
+                                                <div class="ginput_container ginput_container_text"><input name="name" id="input_2_1" type="text" value="" class="large" placeholder="First and last name" aria-invalid="false" required></div>
                                             </li>
                                             <li id="field_2_2" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_2">Email</label>
                                                 <div class="ginput_container ginput_container_email">
-                                                    <input name="email" id="input_2_2" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false">
+                                                    <input type="email" id="input_2_2" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false" required>
                                                 </div>
                                             </li>
                                             <li id="field_2_3" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_3">Message<span class="gfield_required">*</span></label>
-                                                <div class="ginput_container ginput_container_textarea"><textarea name="message" id="input_2_3" class="textarea medium" placeholder="What do you have questions about?" aria-required="true" aria-invalid="false" rows="10" cols="50"></textarea></div>
+                                                <div class="ginput_container ginput_container_textarea"><textarea name="message" id="input_2_3" class="textarea medium" placeholder="What do you have questions about?" aria-required="true" aria-invalid="false" rows="10" cols="50" required></textarea></div>
                                             </li>
                                             <li id="field_2_4" class="gfield field_sublabel_below field_description_below hidden_label gfield_visibility_visible"><label class="gfield_label" for="input_2_4"></label>
                                                 <div id="input_2_4" class="ginput_container ginput_recaptcha" data-sitekey="6LeAl7wUAAAAALVQpY_PsXKlRqf3wJ45MH5pPiZN" data-theme="light" data-tabindex="-1" data-size="invisible" data-badge="bottomright" style="">
@@ -353,7 +353,7 @@ pg_close($dbconn);
                     <div class="footer-nav col-6 d-none d-md-block">
 
                         <ul id="menu-footer-menu" class="menu">
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
+                            <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
                               
                                 <ul role="menu">
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
@@ -366,7 +366,7 @@ pg_close($dbconn);
                                     
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.php" class="nav-link">Contact Us</a>
                                 <ul role="menu" aria-role="menu">
                                     <li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br>Edmonton, AB T5J 1C4</li>

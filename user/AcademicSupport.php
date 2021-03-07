@@ -41,7 +41,7 @@
               <tbody>
                 <tr>
                   <td>Contact Info:</td>
-                  <td></td>
+                  <td>780-414-6300</td>
                 </tr>
                 <tr>
                   <td>Email Address :</td>

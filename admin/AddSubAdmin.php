@@ -59,24 +59,24 @@ pg_close($dbconn);
             <tbody>
               <tr>
                 <td>First Name : </td>
-                <td><input type="text" id="email" name="email" class="form-control" ></td>
+                <td><input type="text"  name="first_name" class="form-control"  required></td>
               </tr>
               <tr>
                 <td>Last Name : </td>
-                <td><input type="text" id="email" name="email" class="form-control" ></td>
+                <td><input type="text"  name="last_name" class="form-control"  required></td>
               </tr>
               <tr>
               <tr>
                 <td>Email : </td>
-                <td><input type="text" id="email" name="email" class="form-control" ></td>
+                <td><input type="text"  name="email" class="form-control"  required></td>
               </tr>
               <tr>
                 <td>Mobile No : </td>
-                <td><input type="text" id="email" name="email" class="form-control" ></td>
+                <td><input type="text"  name="mobile_no" class="form-control"  required></td>
               </tr>
               <tr>
                 <td>Password : </td>
-                <td><input type="text" id="email" name="email" class="form-control" ></td>
+                <td><input type="text"  name="password" class="form-control"  required></td>
               </tr>
                 <td colspan="2"><center><input type="submit" class="btn btn-primary" name="register" value="register"></center></td>
                 

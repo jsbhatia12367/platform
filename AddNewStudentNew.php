@@ -108,7 +108,7 @@ The content from cdnjs.cloudflare.com is all open source -->
             <button class="menu-toggle button--primary" id="main-nav-toggle" aria-haspopup="true" aria-expanded="false"><span class="text">Menu</span> <span class="hamburger-bars"><span class="bar-helper"></span></span></button>
         </div>
         <div class="brand brand--mobile">
-                            <a href="HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="HomePage.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
@@ -116,19 +116,19 @@ The content from cdnjs.cloudflare.com is all open source -->
 
     <div class="navigation-wrapper">
         <nav class="primary-nav">
-            <ul id="menu-main-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.html" class="nav-link">About Recovery College</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item"><a title="Find a Course" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-23">Find a Course</a>
+            <ul id="menu-main-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.php" class="nav-link">About Recovery College</a></li>
+<!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item"><a title="Find a Course" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-23">Find a Course</a>
 <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1994 nav-item"><a title="Online Classes" href="COURSESONLINEPLACEHOLDER" class="dropdown-item">Online Classes</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-2175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2175 nav-item"><a title="Private Courses" href="private-courses.html" class="dropdown-item">Private Courses</a></li>
 </ul>
-</li>
+</li> -->
 </ul>       </nav>
 
         <div class="brand brand--desktop d-none d-md-block">
-                            <a href="HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="HomePage.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
@@ -165,100 +165,100 @@ The content from cdnjs.cloudflare.com is all open source -->
  
             <div class="form-group">
                 <label>*firstname</label>
-                <input type="text" name="firstname">
+                <input type="text" name="firstname" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>middlename</label>
-                <input type="text" name="middlename">
+                <input type="text" name="middlename" required>
                 <span class="help-block"></span>
             </div> 
             <div class="form-group">
                 <label>*lastname</label>
-                <input type="text" name="lastname" >
+                <input type="text" name="lastname" required>
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
                 <label>emailaddress</label>
-                <input type="email" name="emailaddress" >
+                <input type="email" name="emailaddress" required>
                 <span class="help-block"></span>
             </div>
 
             <div>
                 <label>phonenumber</label>
-                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber">
+                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber" required>
                 <span class="help-block"></span>
             </div>           
             <div>
                 <label>dateofbirth</label>
-                <input type="date" name="dateofbirth"  >
+                <input type="date" name="dateofbirth" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>city</label>
-                <input type="text" name="city"  >
+                <input type="text" name="city" required >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>province</label>
-                <input type="text" name="province"  >
+                <input type="text" name="province"  required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>gender</label><br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender"  value="female"> Female<br>
-                <input type="radio" name="gender"  value="other"> Other
+                <input type="radio" name="gender" id="gender" value="male"> Male<br>
+                <input type="radio" name="gender"  id="gender" value="female"> Female<br>
+                <input type="radio" name="gender"  id="gender" value="other"> Other
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>ethnicity</label>
-                <input type="text" name="ethnicity"  >
+                <input type="text" name="ethnicity"  required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Cultural Considerations:</label>
-                <input type="text" name="culturalconsiderations"  >
+                <input type="text" name="culturalconsiderations"  required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>indigenousidentity</label>
-                <input type="text" name="indigenousidentity"  >
+                <input type="text" name="indigenousidentity" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>languagespoken</label>
-                <input type="text" name="languagespoken">
+                <input type="text" name="languagespoken" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>housingstatus</label>
-                <input type="text" name="housingstatus" >
+                <input type="text" name="housingstatus" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Living Arrangement:</label>
-                <input type="text" name="livingarrangement" >
+                <input type="text" name="livingarrangement" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>sourceofincome</label>
-                <input type="text" name="sourceofincome"  >
+                <input type="text" name="sourceofincome"  required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>occupation</label>
-                <input type="text" name="occupation" >
+                <input type="text" name="occupation" required>
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="username"  >
+                <input type="text" name="username"  required>
                 <span class="help-block"></span>
             </div>    
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password"  >
+                <input type="password" name="password"  required>
                 <span class="help-block"></span>
             </div>
             <!-- <div class="form-group ">
@@ -289,7 +289,7 @@ The content from cdnjs.cloudflare.com is all open source -->
                 <div class="footer-newsletter col-12 col-md-4"> 
                 </div>
                 <div class="footer-nav col-6 d-none d-md-block">
-                    <ul id="menu-footer-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item"><a title="Find a Course" href="#" class="nav-link">Find a Course</a>
+                    <!-- <ul id="menu-footer-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item"><a title="Find a Course" href="#" class="nav-link">Find a Course</a>
 <ul  role="menu">
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
@@ -300,7 +300,7 @@ The content from cdnjs.cloudflare.com is all open source -->
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-32" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32 nav-item"><a title="News &amp; Updates" href="news.html" class="dropdown-item">News &#038; Updates</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
 </ul>
-</li>
+</li> -->
 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.html" class="nav-link">Contact Us</a><ul role="menu" aria-role="menu"><li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br/>Edmonton, AB T5J 1C4</li><li class="nav-item" aria-role="menuitem">780-414-6300</li></ul></li>
 </ul>
                 </div>

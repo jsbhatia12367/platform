@@ -25,10 +25,10 @@
         <div id="content" class="site-content">
           <!-- <section class="page-content"> -->
             <section class="grid">
-              <article>1</article>
-              <article>2</article>
-              <article>3</article>
-              <article>4</article>
+              <article><B>DASHBOAD</B></article>
+              <article></article>
+              <article></article>
+              <article></article>
             <!-- </section> -->
           </section>
         </div>

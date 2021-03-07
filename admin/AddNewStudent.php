@@ -60,61 +60,61 @@ pg_close($db);
             <tbody>
               <tr>
               <td>Username : </td>
-              <td><input type="text" name="username" class="form-control"></td>
+              <td><input type="text" name="username" class="form-control" required></td>
               <td>Password : </td>
-              <td><input type="text" name="password" class="form-control"></td>
+              <td><input type="text" name="password" class="form-control" required></td>
             </tr>
              <tr>
               <td>First name : </td>
-              <td><input type="text" name="firstname" class="form-control"></td>
+              <td><input type="text" name="firstname" class="form-control" required></td>
               <td>Middle name : </td>
-              <td><input type="text" name="middlename" class="form-control"></td>
+              <td><input type="text" name="middlename" class="form-control" placeholder="Optional"></td>
             </tr>
              <tr>
               <td>Last name : </td>
-              <td><input type="text" name="lastname" class="form-control"></td>
+              <td><input type="text" name="lastname" class="form-control" placeholder="Optional"></td>
               <td>Email : </td>
-              <td><input type="email" name="emailaddress" class="form-control"></td>
+              <td><input type="email" name="emailaddress" class="form-control" required></td>
             </tr>
              <tr>
               <td>Phone Number : </td>
-              <td><input type="tel" name="phonenumber" class="form-control"></td>
+              <td><input type="tel" name="phonenumber" class="form-control" placeholder="Optional"></td>
               <td>Date of Birth : </td>
               <td><input type="date" name="dateofbirth" class="form-control"></td>
             </tr>
             <tr>
               <td>City : </td>
-              <td><input type="text" name="city" class="form-control"></td>
+              <td><input type="text" name="city" class="form-control" placeholder="Optional"></td>
               <td>Province : </td>
-              <td><input type="text" name="province" class="form-control"></td>
+              <td><input type="text" name="province" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
               <td>Gender : </td>
-              <td><input type="text" name="gender" class="form-control"></td>
+              <td><input type="text" name="gender" class="form-control" placeholder="Optional"></td>
               <td>Ethnicity : </td>
-              <td><input type="text" name="ethnicity" class="form-control"></td>
+              <td><input type="text" name="ethnicity" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
               <td>Cultural Considerations : </td>
-              <td><input type="text" name="culturalconsiderations" class="form-control"></td>
+              <td><input type="text" name="culturalconsiderations" class="form-control" placeholder="Optional"></td>
               <td>Indigenous Identity : </td>
-              <td><input type="text" name="indigenousidentity" class="form-control"></td>
+              <td><input type="text" name="indigenousidentity" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
               <td>Language Spoken : </td>
-              <td><input type="text" name="languagespoken" class="form-control"></td>
+              <td><input type="text" name="languagespoken" class="form-control" placeholder="Optional"></td>
               <td>Housing Status : </td>
-              <td><input type="text" name="housingstatus" class="form-control"></td>
+              <td><input type="text" name="housingstatus" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
               <td>Living Arrangement : </td>
-              <td><input type="text" name="livingarrangement" class="form-control"></td>
+              <td><input type="text" name="livingarrangement" class="form-control" placeholder="Optional"></td>
               <td>Source Of Income : </td>
-              <td><input type="text" name="sourceofincome" class="form-control"></td>
+              <td><input type="text" name="sourceofincome" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
               <td>Occupation : </td>
-              <td><input type="text" name="occupation" class="form-control"></td>
+              <td><input type="text" name="occupation" class="form-control" placeholder="Optional"></td>
               <td colspan="2"><center><input type="submit" name="save" value="submit"></center></td>
               
             </tr>
