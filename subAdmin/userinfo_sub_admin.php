@@ -4,7 +4,7 @@ $Email=$_SESSION['Email'];
 
 if(!isset($_SESSION['Email']))
 {
-	header("Location:AdminLogin.php");
+	header("Location:SubAdminLogin.php");
 }
 
 ?>
