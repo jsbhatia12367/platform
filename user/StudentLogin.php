@@ -28,14 +28,11 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
         $_SESSION["Email"] = $_POST['emailaddress'];
         header('Location: StudentDashboard.php');
     } else {
-        //console.log("testing4");
-
         echo "<div class='alert alert-danger'>
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>
-        <p><strong>Alerta!</strong></p>
+        <p><strong>Alert!</strong></p>
         Email or password wrong! Please try again!.
     </div>'";
-    // echo "<script type='text/javascript'>alert('username and password is wrong')</script>";
     }
 }
 
