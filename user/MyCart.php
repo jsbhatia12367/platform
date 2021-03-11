@@ -42,6 +42,20 @@
 
       });
     }
+    function myFunction3() {
+      $.ajax({
+        type: "POST",
+        url: 'ajax.php',
+        data: {
+          action: 'enroll_all'
+          
+        },
+        success: function(html) {
+          location.reload();
+        }
+
+      });
+    }
   </script>
 </head>
 
@@ -67,7 +81,16 @@
                
 
                 while ($row = pg_fetch_assoc($sql)) {
-                  echo "
+                	// Sql Query to find 
+                              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='".$row['course_id']."' and emailaddress='".$_SESSION['Email']."';")));
+
+                  
+
+                              
+
+                             if (!empty($sql2))
+                              {
+                              	echo "
                           <div class='col-12 col-md-6 card-container'>
                             <div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
                               <div class='location-meta' data-location='online'></div>
@@ -96,26 +119,12 @@
                               </div>
 
                               <div class='card__footer'>";
-
-                              // Sql Query to find 
-                              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='".$row['course_id']."' and emailaddress='".$_SESSION['Email']."';")));
-
-                              if($row['capacity']>$row['currently_enrolled'] && empty($sql2))
-                              {
-                              echo "<button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)'>Enroll</button><button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction2(this.id,this.data)'>Add to Cart</button>";
-                              }
-                              // cart data 
-                              else if (!empty($sql2))
-                              {
                                 echo "<button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)' disabled>Added to cart</button>";
-                              }
-                              else
-                              {
-                                echo "<button class='btn btn-primary' id='class_full' disabled>Class Full</button>";
-                              }
-                              echo "</div>
+                                echo "</div>
                             </div><!-- #tribe-events-content -->
                           </div>";
+                              }
+                              
                 }
 
                 ?>
@@ -123,7 +132,10 @@
 
 
               </div>
+              <br/><br/>
+             <center><button class='btn btn-primary' style='width: 200px' onclick='myFunction3()'>Enroll All</button></center>
             </div>
+
 
           </section>
 
