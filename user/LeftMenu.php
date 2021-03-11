@@ -23,6 +23,12 @@
           </a>
         </li>
         <li>
+          <a href="MyCart.php">
+              <span class="iconify" data-icon="mdi:bookshelf" data-inline="false"></span>
+            <span>My Cart</span>
+          </a>
+        </li>
+        <li>
           <a href="MyAccount.php">
               <span class="iconify" data-icon="carbon:account" data-inline="false"></span>
             <span>My Account</span>
