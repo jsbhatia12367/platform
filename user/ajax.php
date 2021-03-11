@@ -15,5 +15,9 @@ if($_POST['action'] == 'enroll_this'){
 if($_POST['action'] == 'add_to_cart'){
   pg_query(sprintf("insert into public.cart(course_id,emailaddress) values(".$_POST['course_id'].",'".$_SESSION['Email']."');"));
 }
+if($_POST['action'] == 'enroll_all'){
 
+	 
+  
+}
 ?>
