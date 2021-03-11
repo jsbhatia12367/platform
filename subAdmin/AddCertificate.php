@@ -1,3 +1,8 @@
+<?php
+include("userinfo_sub_admin.php");
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 
@@ -6,8 +11,13 @@
     <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
     <link href='../css/admin_table.css' rel='stylesheet' type="text/css" />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <svg style="display:none;">
-    </svg>
+    <svg style="display:none;"></svg>
+    <script type="text/javascript">
+        function fileAlreadyExistCheck(){
+            
+            alert("File Already Exist or not check");
+        }
+    </script>
 </head>
 
 <body>
@@ -35,7 +45,7 @@
 
                                     <?php
                                     $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                                    $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=TRUE And certificate_generated=FALSE;"));
+                                    $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=TRUE And certificate_generated=FALSE And course_id IN (SELECT course_id from courses where owner_email = '".$_SESSION['Email']."');"));
                                     $count = 0;
                                     while ($row = pg_fetch_assoc($sql)) {
                                         $count = $count + 1;
@@ -43,7 +53,7 @@
                                         echo "<tr>
                       <td>" . htmlspecialchars($row['emailaddress']) . "</td>
                       <td>" . htmlspecialchars($sql2['course_name']) . "</td>
-                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "'>
+                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "' onchange='fileAlreadyExistCheck()'>
                      <input type='button' name='" . $row['emailaddress'] . "' id='" . $row['course_id'] . "' 
                         value='Upload' 
                         onclick='uploadFile(this.id,this.name);' ></td>
@@ -69,7 +79,7 @@
                                                 var xhttp = new XMLHttpRequest();
 
                                                 // Set POST method and ajax file path
-                                                xhttp.open("POST", "admin_ajax.php", true);
+                                                xhttp.open("POST", "sub_admin_ajax.php", true);
 
                                                 // call on request changes state
                                                 xhttp.onreadystatechange = function() {

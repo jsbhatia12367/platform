@@ -1,3 +1,8 @@
+<?php
+include("userinfo_sub_admin.php");
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 <head>
@@ -39,8 +44,10 @@
         
                 <?php
                   $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                  $sql = pg_query(sprintf("SELECT * FROM public.courses;"));
+                  $sql = pg_query(sprintf("SELECT * FROM public.courses where owner_email='".$_SESSION['Email']."';"));
+                  $count = 0;
                   while ($row = pg_fetch_assoc($sql)) {
+                    $count = $count + 1;
                     echo "<tr>
                       <td>".htmlspecialchars($row['course_id'])."</td>
                       <td>". htmlspecialchars($row['course_name'])."</td>
@@ -51,6 +58,10 @@
                       <td>". htmlspecialchars($row['currently_enrolled'])."</td>
                       <td>". htmlspecialchars($row['capacity'])."</td>
                   </tr>";
+                  }
+                  if($count == 0)
+                  {
+                    echo "<tr><td>No </td><td>Course </td><td>Information </td><td>Available</td></tr>";
                   }
                 ?>
                 <!-- <td></td>

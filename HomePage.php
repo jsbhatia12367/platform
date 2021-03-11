@@ -1,4 +1,3 @@
-
 <html lang="en-CA" class="">
 
 <head>
@@ -62,6 +61,23 @@
 	<link rel="stylesheet" id="bootstrap-css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css?ver=67c90ffd8417a442ac33ffaa4a4ee97a" type="text/css" media="all">
 	<link rel="stylesheet" id="site_styles-css" href="css/main_styles.css?ver=1.7" type="text/css" media="all">
 	<link rel="stylesheet" id="ie11_styles-css" href="css/ie11.css?ver=1.7" type="text/css" media="all">
+
+	<script type="text/javascript">
+		function addToCart(clicked_id) {
+			$.ajax({
+				type: "POST",
+				url: 'ajax.php',
+				data: {
+					action: 'add_to_cart',
+					course_id: clicked_id
+				},
+				success: function(html) {
+					location.reload();
+				}
+
+			});
+		}
+	</script>
 </head>
 
 
@@ -188,12 +204,12 @@
 							<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Login" href="user/StudentLogin.php" class="nav-link">Login</a></li>
 							<!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"> -->
 
-								<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+							<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
 								<ul class="dropdown-menu"> -->
-									<!-- <li><a href="admin/AdminLogin.php">Admin Login</a></li>
+							<!-- <li><a href="admin/AdminLogin.php">Admin Login</a></li>
 									<li><a href="subAdmin/SubAdminLogin.php">Sub Admin Login</a></li> -->
-									<!-- <li><a href="user/StudentLogin.php">Student Login</a></li> -->
-								<!-- </ul> -->
+							<!-- <li><a href="user/StudentLogin.php">Student Login</a></li> -->
+							<!-- </ul> -->
 							<!-- </li> -->
 						</ul>
 					</nav>
@@ -334,8 +350,7 @@
 
 
 
-							echo "<button class='add-to-cart button--plus button--online' data-download-id='".$row['course_id']."' data-event-id='5066' data-title='" . $row['course_name'] . "' data-schedule='[{&quot;start&quot;:&quot;2020-11-25T10:00:00-0700&quot;,&quot;end&quot;:&quot;2020-11-25T11:00:00-0700&quot;}]' data-tag='online' data-nice-date='".$row['start_date']." to ".$row['end_date']."' data-sessions='5'
-							>Add to Cart</button>";
+							echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
 							echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
 															</div>
 														</div><!-- #tribe-events-content -->
