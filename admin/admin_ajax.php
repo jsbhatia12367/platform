@@ -6,7 +6,7 @@ if (isset($_FILES['file']['name'])) {
 
    $location = 'certificates/' . $filename;
 
-   $response = 1;
+   $response = 0;
    if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
       $response = 1;
       $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");

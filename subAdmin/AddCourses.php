@@ -55,6 +55,21 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <svg style="display:none;">
   </svg>
+  <script type="text/javascript">
+    function myFunction() {
+      var startDate = new Date(document.getElementById('start_date').value);
+      var endDate = new Date(document.getElementById('end_date').value);
+        if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+        } else {
+          if(startDate>endDate)
+          {
+            alert("Please ensure that the End Date is greater than or equal to the Start Date.");
+            document.getElementById('start_date').value = '';
+            document.getElementById('end_date').value = '';
+          }
+        }
+    }
+  </script>
 </head>
 
 <body>
@@ -87,12 +102,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                       <td>
                         <select class="form-control" id="owner_email" name="owner_email">
                           <?php
-                          $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                          $sql = pg_query(sprintf("SELECT * FROM public.sub_admin "));
-                          while ($row = pg_fetch_assoc($sql)) {
-                            echo '<option value="' . htmlspecialchars($row['email']) . '">' . htmlspecialchars($row['email']) . '</option>';
-                          }
-                          pg_close($db);
+                          echo '<option value="' . htmlspecialchars($_SESSION['Email']) . '">' . htmlspecialchars($_SESSION['Email']) . '</option>';
                           ?>
                         </select>
                       </td>
@@ -104,11 +114,11 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                     </tr>
                     <tr>
                       <td>Start Date : </td>
-                      <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date" required></td>
+                      <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date" required onchange="myFunction()"></td>
                     </tr>
                     <tr>
                       <td>End Date : </td>
-                      <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date" required></td>
+                      <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date" required onchange="myFunction()"></td>
                     </tr>
                     <tr>
                       <td>Description : </td>
