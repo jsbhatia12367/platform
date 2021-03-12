@@ -12,14 +12,13 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <svg style="display:none;"></svg>
   <script type="text/javascript">
-    function myFunction(clicked_id,data) {
+    function myFunction(clicked_id) {
       $.ajax({
         type: "POST",
         url: 'ajax.php',
         data: {
           action: 'enroll_this',
           course_id: clicked_id,
-          Email: data
         },
         success: function(html) {
           location.reload();
@@ -27,28 +26,29 @@
 
       });
     }
-    function myFunction2(clicked_id,data) {
-      $.ajax({
-        type: "POST",
-        url: 'ajax.php',
-        data: {
-          action: 'add_to_cart',
-          course_id: clicked_id,
-          Email: data
-        },
-        success: function(html) {
-          location.reload();
-        }
 
-      });
-    }
     function myFunction3() {
       $.ajax({
         type: "POST",
         url: 'ajax.php',
         data: {
           action: 'enroll_all'
-          
+
+        },
+        success: function(html) {
+          location.reload();
+        }
+
+      });
+    }
+
+    function Removefromcart(id) {
+      $.ajax({
+        type: "POST",
+        url: 'ajax.php',
+        data: {
+          action: 'remove_this',
+          course_id: id
         },
         success: function(html) {
           location.reload();
@@ -75,22 +75,20 @@
             <div class="container">
               <div class="row">
                 <?php
+                $count = 0;
 
                 $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (select course_id From public.enroll where emailaddress='".$_SESSION['Email']."');"));
-               
+                $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (select course_id From public.enroll where emailaddress='" . $_SESSION['Email'] . "');"));
+
 
                 while ($row = pg_fetch_assoc($sql)) {
-                	// Sql Query to find 
-                              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='".$row['course_id']."' and emailaddress='".$_SESSION['Email']."';")));
+                  // Sql Query to find 
+                  $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='" . $row['course_id'] . "' and emailaddress='" . $_SESSION['Email'] . "';")));
 
-                  
 
-                              
-
-                             if (!empty($sql2))
-                              {
-                              	echo "
+                  if (!empty($sql2)) {
+                    $count = $count + 1;
+                    echo "
                           <div class='col-12 col-md-6 card-container'>
                             <div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
                               <div class='location-meta' data-location='online'></div>
@@ -119,12 +117,11 @@
                               </div>
 
                               <div class='card__footer'>";
-                                echo "<button class='btn btn-primary' id='" . $row['course_id'] . "' data='".$row['owner_email']."' onclick='myFunction(this.id,this.data)' disabled>Added to cart</button>";
-                                echo "</div>
+                    echo "<button class='btn btn-primary' id='" . $row['course_id'] . "' onclick='myFunction(this.id)'>Enroll</button><button class='btn btn-primary' id='" . $row['course_id'] . "' onclick='Removefromcart(this.id)'>Remove from cart</button>";
+                    echo "</div>
                             </div><!-- #tribe-events-content -->
                           </div>";
-                              }
-                              
+                  }
                 }
 
                 ?>
@@ -132,8 +129,14 @@
 
 
               </div>
-              <br/><br/>
-             <center><button class='btn btn-primary' style='width: 200px' onclick='myFunction3()'>Enroll All</button></center>
+              <br /><br />
+              <?php
+              if ($count > 0)
+                echo "<center><button class='btn btn-primary' style='width: 200px' onclick='myFunction3()'>Enroll All</button></center>";
+              else
+                echo "<center><p>No Course available in cart</p></center>";
+
+              ?>
             </div>
 
 

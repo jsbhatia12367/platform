@@ -13,9 +13,34 @@ ob_start();
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <svg style="display:none;"></svg>
     <script type="text/javascript">
-        function fileAlreadyExistCheck(){
-            
-            alert("File Already Exist or not check");
+        function fileAlreadyExistCheck(id) {
+            var files = document.getElementById(id).files;
+
+            if (files.length > 0) {
+
+                var formData = new FormData();
+                formData.append("file", files[0]);
+                formData.append("action","checkfilealreadyexist")
+                var xhttp = new XMLHttpRequest()
+                xhttp.open("POST", "sub_admin_ajax.php", true);
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = this.responseText;
+                        if (response == 1) {
+                            alert("File Already Exist");
+                            document.getElementById(id).value = "";
+                        }
+                    }
+                };
+
+                // Send request with data
+                xhttp.send(formData);
+
+            } else {
+                alert("Please select a file");
+            }
+
         }
     </script>
 </head>
@@ -45,7 +70,7 @@ ob_start();
 
                                     <?php
                                     $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                                    $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=TRUE And certificate_generated=FALSE And course_id IN (SELECT course_id from courses where owner_email = '".$_SESSION['Email']."');"));
+                                    $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=TRUE And certificate_generated=FALSE And course_id IN (SELECT course_id from courses where owner_email = '" . $_SESSION['Email'] . "');"));
                                     $count = 0;
                                     while ($row = pg_fetch_assoc($sql)) {
                                         $count = $count + 1;
@@ -53,13 +78,13 @@ ob_start();
                                         echo "<tr>
                       <td>" . htmlspecialchars($row['emailaddress']) . "</td>
                       <td>" . htmlspecialchars($sql2['course_name']) . "</td>
-                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "' onchange='fileAlreadyExistCheck()'>
+                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "' onchange='fileAlreadyExistCheck(this.id)'>
                      <input type='button' name='" . $row['emailaddress'] . "' id='" . $row['course_id'] . "' 
                         value='Upload' 
                         onclick='uploadFile(this.id,this.name);' ></td>
                   </tr>";
                                     }
-                                    if($count == 0){
+                                    if ($count == 0) {
                                         echo "<tr><td></td><td>No Certificate to add</td><td></td></tr>";
                                     }
                                     ?>
@@ -75,6 +100,7 @@ ob_start();
                                                 formData.append("file", files[0]);
                                                 formData.append("course_id", course_id);
                                                 formData.append("emailaddress", email);
+                                                formData.append("action", "uploadfile");
 
                                                 var xhttp = new XMLHttpRequest();
 
