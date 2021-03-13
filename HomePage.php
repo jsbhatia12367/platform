@@ -77,6 +77,24 @@
 
 			});
 		}
+
+		function ShowAllCourses() {
+			var all = document.getElementsByClassName("col-12 col-md-6 card-container extra");
+			var str = document.getElementById("viewAllCourses");
+
+			if (all[0].style.display=="block") {
+				for (var i = 0; i < all.length; i++) {
+					all[i].style.display = "none";
+				}
+				str.innerText = "Show All Courses";
+			} else {
+				for (var i = 0; i < all.length; i++) {
+					all[i].style.display = "block";
+				}
+				str.innerText = "Hide Courses";
+			}
+
+		}
 	</script>
 </head>
 
@@ -95,7 +113,7 @@
 
 			<div class="cart-button-outer">
 				<div class="cart-button-quantity" style="opacity: 0;">0</div>
-				<button id="cart-toggle" class="button-cart cart-open" aria-label="Hide / Show Cart"></button>
+				<button id="cart-toggle" class="button-cart cart-open" aria-label="Hide / Show Cart" onclick="u()"></button>
 			</div>
 
 			<div class="sitewide-banner" data-modified="1588200144">
@@ -113,27 +131,16 @@
 					<h4>Your Course Cart</h4>
 				</div>
 
-				<div class="cart-inner">
+				<div>
 
-					<div class="cart-items-outer">
+					<div>
 						<span><b>Added Courses</b></span>
 						<hr>
-						<ul class="cart-items">
-							<li class='cart-item' data-title='Stress Management: Online' data-download-id='5067'>
-								<div class='cart-item-inner'>
-									<div class='cart-title'>
-										<p><b>Stress Management: Online<span class='muted'> (2 sessions)</span></b></p>
-									</div>
-									<div class='cart-meta'>
-										<div class='tag-circle-container'>
-											<span class='tag-circle tag-circle--online'></span>
-										</div>
-										<p class='small'><b>November 25 2020, 10:00 am - 11:00 am MDT</b></p>
-									</div>
-								</div>
-								<i class='ion ion-md-close-circle remove-from-cart'></i>
-							</li>
-							<li class="cart-item" data-title="Developing Self Compassion: Online" data-download-id="5065">
+						<ul>
+							<?php
+							echo "one";
+							?>
+							<!-- <li class="cart-item" data-title="Developing Self Compassion: Online" data-download-id="5065">
 								<div class="cart-item-inner">
 									<div class="cart-title">
 										<p><b>Developing Self Compassion: Online<span class="muted"> (1 sessions)</span></b></p>
@@ -146,7 +153,7 @@
 									</div>
 								</div>
 								<i class="ion ion-md-close-circle remove-from-cart"></i>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 
@@ -315,13 +322,20 @@
 
 						<?php
 
+						$string = exec('getmac');
+						$mac = substr($string, 0, 17);
+
 						$db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-						$sql = pg_query(sprintf("SELECT * FROM public.courses limit 3 "));
+						$sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (SELECT course_id from cart where emailaddress='" . $mac . "')"));
+						$count = 0;
 
 						while ($row = pg_fetch_assoc($sql)) {
+							$count = $count + 1;
 
-							echo "
-													<div class='col-12 col-md-6 card-container'>
+							if ($count > 3) {
+
+								echo "
+													<div class='col-12 col-md-6 card-container extra' id='display_functionality' style='display:none'>
 														<div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
 															<div class='location-meta' data-location='online'></div>
 															<div class='tags' data-filter-target='' data-tags='online'></div>
@@ -350,11 +364,48 @@
 
 
 
-							echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
-							echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
+								echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
+								echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
 															</div>
 														</div><!-- #tribe-events-content -->
 													</div>";
+							} else {
+								echo "
+								<div class='col-12 col-md-6 card-container'>
+									<div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
+										<div class='location-meta' data-location='online'></div>
+										<div class='tags' data-filter-target='' data-tags='online'></div>
+										<div class='card__header'>
+											<div class='card__title title-4 tribe-events-single-event-title'>" . htmlspecialchars($row['course_name']) . "</div>	
+											</div>
+
+										<div class='card__body small'>
+										
+
+											<table class='details'>
+												<tbody>
+													<tr>
+														<th>Start</th>
+														<td>" . htmlspecialchars($row['start_date']) . "</td>
+													</tr>
+													<tr>
+														<th>End</th>
+														<td>" . htmlspecialchars($row['end_date']) . "</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<div class='card__footer'>";
+
+
+
+								echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
+								echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
+										</div>
+									</div><!-- #tribe-events-content -->
+								</div>";
+							}
 						}
 
 						?>
@@ -362,11 +413,12 @@
 						<div class="col-12 col-md-6 card-container">
 							<div class="card card-view-all">
 								<div class="card-view-all__body">
-									<h3>View all Courses</h3>
-									<a class="button" title="View All Courses" href="AllCourses.php">Courses</a>
+									<h3>Courses</h3>
+									<button class="button" id="viewAllCourses" onclick="ShowAllCourses()">View All Courses</button>
 								</div>
 							</div>
 						</div>
+
 
 						<div class="col-12">
 							<p>If you require any help registering for courses please call us at <a href="tel:780-414-6300">780-414-6300</a> or email us at <a href="CALENDARPAGEPLACEHOLDER">recoverycollege@cmha-edmonton.ab.ca</a>
@@ -696,7 +748,7 @@
 		};
 		/* ]]> */
 	</script>
-	<script type="text/javascript" src="js/ajax_script.js?ver=1.7" id="ajax_scripts-js"></script>
+	<!-- <script type="text/javascript" src="js/ajax_script.js?ver=1.7" id="ajax_scripts-js"></script> -->
 
 
 </body>
