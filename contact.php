@@ -312,7 +312,7 @@ pg_close($dbconn);
                                             </li>
                                             <li id="field_2_2" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_2">Email</label>
                                                 <div class="ginput_container ginput_container_email">
-                                                    <input type="email" id="input_2_2" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false" required>
+                                                    <input type="email" id="input_2_2"  name="email" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false" required>
                                                 </div>
                                             </li>
                                             <li id="field_2_3" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_3">Message<span class="gfield_required">*</span></label>
