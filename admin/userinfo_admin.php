@@ -1,6 +1,6 @@
 <?php
 session_start();
-$Roll_no=$_SESSION['Email'];
+$Email=$_SESSION['Email'];
 
 if(!isset($_SESSION['Email']))
 {

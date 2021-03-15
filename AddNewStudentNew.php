@@ -12,8 +12,11 @@
       $ret = pg_query($db, $RegisterSql);
       if($ret){
           
-              //alert( 'Data saved Successfully');
-              header('Location: user/StudentLogin.php'); 
+              
+              echo '<script>alert("Student Added Successfully")</script>';
+              echo "<script>setTimeout(\"location.href = 'user/StudentLogin.php';\",1);</script>";
+              //header('Location: user/StudentLogin.php'); 
+
       }else{
           
               echo "Soething Went Wrong";
@@ -170,7 +173,7 @@ The content from cdnjs.cloudflare.com is all open source -->
             </div> 
             <div>
                 <label>middlename</label>
-                <input type="text" name="middlename" required>
+                <input type="text" name="middlename">
                 <span class="help-block"></span>
             </div> 
             <div class="form-group">
@@ -179,33 +182,33 @@ The content from cdnjs.cloudflare.com is all open source -->
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
-                <label>emailaddress</label>
+                <label>*emailaddress</label>
                 <input type="email" name="emailaddress" required>
                 <span class="help-block"></span>
             </div>
 
             <div>
                 <label>phonenumber</label>
-                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber" required>
+                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber">
                 <span class="help-block"></span>
             </div>           
             <div>
-                <label>dateofbirth</label>
+                <label>*dateofbirth</label>
                 <input type="date" name="dateofbirth" required>
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>city</label>
-                <input type="text" name="city" required >
+                <input type="text" name="city">
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>province</label>
-                <input type="text" name="province"  required>
+                <input type="text" name="province" >
                 <span class="help-block"></span>
             </div> 
             <div>
-                <label>gender</label><br>
+                <label>*gender</label><br>
                 <input type="radio" name="gender" id="gender" value="male"> Male<br>
                 <input type="radio" name="gender"  id="gender" value="female"> Female<br>
                 <input type="radio" name="gender"  id="gender" value="other"> Other
@@ -213,51 +216,51 @@ The content from cdnjs.cloudflare.com is all open source -->
             </div> 
             <div>
                 <label>ethnicity</label>
-                <input type="text" name="ethnicity"  required>
+                <input type="text" name="ethnicity"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Cultural Considerations:</label>
-                <input type="text" name="culturalconsiderations"  required>
+                <input type="text" name="culturalconsiderations"  >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>indigenousidentity</label>
-                <input type="text" name="indigenousidentity" required>
+                <input type="text" name="indigenousidentity" >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>languagespoken</label>
-                <input type="text" name="languagespoken" required>
+                <input type="text" name="languagespoken">
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>housingstatus</label>
-                <input type="text" name="housingstatus" required>
+                <input type="text" name="housingstatus">
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>Living Arrangement:</label>
-                <input type="text" name="livingarrangement" required>
+                <input type="text" name="livingarrangement" >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>sourceofincome</label>
-                <input type="text" name="sourceofincome"  required>
+                <input type="text" name="sourceofincome" >
                 <span class="help-block"></span>
             </div> 
             <div>
                 <label>occupation</label>
-                <input type="text" name="occupation" required>
+                <input type="text" name="occupation" >
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
-                <label>Username</label>
+                <label>*Username</label>
                 <input type="text" name="username"  required>
                 <span class="help-block"></span>
             </div>    
             <div class="form-group">
-                <label>Password</label>
+                <label>*Password</label>
                 <input type="password" name="password"  required>
                 <span class="help-block"></span>
             </div>

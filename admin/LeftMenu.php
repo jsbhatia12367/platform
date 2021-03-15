@@ -54,6 +54,12 @@
             <span>Add Sub Admin</span>
           </a>
       </li> 
+      <li>
+        <a href="AdminChangePassword.php">
+            <span class="iconify" data-icon="fluent:news-20-regular" data-inline="false"></span>
+            <span>Change Password</span>
+          </a>
+      </li> 
       
       
       <li>

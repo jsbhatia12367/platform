@@ -1,5 +1,5 @@
 <?php
-include("userinfo_sub_admin.php");
+include("userinfo_user.php");
 ob_start();
 ?>
 
@@ -14,7 +14,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
  if(isset($_POST['change'])&&!empty($_POST['change'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.sub_admin where email = '".$Email."' and password ='".$hashpassword."'";
+    $sql ="select * from public.cmhauser where emailaddress = '".$Email."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     //console.log("testing2");
@@ -23,8 +23,8 @@ echo "<center><h1>Doesn't work =(</h1></center>";
         //session_start();
         //$_SESSION["Email"] = $_POST['email'];
 
-                $sql = "UPDATE public.sub_admin 
-                        SET password = '".md5($_POST['new_password'])."' WHERE email = '".$Email."'";
+                $sql = "UPDATE public.cmhauser 
+                        SET password = '".md5($_POST['new_password'])."' WHERE emailaddress = '".$Email."'";
             $ret = pg_query($dbconn, $sql);
             if($ret){
                 

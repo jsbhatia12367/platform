@@ -31,14 +31,28 @@ if (!$db) {
       // (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($_POST['password'])."')";
       $ret = pg_query($db, $RegisterSql);
       if($ret){
-          
-              echo "Data upated Successfully";
+          echo '<script>alert("Account upated Successfully")</script>';
+              //echo "Data upated Successfully";
       }else{
           
               echo "Soething Went Wrong";
       }
  }
 
+if(isset($_POST['delete'])&&!empty($_POST['delete'])){
+      $RegisterSql = "Delete FROM public.cmhauser 
+                        
+                        WHERE emailaddress = '".$Email."'";
+      // (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($_POST['password'])."')";
+      $ret = pg_query($db, $RegisterSql);
+      if($ret){
+          echo '<script>alert("Account Deleted Successfully")</script>';
+              echo "<script>setTimeout(\"location.href = 'StudentLogin.php';\",1);</script>";
+      }else{
+          
+              echo "Soething Went Wrong";
+      }
+ }
 
 pg_close($db);
 ?>
@@ -158,8 +172,8 @@ pg_close($db);
                </tr>
                <tr>
                 
-                <td> <input type="submit" class="btn btn-primary" name="update" value="Update"></td>
-                <td> </td>
+                <td colspan="2"> <center><input type="submit" class="btn btn-primary" name="update" value="Update"></center></td>
+                <td colspan="2"> <center><input type="submit" class="btn btn-primary" name="delete" value="Delete My Account"></center></td>
                </tr>
                </form>
                
