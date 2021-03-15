@@ -76,10 +76,7 @@
 	<div id="page" class="site">
 		<div id="content" class="site-content">
 
-			<div class="cart-button-outer">
-				<div class="cart-button-quantity" style="opacity: 0;">0</div>
-				<button id="cart-toggle" class="button-cart cart-open" aria-label="Hide / Show Cart"></button>
-			</div>
+			
 
 			<!-- <div class="sitewide-banner" data-modified="1588200144">
 				<div class="sitewide-banner-container">
@@ -460,7 +457,7 @@
 
 		</div><!-- #content -->
 		<!-- Sitewide Pop-up/Modal -->
-		<div id="sitewide-modal" class="modal" tabindex="-1" role="dialog">
+		<!-- <div id="sitewide-modal" class="modal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -474,11 +471,11 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="modal-close" data-dismiss="modal" data-target="#">View Online Classes</button>
-						<!--https://recoverycollegeedmonton.ca/courses/?filter=online-->
+						https://recoverycollegeedmonton.ca/courses/?filter=online-
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<footer id="site-footer" class="footer" role="contentinfo">
 			<div class="container footer-container">
 

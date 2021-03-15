@@ -47,6 +47,12 @@
             </a>
         </li>
         <li>
+        <a href="StudentChangePassword.php">
+            <span class="iconify" data-icon="fluent:news-20-regular" data-inline="false"></span>
+            <span>Change Password</span>
+          </a>
+      </li> 
+        <li>
           <a href="logout_user.php" ><button type="button"><h4>Sign Out</h4></button>  </a>
         </li>
         <br>

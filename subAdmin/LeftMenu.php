@@ -43,7 +43,12 @@
             <span>Add Student</span>
           </a>
       </li> 
-      
+       <li>
+        <a href="SubAdminChangePassword.php">
+            <span class="iconify" data-icon="fluent:news-20-regular" data-inline="false"></span>
+            <span>Change Password</span>
+          </a>
+      </li> 
       
       
       <li>

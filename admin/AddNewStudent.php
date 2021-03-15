@@ -12,7 +12,7 @@
       $RegisterSql = "INSERT INTO cmhauser (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation,culturalconsiderations, livingarrangement, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['culturalconsiderations'])."','".pg_escape_string($_POST['livingarrangement'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($hashpassword)."')";
       $ret = pg_query($db, $RegisterSql);
       if($ret){
-          
+          echo '<script>alert("Student Added Successfully")</script>';
               echo "Data saved Successfully";
       }else{
           
@@ -59,28 +59,28 @@ pg_close($db);
             </thead>
             <tbody>
               <tr>
-              <td>Username : </td>
+              <td>*Username : </td>
               <td><input type="text" name="username" class="form-control" required></td>
-              <td>Password : </td>
+              <td>*Password : </td>
               <td><input type="text" name="password" class="form-control" required></td>
             </tr>
              <tr>
-              <td>First name : </td>
+              <td>*First name : </td>
               <td><input type="text" name="firstname" class="form-control" required></td>
               <td>Middle name : </td>
               <td><input type="text" name="middlename" class="form-control" placeholder="Optional"></td>
             </tr>
              <tr>
-              <td>Last name : </td>
+              <td>*Last name : </td>
               <td><input type="text" name="lastname" class="form-control" placeholder="Optional"></td>
-              <td>Email : </td>
+              <td>*Email : </td>
               <td><input type="email" name="emailaddress" class="form-control" required></td>
             </tr>
              <tr>
               <td>Phone Number : </td>
               <td><input type="tel" name="phonenumber" class="form-control" placeholder="Optional"></td>
-              <td>Date of Birth : </td>
-              <td><input type="date" name="dateofbirth" class="form-control"></td>
+              <td>*Date of Birth : </td>
+              <td><input type="date" name="dateofbirth" class="form-control" required></td>
             </tr>
             <tr>
               <td>City : </td>

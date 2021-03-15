@@ -30,7 +30,8 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
       $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description,capacity)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
       $ret = pg_query($dbconn, $sql);
       if ($ret) {
-        echo "Data saved Successfully";
+        echo '<script>alert("Course Added Successfully")</script>';
+        //echo "Data saved Successfully";
       } else {
 
         echo "Something Went Wrong";
