@@ -53,7 +53,7 @@
                                         echo "<tr><td></td><td>No Certificate to add</td><td></td></tr>";
                                     }
                                     ?>
-                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                                    <script src="../js/jquery-3.6.0.min.js"></script>
                                     <script>
                                         function uploadFile(course_id, email) {
 
