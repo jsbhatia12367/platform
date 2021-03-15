@@ -56,7 +56,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
   <svg style="display:none;">
   </svg>
   <script type="text/javascript">
-    function myFunction() {
+    function validateInputDate() {
       var startDate = new Date(document.getElementById('start_date').value);
       var endDate = new Date(document.getElementById('end_date').value);
         if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
@@ -68,6 +68,36 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
             document.getElementById('end_date').value = '';
           }
         }
+    }
+
+    function courseFileAlreadyExistCheck(id) {
+      var files = document.getElementById(id).files;
+
+      if (files.length > 0) {
+
+        var formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("action", "checkcoursefilealreadyexist")
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("POST", "sub_admin_ajax.php", true);
+
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;
+            if (response == 1) {
+              alert("File Already Exist");
+              document.getElementById(id).value = "";
+            }
+          }
+        };
+
+        // Send request with data
+        xhttp.send(formData);
+
+      } else {
+        alert("Please select a file");
+      }
+
     }
   </script>
 </head>
@@ -110,15 +140,15 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                     <tr>
                     <tr>
                       <td>Data File : </td>
-                      <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data" required></td>
+                      <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data" required onchange='courseFileAlreadyExistCheck(this.id)'></td>
                     </tr>
                     <tr>
                       <td>Start Date : </td>
-                      <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date" required onchange="myFunction()"></td>
+                      <td><input type="date" class="form-control" id="start_date" placeholder="dd/mm/yyyy" name="start_date" required onchange="validateInputDate()"></td>
                     </tr>
                     <tr>
                       <td>End Date : </td>
-                      <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date" required onchange="myFunction()"></td>
+                      <td><input type="date" class="form-control" id="end_date" placeholder="dd/mm/yyyy" name="end_date" required onchange="validateInputDate()"></td>
                     </tr>
                     <tr>
                       <td>Description : </td>
