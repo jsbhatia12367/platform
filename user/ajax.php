@@ -28,6 +28,13 @@ if ($_POST['action'] == 'remove_this') {
   $sql = pg_query(sprintf("DELETE FROM public.cart where emailaddress='" . $_SESSION['Email'] . "' AND course_id='".$_POST['course_id']."';"));
 }
 
+if ($_POST['action'] == 'delete_course_from_my_course') {
+  $sql = pg_query(sprintf("DELETE FROM public.enroll where emailaddress='" . $_SESSION['Email'] . "' AND course_id='".$_POST['course_id']."';"));
+}
+
+
+
+
 
 
 ?>
