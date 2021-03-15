@@ -12,6 +12,19 @@ if ($_POST['action'] == 'checkfilealreadyexist') { // file already exist check
    exit;
 }
 
+if ($_POST['action'] == 'checkcoursefilealreadyexist') { // Course file already exist check
+   $filename = $_FILES['file']['name'];
+
+   $location = '../admin/uploads/' . $filename;
+
+   $response = 0;
+   if (file_exists($location)) {
+      $response = 1;
+   }
+   echo $response;
+   exit;
+}
+
 if ($_POST['action'] == 'uploadfile') {
 
 if (isset($_FILES['file']['name'])) {  // upload file
