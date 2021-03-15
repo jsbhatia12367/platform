@@ -6,8 +6,39 @@
     <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
     <link href='../css/admin_table.css' rel='stylesheet' type="text/css" />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <svg style="display:none;">
-    </svg>
+    <svg style="display:none;"></svg>
+    <script type="text/javascript">
+         function fileAlreadyExistCheck(id) {
+            var files = document.getElementById(id).files;
+
+            if (files.length > 0) {
+
+                var formData = new FormData();
+                formData.append("file", files[0]);
+                formData.append("action","checkfilealreadyexist")
+                var xhttp = new XMLHttpRequest()
+                xhttp.open("POST", "admin_ajax.php", true);
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = this.responseText;
+                        if (response == 1) {
+                            alert("File Already Exist");
+                            document.getElementById(id).value = "";
+                        }
+                    }
+                };
+
+                // Send request with data
+                xhttp.send(formData);
+
+            } else {
+                alert("Please select a file");
+            }
+
+        }
+    </script>
+    </script>
 </head>
 
 <body>
@@ -43,7 +74,7 @@
                                         echo "<tr>
                       <td>" . htmlspecialchars($row['emailaddress']) . "</td>
                       <td>" . htmlspecialchars($sql2['course_name']) . "</td>
-                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "'>
+                     <td><input type='file' name='" . $row['course_id'] . $row['emailaddress'] . "' id='" . $row['course_id'] . $row['emailaddress'] . "' onchange='fileAlreadyExistCheck(this.id)'>
                      <input type='button' name='" . $row['emailaddress'] . "' id='" . $row['course_id'] . "' 
                         value='Upload' 
                         onclick='uploadFile(this.id,this.name);' ></td>
@@ -65,6 +96,7 @@
                                                 formData.append("file", files[0]);
                                                 formData.append("course_id", course_id);
                                                 formData.append("emailaddress", email);
+                                                formData.append("action","uploadfile");
 
                                                 var xhttp = new XMLHttpRequest();
 

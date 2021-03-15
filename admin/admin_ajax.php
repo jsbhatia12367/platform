@@ -1,4 +1,19 @@
 <?php
+
+if ($_POST['action'] == 'checkfilealreadyexist') { // file already exist check
+   $filename = $_FILES['file']['name'];
+
+   $location = '../admin/certificates/' . $filename;
+
+   $response = 0;
+   if (file_exists($location)) {
+      $response = 1;
+   }
+   echo $response;
+   exit;
+}
+
+if ($_POST['action'] == 'uploadfile') {
 if (isset($_FILES['file']['name'])) {
    $filename = $_FILES['file']['name'];
    $course_id = $_POST['course_id'];
@@ -17,5 +32,4 @@ if (isset($_FILES['file']['name'])) {
    echo $response;
    exit;
 }
-
-?>
+}
