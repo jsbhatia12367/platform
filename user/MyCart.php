@@ -47,7 +47,7 @@
         type: "POST",
         url: 'ajax.php',
         data: {
-          action: 'remove_this',
+          action: 'remove_from_cart',
           course_id: id
         },
         success: function(html) {
