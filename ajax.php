@@ -10,4 +10,8 @@ if ($_POST['action'] == 'add_to_cart') {
 
 }
 
+if ($_POST['action'] == 'remove_from_cart') {
+  pg_query(sprintf("DELETE FROM public.cart where emailaddress='" . $mac . "' AND course_id='".$_POST['course_id']."';"));
+}
+
 ?>
