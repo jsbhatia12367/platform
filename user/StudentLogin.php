@@ -28,8 +28,19 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
         $_SESSION["Email"] = $_POST['emailaddress'];
         $string = exec('getmac');
         $mac = substr($string, 0, 17);
+
+        
+        $sql2= pg_query(sprintf("SELECT * FROM public.cart WHERE emailaddress='" . $mac . "';"));
+
+
+        if(!empty($sql2)){
         pg_query(sprintf("UPDATE public.cart SET emailaddress='" . $_SESSION['Email'] . "' WHERE emailaddress='" . $mac . "';"));
-        header('Location: StudentDashboard.php');
+        header('Location: MyCart.php');
+        }
+        else{
+            header('Location: StudentDashboard.php');
+        }
+
     } else {
         echo "<div class='alert alert-danger'>
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>

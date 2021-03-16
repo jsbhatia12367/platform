@@ -63,19 +63,8 @@
     <link rel="stylesheet" id="ie11_styles-css" href="css/ie11.css?ver=1.7" type="text/css" media="all">
 
     <script type="text/javascript">
-        function addToCart(clicked_id) {
-            $.ajax({
-                type: "POST",
-                url: 'ajax.php',
-                data: {
-                    action: 'add_to_cart',
-                    course_id: clicked_id
-                },
-                success: function(html) {
-                    location.reload();
-                }
-
-            });
+        function Enroll(clicked_id) {
+            window.location.href = "/platform/user/StudentLogin.php";
         }
 
         function ShowAllCourses() {
@@ -93,6 +82,22 @@
                 }
                 str.innerText = "Hide Courses";
             }
+
+        }
+
+        function removeFromCart(clicked_id){
+            $.ajax({
+                type: "POST",
+                url: 'ajax.php',
+                data: {
+                    action: 'remove_from_cart',
+                    course_id: clicked_id
+                },
+                success: function(html) {
+                    location.reload();
+                }
+
+            });
 
         }
     </script>
@@ -245,8 +250,8 @@
 
 
 
-                            echo "<button class='add-to-cart button--plus button--online' id='" . $sql2['course_id'] . "' onclick='addToCart(this.id)'>Enroll</button>";
-                            echo "									<a href='learnmore.php?course_id=" . $sql2['course_id'] . "' class='button button--secondary'>Remove from cart</a>
+                            echo "<button class='add-to-cart button--plus button--online' id='" . $sql2['course_id'] . "' onclick='Enroll(this.id)'>Enroll</button>";
+                            echo "									<button class='button button--secondary' id='" . $sql2['course_id'] . "' onclick='removeFromCart(this.id)'>Remove from cart</button>
 															</div>
 														</div><!-- #tribe-events-content -->
 													</div>";
