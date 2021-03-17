@@ -33,6 +33,7 @@
                 <th>End Date</th>
                 <th>Currently Enrolled</th>
                 <th>Capacity</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -50,6 +51,7 @@
                       <td>". htmlspecialchars($row['end_date'])."</td>
                       <td>". htmlspecialchars($row['currently_enrolled'])."</td>
                       <td>". htmlspecialchars($row['capacity'])."</td>
+                      <td><a href='EditMyCourse.php?CourseId=".htmlspecialchars($row['course_id'])."'>Edit</a></td>
                   </tr>";
                   }
                 ?>

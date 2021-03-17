@@ -1,5 +1,8 @@
 <?php
+if($_GET['Email'])
+{
 
+}
 if ($_POST['action'] == 'checkfilealreadyexist') { // file already exist check
    $filename = $_FILES['file']['name'];
 

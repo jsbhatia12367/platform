@@ -5,14 +5,11 @@
  if (!$dbconn){  
 echo "<center><h1>Doesn't work =(</h1></center>";  
 }else  
-{
-  //echo "<center><h1>Good connection</h1></center>";   
-}
- 
- if(isset($_POST['login'])&&!empty($_POST['login'])){
+ echo "<center><h1>Good connection</h1></center>"; 
+ if(isset($_POST['reset'])&&!empty($_POST['reset'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.sub_admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
+    $sql ="select * from public.admin where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     //console.log("testing2");
@@ -20,13 +17,11 @@ echo "<center><h1>Doesn't work =(</h1></center>";
       //  console.log("testing3");
         session_start();
         $_SESSION["Email"] = $_POST['email'];
-        header('Location: SubAdminPanel.php');    
+        header('Location: AdminPanel.php');    
     }else{
-        echo "<div class='alert alert-danger'>
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>
-        <p><strong>Alert!</strong></p>
-        Email or password wrong! Please try again!.
-    </div>'";
+        //console.log("testing4");
+        
+        echo "Invalid Details";
     }
 }
 
@@ -172,19 +167,19 @@ The content from cdnjs.cloudflare.com is all open source -->
 <div id="site-menu" class="main-nav">
 
     
-    <!-- <div class="sitewide-banner" data-modified="1588200144">
+    <div class="sitewide-banner" data-modified="1588200144">
         <div class="sitewide-banner-container">
             <h4>CMHA Recovery College classes are now being offered online.</h4><a href="COURSESONLINEPLACEHOLDER" class="button">Register here.</a>        </div>
 
         <i class="icon ion-md-close hide-banner"></i>
-    </div> -->
+    </div>
 
     <div class="d-md-none">
         <div class="nav-trigger d-lg-none">
             <button class="menu-toggle button--primary" id="main-nav-toggle" aria-haspopup="true" aria-expanded="false"><span class="text">Menu</span> <span class="hamburger-bars"><span class="bar-helper"></span></span></button>
         </div>
         <div class="brand brand--mobile">
-                            <a href="../HomePageAdmin.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="../HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="../images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
@@ -192,37 +187,36 @@ The content from cdnjs.cloudflare.com is all open source -->
 
     <div class="navigation-wrapper">
         <nav class="primary-nav">
-            <ul id="menu-main-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="../about.php" class="nav-link">About Recovery College</a></li>
-<!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item"><a title="Find a Course" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-23">Find a Course</a>
+            <ul id="menu-main-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="../about.html" class="nav-link">About Recovery College</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-23 nav-item"><a title="Find a Course" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-23">Find a Course</a>
 <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="../Courses.html" class="dropdown-item">All Courses</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1994 nav-item"><a title="Online Classes" href="COURSESONLINEPLACEHOLDER" class="dropdown-item">Online Classes</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-2175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2175 nav-item"><a title="Private Courses" href="../private-courses.html" class="dropdown-item">Private Courses</a></li>
 </ul>
-</li> -->
+</li>
 </ul>       </nav>
 
         <div class="brand brand--desktop d-none d-md-block">
-                            <a href="../HomePageAdmin.php" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
+                            <a href="../HomePage.html" title="Recovery College Edmonton" aria-label="Recovery College Edmonton" tabindex="0">
                     <img src="../images/svg/RC_Edmonton_Logo.svg" alt="Recovery College Edmonton">
                 </a>
                     </div>
 
         <nav class="utility-nav">
-            <ul id="menu-utility-menu" class="menu">
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../about.php" class="nav-link">About Us</a></li>
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../contact.php" class="nav-link">Contact</a></li>
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="../AddNewStudentNew.php" class="nav-link">Register</a></li>
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <!-- <span class="caret"></span> --></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../admin/AdminLogin.php">Admin Login</a></li>
-                                    <li><a href="../subAdmin/SubAdminLogin.php">Sub Admin Login</a></li>
-                                    <li><a href="../user/StudentLogin.php">Student Login</a></li>
-                                </ul>
-                            </li>
-                        </ul></nav>
+            <div class="searchform-wrapper">
+                <form class="searchform" method="get" action="../HomePage.html">
+    <input type="text" name="s" aria-label="Site search" placeholder="What are you looking for?" />
+    <button aria-labelledby="searchform--5fbf0e6edf4e3__label"><i class="ion ion-md-search"></i><span class="text" id="searchform--5fbf0e6edf4e3__label">Search</span></button>
+</form>
+                <button class="searchform-toggle" aria-label="Search the site"><i class="ion ion-md-search"></i></button>
+            </div>
+            <ul id="menu-utility-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19 nav-item"><a title="News &amp; Updates" href="../news.html" class="nav-link">News &#038; Updates</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20 nav-item"><a title="Donate" target="_blank" href="DONATEPLACEHOLDER" class="nav-link">Donate</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="nav-link">FAQs</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="../contact.html" class="nav-link">Contact</a></li>
+</ul>       </nav>
     </div>
 </div>
 
@@ -242,21 +236,24 @@ The content from cdnjs.cloudflare.com is all open source -->
         <form  method="post">
             <div class="form-group ">
                 <label>Email</label>
-                <input type="email" id="email" name="email" class="form-control" >
+                <input type="text" id="email" name="email" class="form-control" >
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group ">
+                <label>Email</label>
+                <input type="text" id="email" name="email" class="form-control" >
                 <span class="help-block"></span>
             </div>    
             <div class="form-group ">
-                <label>Password</label>
+                <label>New Password</label>
                 <input type="password" id="password" name="password" class="form-control">
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
 
-                <input type="submit" class="btn btn-primary" name="login" value="login">
+                <input type="submit" class="btn btn-primary" name="reset" value="Reset">
             </div>
-            <p>Forgot Your Password? <a href="SubAdminResetPassword.php">Reset Now</a>.</p>
-            <p>For subadmin account, contact admin </p>
-
+            <p>Don't have an account? <a href="../LoginRegistrationPages/register.php">Sign up now</a>.</p>
         </form>
     </div>  
 </div>
@@ -276,7 +273,7 @@ The content from cdnjs.cloudflare.com is all open source -->
                 <div class="footer-newsletter col-12 col-md-4"> 
                 </div>
                 <div class="footer-nav col-6 d-none d-md-block">
-                    <!-- <ul id="menu-footer-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item"><a title="Find a Course" href="#" class="nav-link">Find a Course</a>
+                    <ul id="menu-footer-menu" class="menu"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item"><a title="Find a Course" href="#" class="nav-link">Find a Course</a>
 <ul  role="menu">
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="../Courses.html" class="dropdown-item">All Courses</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
@@ -287,7 +284,7 @@ The content from cdnjs.cloudflare.com is all open source -->
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-32" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32 nav-item"><a title="News &amp; Updates" href="../news.html" class="dropdown-item">News &#038; Updates</a></li>
     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
 </ul>
-</li> -->
+</li>
 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="../contact.html" class="nav-link">Contact Us</a><ul role="menu" aria-role="menu"><li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br/>Edmonton, AB T5J 1C4</li><li class="nav-item" aria-role="menuitem">780-414-6300</li></ul></li>
 </ul>
                 </div>

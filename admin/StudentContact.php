@@ -32,6 +32,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
+                <th>Edit</th>
                 <!-- <th>Action</th> -->
               </tr>
             </thead>
@@ -46,6 +47,7 @@
               <td>".htmlspecialchars($row['lastname'])."</td>
               <td>".htmlspecialchars($row['emailaddress'])."</td>
               <td>".htmlspecialchars($row['phonenumber'])."</td>
+              <td><a href='EditMyAccount.php?StudentEmail=".htmlspecialchars($row['emailaddress'])."'>Edit</a></td>
               <tr>";
             }
             ?>
