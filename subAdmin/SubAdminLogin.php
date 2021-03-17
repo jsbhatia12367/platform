@@ -254,7 +254,9 @@ The content from cdnjs.cloudflare.com is all open source -->
 
                 <input type="submit" class="btn btn-primary" name="login" value="login">
             </div>
+            <p>Forgot Your Password? <a href="SubAdminResetPassword.php">Reset Now</a>.</p>
             <p>For subadmin account, contact admin </p>
+
         </form>
     </div>  
 </div>

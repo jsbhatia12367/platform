@@ -254,6 +254,7 @@ The content from cdnjs.cloudflare.com is all open source -->
 
                 <input type="submit" class="btn btn-primary" name="login" value="login">
             </div>
+            <p>Forgot Your Password? <a href="AdminResetPassword.php">Reset Now</a>.</p>
            <!--  <p>Don't have an account? <a href="AdminRegister.php">Sign up now</a>.</p> -->
         </form>
     </div>  

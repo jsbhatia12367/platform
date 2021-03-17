@@ -21,15 +21,15 @@ if ($_POST['action'] == 'enroll_all') {
   $sql = pg_query(sprintf("SELECT * FROM public.cart where emailaddress='" . $_SESSION['Email'] . "';"));
   while ($row = pg_fetch_assoc($sql)) {
     pg_query(sprintf("insert into public.enroll(course_id,emailaddress) values(" . $row['course_id'] . ",'" . $_SESSION['Email'] . "');"));
-    $sql = pg_query(sprintf("select currently_enrolled from courses where course_id = " . $row['course_id']));
-    $currently_enrolled = $sql['currently_enrolled'] + 1;
+    $sql2 = pg_query(sprintf("select currently_enrolled from courses where course_id = " . $row['course_id']));
+    $currently_enrolled = $sql2['currently_enrolled'] + 1;
     pg_query(sprintf("UPDATE public.courses SET currently_enrolled=" . $currently_enrolled . " WHERE course_id=" . $row['course_id']));
     pg_query(sprintf("DELETE FROM public.cart where emailaddress='" . $_SESSION['Email'] . "' AND course_id='".$row['course_id']."';"));
   }
 
 }
 
-if ($_POST['action'] == 'remove_this') {
+if ($_POST['action'] == 'remove_from_cart') {
   $sql = pg_query(sprintf("DELETE FROM public.cart where emailaddress='" . $_SESSION['Email'] . "' AND course_id='".$_POST['course_id']."';"));
 }
 
