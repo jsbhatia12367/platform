@@ -138,8 +138,8 @@ pg_close($db);
                 <td>Province :</td>
                 <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>
                
-                <td>Gender :</td>
-                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."' placeholder='Optional'></td>
+                <td>*Gender :</td>
+                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."'></td>
                </tr>
                <tr>
                 <td>Ethnicity :</td>

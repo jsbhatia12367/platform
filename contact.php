@@ -1,16 +1,16 @@
-<?php  
-$dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");  
-if(isset($_POST['message_submit'])&&!empty($_POST['message_submit'])){
-    
- $sql = "insert into public.messages(name,email,message)values('".$_POST['name']."','".$_POST['email']."','".$_POST['message']."');";
-  $ret = pg_query($dbconn, $sql);
-  if($ret){
-          echo "<script><alert>Data saved Successfully</alert><script>";
-          header('Location: contact.php'); 
-  }else{
-      
-          echo "Soething Went Wrong";
-  }
+<?php
+$dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+if (isset($_POST['message_submit']) && !empty($_POST['message_submit'])) {
+
+    $sql = "insert into public.messages(name,email,message)values('" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['message'] . "');";
+    $ret = pg_query($dbconn, $sql);
+    if ($ret) {
+        echo '<script>alert("Message Submited Successfully")</script>';
+        echo "<script>setTimeout(\"location.href = 'contact.php';\",1);</script>";
+    } else {
+
+        echo "Something Went Wrong";
+    }
 }
 pg_close($dbconn);
 ?>
@@ -69,7 +69,7 @@ pg_close($dbconn);
     <link rel="icon" href="images/png/cropped-RecoveryCollege_Favicon-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="images/png/cropped-RecoveryCollege_Favicon-180x180.png">
     <meta name="msapplication-TileImage" content="images/png/cropped-RecoveryCollege_Favicon-270x270.png">
-   <!--  <link rel="cart" href="images/svg/cart.svg" sizes="192x192" /> -->
+    <!--  <link rel="cart" href="images/svg/cart.svg" sizes="192x192" /> -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 
@@ -190,13 +190,13 @@ pg_close($dbconn);
                         <ul id="menu-main-menu" class="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 nav-item"><a title="About Recovery College" href="about.php" class="nav-link">About Recovery College</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom men
-                                <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
-                                    <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
+                                <ul class=" dropdown-menu" aria-labelledby="menu-item-dropdown-23" role="menu">
+                                <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1994 nav-item"><a title="Online Classes" href="COURSESONLINEPLACEHOLDER" class="dropdown-item">Online Classes</a></li>
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25 nav-item"><a title="Calendar" href="CALENDARPAGEPLACEHOLDER" class="dropdown-item">Calendar</a></li>
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-2175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2175 nav-item"><a title="Private Courses" href="private-courses.html" class="dropdown-item">Private Courses</a></li> -->
-                                </ul>
-                            </li>
+                        </ul>
+                        </li>
                         </ul>
                     </nav>
 
@@ -208,7 +208,7 @@ pg_close($dbconn);
                     </div>
 
                     <nav class="utility-nav">
-                     <ul id="menu-utility-menu" class="menu">
+                        <ul id="menu-utility-menu" class="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="about.php" class="nav-link">About Us</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Contact" href="contact.php" class="nav-link">Contact</a></li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 nav-item"><a title="Register" href="AddNewStudentNew.php" class="nav-link">Register</a></li>
@@ -312,7 +312,7 @@ pg_close($dbconn);
                                             </li>
                                             <li id="field_2_2" class="gfield field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_2">Email</label>
                                                 <div class="ginput_container ginput_container_email">
-                                                    <input type="email" id="input_2_2"  name="email" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false" required>
+                                                    <input type="email" id="input_2_2" name="email" type="text" value="" class="large" placeholder="name@email.com" aria-invalid="false" required>
                                                 </div>
                                             </li>
                                             <li id="field_2_3" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"><label class="gfield_label" for="input_2_3">Message<span class="gfield_required">*</span></label>
@@ -328,8 +328,8 @@ pg_close($dbconn);
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="gform_footer top_label"> 
-                                            <input class="button gform_button" name="message_submit" id="gform_submit_button_2" type="submit" value="Submit">
+                                    <div class="gform_footer top_label">
+                                        <input class="button gform_button" name="message_submit" id="gform_submit_button_2" type="submit" value="Submit">
                                         </button>
                                     </div>
                                 </form>
@@ -340,20 +340,20 @@ pg_close($dbconn);
             </section>
 
 
-        <footer id="site-footer" class="footer" role="contentinfo">
-            <div class="container footer-container">
+            <footer id="site-footer" class="footer" role="contentinfo">
+                <div class="container footer-container">
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="footer-newsletter col-12 col-md-4">
+                        <div class="footer-newsletter col-12 col-md-4">
 
 
-                    </div>
+                        </div>
 
-                    <div class="footer-nav col-6 d-none d-md-block">
+                        <div class="footer-nav col-6 d-none d-md-block">
 
-                        <ul id="menu-footer-menu" class="menu">
-                            <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
+                            <ul id="menu-footer-menu" class="menu">
+                                <!-- <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-27 nav-item">
                               
                                 <ul role="menu">
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28 nav-item"><a title="All Courses" href="Courses.html" class="dropdown-item">All Courses</a></li>
@@ -367,45 +367,45 @@ pg_close($dbconn);
                                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 nav-item"><a title="FAQs" href="FAQPLACEHOLDER" class="dropdown-item">FAQs</a></li>
                                 </ul>
                             </li> -->
-                            <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.php" class="nav-link">Contact Us</a>
-                                <ul role="menu" aria-role="menu">
-                                    <li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br>Edmonton, AB T5J 1C4</li>
-                                    <li class="nav-item" aria-role="menuitem">780-414-6300</li>
-                                </ul>
-                            </li>
-                        </ul>
+                                <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402 nav-item"><a title="Contact Us" href="contact.php" class="nav-link">Contact Us</a>
+                                    <ul role="menu" aria-role="menu">
+                                        <li class="nav-item" aria-role="menuitem">300, 10010-105 St NW<br>Edmonton, AB T5J 1C4</li>
+                                        <li class="nav-item" aria-role="menuitem">780-414-6300</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-other-blogs col-12 col-md-2">
+
+
+                            <ul class="menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link link">Other Locations</a>
+                                    <ul class="cmha-locations-menu" role="menu" aria-role="menu">
+                                        <li class="menu-item" aria-role="menuitem">
+                                            <a href="http://recoverycollegecalgary.ca" title="Recovery College Calgary">Calgary</a>
+                                        </li>
+                                        <li class="menu-item" aria-role="menuitem">
+                                            <a href="http://recoverycollegewoodbuffalo.ca" title="Recovery College Wood Buffalo">Wood Buffalo</a>
+                                        </li>
+                                        <li class="menu-item" aria-role="menuitem">
+                                            <a href="http://recoverycollegelethbridge.ca" title="Recovery College Lethbridge">Lethbridge</a>
+                                        </li>
+                                        <li class="menu-item" aria-role="menuitem">
+                                            <a href="http://recoverycollegecentralalberta.ca" title="Recovery College Central Alberta">Central Alberta</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
-                    <div class="footer-other-blogs col-12 col-md-2">
+                    <div class="row">
 
-
-                        <ul class="menu">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link link">Other Locations</a>
-                                <ul class="cmha-locations-menu" role="menu" aria-role="menu">
-                                    <li class="menu-item" aria-role="menuitem">
-                                        <a href="http://recoverycollegecalgary.ca" title="Recovery College Calgary">Calgary</a>
-                                    </li>
-                                    <li class="menu-item" aria-role="menuitem">
-                                        <a href="http://recoverycollegewoodbuffalo.ca" title="Recovery College Wood Buffalo">Wood Buffalo</a>
-                                    </li>
-                                    <li class="menu-item" aria-role="menuitem">
-                                        <a href="http://recoverycollegelethbridge.ca" title="Recovery College Lethbridge">Lethbridge</a>
-                                    </li>
-                                    <li class="menu-item" aria-role="menuitem">
-                                        <a href="http://recoverycollegecentralalberta.ca" title="Recovery College Central Alberta">Central Alberta</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                   <!--  <div class="col-12 col-md-4 footer-main-site-link">
+                        <!--  <div class="col-12 col-md-4 footer-main-site-link">
 
                         <a href="#" target="_blank">
                             
@@ -413,133 +413,133 @@ pg_close($dbconn);
                         </a>
                     </div> -->
 
-                    <div class="col-12 col-md-8 footer-social">
-                        <span class="title-5">Find Us</span>
-                        <ul class="footer-social-icons">
+                        <div class="col-12 col-md-8 footer-social">
+                            <span class="title-5">Find Us</span>
+                            <ul class="footer-social-icons">
 
-                            <li>
-                                <a href="https://www.facebook.com/CMHAEdmonton/" target="_blank" rel="noopener" aria-label="Facebook">
-                                    <span class="iconify" data-icon="ant-design:facebook-filled" data-inline="false" style="margin-top: -8px;"></span>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="https://www.facebook.com/CMHAEdmonton/" target="_blank" rel="noopener" aria-label="Facebook">
+                                        <span class="iconify" data-icon="ant-design:facebook-filled" data-inline="false" style="margin-top: -8px;"></span>
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="https://twitter.com/CMHAEdmonton" target="_blank" rel="noopener" aria-label="Twitter">
-                                    <span class="iconify" data-icon="ion-logo-twitter" data-inline="false" style="margin-top: -8px;"></span>
+                                <li>
+                                    <a href="https://twitter.com/CMHAEdmonton" target="_blank" rel="noopener" aria-label="Twitter">
+                                        <span class="iconify" data-icon="ion-logo-twitter" data-inline="false" style="margin-top: -8px;"></span>
 
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
 
 
 
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer-meta">
-                    <div class="row">
-
-                        <div class="col-12 col-sm-4 col-md-6">
-
-                            <span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
-                            <!--https://recoverycollegeedmonton.ca/privacy-policy/-->
-                            <span class="footer-meta-sep">|</span>
-
-                            <span class="footer-meta-item"><a href="Terms.html">Terms of Use</a></span>
-                            <!--https://recoverycollegeedmonton.ca/terms-conditions/-->
-                            <span class="footer-meta-sep">|</span>
-
-                            <span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span>
-                            <!--https://recoverycollegeedmonton.ca/copyright-permissions/-->
-
+                            </ul>
                         </div>
-
-                        <div class="col-12 col-sm-8 col-md-6">
-                            <span class="copy-registration"><span class="footer-meta-item">© Recovery College Edmonton 2020, All Rights Reserved</span><span class="footer-meta-item">Registered Charity Number: 118834316RR</span></span>
-                        </div>
-
                     </div>
-                </div>
 
-            </div>
-        </footer>
+                    <div class="footer-meta">
+                        <div class="row">
 
-        <div class="modal fade" id="waitlist-modal" tabindex="-1" role="dialog" aria-labelledby="waitlist-modal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="waitlist-modal-title">Join Waitlist</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+                            <div class="col-12 col-sm-4 col-md-6">
 
-                        <p>This course is full. Add yourself to the waitlist you’ll be contacted when a spot opens up.</p>
+                                <span class="footer-meta-item"><a href="Privacy.html">Privacy Page</a></span>
+                                <!--https://recoverycollegeedmonton.ca/privacy-policy/-->
+                                <span class="footer-meta-sep">|</span>
 
-                        <form>
-                            <label for="waitlist__name">Name</label>
-                            <input type="text" name="name" id="waitlist__name" placeholder="John Doe" required="">
+                                <span class="footer-meta-item"><a href="Terms.html">Terms of Use</a></span>
+                                <!--https://recoverycollegeedmonton.ca/terms-conditions/-->
+                                <span class="footer-meta-sep">|</span>
 
-                            <p>What is your preferred method of contact?</p>
-                            <div class="radio-group">
-                                <field-group>
-                                    <input type="radio" name="contact-preference" id="waitlist-contact-preference-email" data-conditional-control="true" value="email" checked="checked">
-                                    <label for="waitlist-contact-preference-email">Email</label>
-                                </field-group>
-                                <field-group>
-                                    <input type="radio" name="contact-preference" id="waitlist-contact-preference-phone" data-conditional-control="true" value="phone">
-                                    <label for="waitlist-contact-preference-phone">Text Message</label>
-                                </field-group>
+                                <span class="footer-meta-item"><a href="copyright-permissions.html">Copyright &amp; Permissions</a></span>
+                                <!--https://recoverycollegeedmonton.ca/copyright-permissions/-->
+
                             </div>
 
-                            <label for="waitlist__email" data-conditional-switch="contact-preference" data-conditional-value="email" style="">Email</label>
-                            <input type="email" name="email" id="waitlist__email" placeholder="john.smith@example.com" data-conditional-switch="contact-preference" data-conditional-value="email" style="">
+                            <div class="col-12 col-sm-8 col-md-6">
+                                <span class="copy-registration"><span class="footer-meta-item">© Recovery College Edmonton 2020, All Rights Reserved</span><span class="footer-meta-item">Registered Charity Number: 118834316RR</span></span>
+                            </div>
 
-                            <label for="waitlist__phone" data-conditional-switch="contact-preference" data-conditional-value="phone" style="display: none;">Mobile (eg. 780-111-2222)</label>
-                            <input type="tel" name="phone" id="waitlist__phone" placeholder="780-111-2222 ( 10 digits )" data-conditional-switch="contact-preference" data-conditional-value="phone" minlength="10" style="display: none;">
-
-                            <field-group>
-                                <input type="checkbox" id="waitlist-consent-checkbox" name="consent" required="">
-                                <label for="waitlist-consent-checkbox">I agree with and accept the <a class="link" href="Privacy.html" target="_blank">Privacy Policy</a>.</label>
-                            </field-group>
-                        </form>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="button button--secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="button button--plus" id="waitlist-submit">Join Waitlist</button>
+
+                </div>
+            </footer>
+
+            <div class="modal fade" id="waitlist-modal" tabindex="-1" role="dialog" aria-labelledby="waitlist-modal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="waitlist-modal-title">Join Waitlist</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p>This course is full. Add yourself to the waitlist you’ll be contacted when a spot opens up.</p>
+
+                            <form>
+                                <label for="waitlist__name">Name</label>
+                                <input type="text" name="name" id="waitlist__name" placeholder="John Doe" required="">
+
+                                <p>What is your preferred method of contact?</p>
+                                <div class="radio-group">
+                                    <field-group>
+                                        <input type="radio" name="contact-preference" id="waitlist-contact-preference-email" data-conditional-control="true" value="email" checked="checked">
+                                        <label for="waitlist-contact-preference-email">Email</label>
+                                    </field-group>
+                                    <field-group>
+                                        <input type="radio" name="contact-preference" id="waitlist-contact-preference-phone" data-conditional-control="true" value="phone">
+                                        <label for="waitlist-contact-preference-phone">Text Message</label>
+                                    </field-group>
+                                </div>
+
+                                <label for="waitlist__email" data-conditional-switch="contact-preference" data-conditional-value="email" style="">Email</label>
+                                <input type="email" name="email" id="waitlist__email" placeholder="john.smith@example.com" data-conditional-switch="contact-preference" data-conditional-value="email" style="">
+
+                                <label for="waitlist__phone" data-conditional-switch="contact-preference" data-conditional-value="phone" style="display: none;">Mobile (eg. 780-111-2222)</label>
+                                <input type="tel" name="phone" id="waitlist__phone" placeholder="780-111-2222 ( 10 digits )" data-conditional-switch="contact-preference" data-conditional-value="phone" minlength="10" style="display: none;">
+
+                                <field-group>
+                                    <input type="checkbox" id="waitlist-consent-checkbox" name="consent" required="">
+                                    <label for="waitlist-consent-checkbox">I agree with and accept the <a class="link" href="Privacy.html" target="_blank">Privacy Policy</a>.</label>
+                                </field-group>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button button--secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="button button--plus" id="waitlist-submit">Join Waitlist</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div><!-- #page -->
+        </div><!-- #page -->
 
-    <script>
-        (function(body) {
-            'use strict';
-            body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
-        })(document.body);
-    </script>
-    <script type="text/javascript" id="site_scripts-js-extra">
-        /* <![CDATA[ */
-        var plglobals = {
-            "session": ""
-        };
-        /* ]]> */
-    </script>
-    <script type="text/javascript" src="js/base_script.js?ver=1.7" id="site_scripts-js"></script>
-    <script type="text/javascript" id="ajax_scripts-js-extra">
-        /* <![CDATA[ */
-        var ajaxscript = {
-            "ajax_url": "https:\/\/recoverycollegeedmonton.ca\/wp-admin\/admin-ajax.php",
-            "home_url": "https:\/\/recoverycollegeedmonton.ca",
-            "theme_url": "https:\/\/recoverycollegeedmonton.ca\/wp-content\/themes\/cmha",
-            "checkout_url": "https:\/\/recoverycollegeedmonton.ca\/registration\/",
-            "nonce": "ac3450dab4"
-        };
-        /* ]]> */
-    </script>
-    <script type="text/javascript" src="js/ajax_script.js?ver=1.7" id="ajax_scripts-js"></script>
+        <script>
+            (function(body) {
+                'use strict';
+                body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+            })(document.body);
+        </script>
+        <script type="text/javascript" id="site_scripts-js-extra">
+            /* <![CDATA[ */
+            var plglobals = {
+                "session": ""
+            };
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="js/base_script.js?ver=1.7" id="site_scripts-js"></script>
+        <script type="text/javascript" id="ajax_scripts-js-extra">
+            /* <![CDATA[ */
+            var ajaxscript = {
+                "ajax_url": "https:\/\/recoverycollegeedmonton.ca\/wp-admin\/admin-ajax.php",
+                "home_url": "https:\/\/recoverycollegeedmonton.ca",
+                "theme_url": "https:\/\/recoverycollegeedmonton.ca\/wp-content\/themes\/cmha",
+                "checkout_url": "https:\/\/recoverycollegeedmonton.ca\/registration\/",
+                "nonce": "ac3450dab4"
+            };
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="js/ajax_script.js?ver=1.7" id="ajax_scripts-js"></script>
 
 
 </body>

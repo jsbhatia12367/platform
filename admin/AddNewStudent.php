@@ -63,7 +63,7 @@ pg_close($db);
               <td>*Username : </td>
               <td><input type="text" name="username" class="form-control" required></td>
               <td>*Password : </td>
-              <td><input type="text" name="password" class="form-control" required></td>
+              <td><input type="password" name="password" class="form-control" required></td>
             </tr>
              <tr>
               <td>*First name : </td>
@@ -78,8 +78,8 @@ pg_close($db);
               <td><input type="email" name="emailaddress" class="form-control" required></td>
             </tr>
              <tr>
-              <td>Phone Number : </td>
-              <td><input type="tel" name="phonenumber" class="form-control" placeholder="Optional"></td>
+              <td>*Phone Number : </td>
+              <td><input type="tel" name="phonenumber" class="form-control" required></td>
               <td>*Date of Birth : </td>
               <td><input type="date" name="dateofbirth" class="form-control" required></td>
             </tr>

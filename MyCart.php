@@ -64,7 +64,7 @@
 
     <script type="text/javascript">
         function Enroll(clicked_id) {
-            window.location.href = "/platform/user/StudentLoginFromCart.php";
+            window.location.href = "/platform/user/StudentLogin.php";
         }
 
         function ShowAllCourses() {

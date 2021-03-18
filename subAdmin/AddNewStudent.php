@@ -60,13 +60,13 @@ pg_close($db);
             </thead>
             <tbody>
               <tr>
-              <td>Username : </td>
+              <td>*Username : </td>
               <td><input type="text" name="username" class="form-control" required></td>
-              <td>Password : </td>
+              <td>*Password : </td>
               <td><input type="text" name="password" class="form-control" required></td>
             </tr>
              <tr>
-              <td>First name : </td>
+              <td>*First name : </td>
               <td><input type="text" name="firstname" class="form-control" required></td>
               <td>Middle name : </td>
               <td><input type="text" name="middlename" class="form-control" placeholder="Optional"></td>
@@ -74,14 +74,14 @@ pg_close($db);
              <tr>
               <td>Last name : </td>
               <td><input type="text" name="lastname" class="form-control" placeholder="Optional"></td>
-              <td>Email : </td>
+              <td>*Email : </td>
               <td><input type="email" name="emailaddress" class="form-control" required></td>
             </tr>
              <tr>
-              <td>Phone Number : </td>
-              <td><input type="tel" name="phonenumber" class="form-control" placeholder="Optional"></td>
-              <td>Date of Birth : </td>
-              <td><input type="date" name="dateofbirth" class="form-control"></td>
+              <td>*Phone Number : </td>
+              <td><input type="tel" name="phonenumber" class="form-control" required></td>
+              <td>*Date of Birth : </td>
+              <td><input type="date" name="dateofbirth" class="form-control" required></td>
             </tr>
             <tr>
               <td>City : </td>

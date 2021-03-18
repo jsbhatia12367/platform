@@ -365,11 +365,22 @@
 
 
 
-								echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
-								echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
+								if($row['currently_enrolled']<$row['capacity'])
+								{
+								echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>
+														<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
 															</div>
 														</div><!-- #tribe-events-content -->
 													</div>";
+								}
+								else
+								{
+									echo "<button class='btn btn-secondary' id='" . $row['course_id'] . "' onclick='addToCart(this.id) disabled'>Class Full</button>
+									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
+										</div>
+									</div><!-- #tribe-events-content -->
+								</div>";
+								}
 							} else {
 								echo "
 								<div class='col-12 col-md-6 card-container'>
@@ -399,13 +410,24 @@
 
 										<div class='card__footer'>";
 
-
+								
+										if($row['currently_enrolled']<$row['capacity'])
+										{
 
 								echo "<button class='add-to-cart button--plus button--online' id='" . $row['course_id'] . "' onclick='addToCart(this.id)'>Add to Cart</button>";
 								echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
 										</div>
 									</div><!-- #tribe-events-content -->
 								</div>";
+										}
+										else
+										{
+											echo "<button class='btn btn-secondary' id='" . $row['course_id'] . "' onclick='addToCart(this.id) disabled'>Class Full</button>";
+								echo "									<a href='learnmore.php?course_id=" . $row['course_id'] . "' class='button button--secondary'>Learn More</a>
+										</div>
+									</div><!-- #tribe-events-content -->
+								</div>";
+										}
 							}
 						}
 

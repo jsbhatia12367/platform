@@ -3,12 +3,6 @@
 // Initialize the session
 //session_start();
  $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
- if (!$dbconn){  
-echo "<center><h1>Doesn't work =(</h1></center>";  
-}else  
-{
-  //echo "<center><h1>Good connection</h1></center>";   
-}
  
  if(isset($_POST['delete_all'])&&!empty($_POST['delete_all'])){
     //console.log("testing1");
@@ -41,8 +35,25 @@ pg_close($dbconn);
 <link href='../css/studentStyle.css' rel='stylesheet' type="text/css"/>
 <link href='../css/admin_table.css' rel='stylesheet' type="text/css"/>
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-<svg style="display:none;">
-</svg>
+<svg style="display:none;"></svg>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>
+  function deleteMessage(sno)
+  {
+    $.ajax({
+        type: "POST",
+        url: 'admin_ajax.php',
+        data: {
+          action: 'delete_perticular_message',
+          sno: sno
+        },
+        success: function(html) {
+          location.reload();
+        }
+
+      });
+  }
+</script>
 </head>
 
 <body>
@@ -81,7 +92,7 @@ pg_close($dbconn);
                 echo "<td>" . htmlspecialchars($row['name']) . " </td>";
                 echo "<td>" . htmlspecialchars($row['email']) . " </td>";
                 echo "<td>" . htmlspecialchars($row['message']) . " </td>";
-                echo "<td><a href='admin_ajax.php?Email=".htmlspecialchars($row['email'])."'>Delete</a></td>";
+                echo "<td><button id='".$row['sno']."' onclick='deleteMessage(this.id)'>Delete</button></td>";
                 echo "</tr>";
               }
               pg_close($db); ?>

@@ -188,8 +188,8 @@ The content from cdnjs.cloudflare.com is all open source -->
             </div>
 
             <div>
-                <label>phonenumber</label>
-                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber">
+                <label>*phonenumber</label>
+                <input type="tel" pattern="[6-9]{1}[0-9]{9}"  name="phonenumber" id="phonenumber" required>
                 <span class="help-block"></span>
             </div>           
             <div>

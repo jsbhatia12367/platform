@@ -29,18 +29,22 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
         $string = exec('getmac');
         $mac = substr($string, 0, 17);
 
-        
-        $sql2= pg_query(sprintf("SELECT * FROM public.cart WHERE emailaddress='" . $mac . "';"));
 
+        $sql2 = pg_query(sprintf("SELECT * FROM public.cart WHERE emailaddress='" . $mac . "';"));
 
-        if(!empty($sql2)){
-        pg_query(sprintf("UPDATE public.cart SET emailaddress='" . $_SESSION['EmailStudent'] . "' WHERE emailaddress='" . $mac . "';"));
-        header('Location: StudentDashboard.php');
+        while ($row = pg_fetch_assoc($sql2)) {
+            $sql3 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart WHERE course_id='" . $row['course_id'] . "' AND emailaddress='" . $_SESSION['EmailStudent'] . "';")));
+            $sql4 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.enroll WHERE course_id='" . $row['course_id'] . "' AND emailaddress='" . $_SESSION['EmailStudent'] . "';")));
+            if (empty($sql3) && empty($sql4))
+                pg_query(sprintf("UPDATE public.cart SET emailaddress='" . $_SESSION['EmailStudent'] . "' WHERE emailaddress='" . $mac . "';"));
+            else
+                pg_query(sprintf("DELETE from public.cart WHERE emailaddress='" . $mac . "' and course_id='" . $row['course_id'] . "';"));
+
         }
-        else{
+        if (empty(pg_fetch_assoc($sql2)))
             header('Location: StudentDashboard.php');
-        }
-
+        else
+            header('Location: MyCart.php');
     } else {
         echo "<div class='alert alert-danger'>
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>
