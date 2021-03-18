@@ -6,8 +6,8 @@ ob_start();
 <?php
 
 if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
-  if (isset($_SESSION['Email'])) {
-    $session_email = $_SESSION["Email"];
+  if (isset($_SESSION['EmailSubAdmin'])) {
+    $session_email = $_SESSION["EmailSubAdmin"];
   } else {
     $session_email = "error value";
   }
@@ -133,7 +133,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                       <td>
                         <select class="form-control" id="owner_email" name="owner_email">
                           <?php
-                          echo '<option value="' . htmlspecialchars($_SESSION['Email']) . '">' . htmlspecialchars($_SESSION['Email']) . '</option>';
+                          echo '<option value="' . htmlspecialchars($_SESSION['EmailSubAdmin']) . '">' . htmlspecialchars($_SESSION['EmailSubAdmin']) . '</option>';
                           ?>
                         </select>
                       </td>

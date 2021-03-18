@@ -1,3 +1,7 @@
+<?php
+include("userinfo_sub_admin.php");
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 <head>

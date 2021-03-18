@@ -1,8 +1,8 @@
 <?php
 session_start();
-$Email=$_SESSION['Email'];
+$EmailStudent=$_SESSION['EmailStudent'];
 
-if(!isset($_SESSION['Email']))
+if(!isset($_SESSION['EmailStudent']))
 {
 	header("Location:StudentLogin.php");
 }

@@ -16,7 +16,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
     if($login_check > 0){ 
       //  console.log("testing3");
         //session_start();
-        //$_SESSION["Email"] = $_POST['email'];
+        //$_SESSION["EmailStudent"] = $_POST['email'];
 
                 $sql = "UPDATE public.cmhauser 
                         SET password = '".md5($_POST['password'])."' WHERE emailaddress = '".$_POST['email']."'";
