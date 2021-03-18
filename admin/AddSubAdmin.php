@@ -1,3 +1,4 @@
+<?php include 'userinfo_admin.php'; ?>
 <?php  
 $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");  
 //connect to a database named "postgres" on the host "host" with a username and password  
@@ -68,15 +69,15 @@ pg_close($dbconn);
               <tr>
               <tr>
                 <td>*Email : </td>
-                <td><input type="text"  name="email" class="form-control"  required></td>
+                <td><input type="email"  name="email" class="form-control"  required></td>
               </tr>
               <tr>
                 <td>*Mobile No : </td>
-                <td><input type="text"  name="mobile_no" class="form-control"  required></td>
+                <td><input type="tel"  name="mobile_no" class="form-control"  required></td>
               </tr>
               <tr>
                 <td>*Password : </td>
-                <td><input type="text"  name="password" class="form-control"  required></td>
+                <td><input type="password"  name="password" class="form-control"  required></td>
               </tr>
                 <td colspan="2"><center><input type="submit" class="btn btn-primary" name="register" value="register"></center></td>
                 

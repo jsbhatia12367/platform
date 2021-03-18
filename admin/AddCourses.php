@@ -6,8 +6,8 @@ ob_start();
 <?php
 
 if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
-  if (isset($_SESSION['Email'])) {
-    $session_email = $_SESSION["Email"];
+  if (isset($_SESSION['EmailAdmin'])) {
+    $session_email = $_SESSION["EmailAdmin"];
   } else {
     $session_email = "error value";
   }

@@ -1,6 +1,6 @@
 <?php
 session_start();
 ob_start();
-unset($_SESSION['Email']);
+unset($_SESSION['EmailSubAdmin']);
 header("Location:../HomePageAdmin.php");
 ?>

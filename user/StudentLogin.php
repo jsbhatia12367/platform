@@ -40,10 +40,11 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
             else
                 pg_query(sprintf("DELETE from public.cart WHERE emailaddress='" . $mac . "' and course_id='" . $row['course_id'] . "';"));
 
-            header('Location: MyCart.php');
         }
-        if (empty($sql2))
+        if (empty(pg_fetch_assoc($sql2)))
             header('Location: StudentDashboard.php');
+        else
+            header('Location: MyCart.php');
     } else {
         echo "<div class='alert alert-danger'>
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>Close X</a>

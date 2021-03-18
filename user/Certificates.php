@@ -45,7 +45,7 @@
             <?php
 
             $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-            $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=true AND certificate_generated=true AND emailaddress ='" . pg_escape_string($_SESSION['Email']) . "';"));
+            $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=true AND certificate_generated=true AND emailaddress ='" . pg_escape_string($_SESSION['EmailStudent']) . "';"));
 
 
             while ($row = pg_fetch_assoc($sql)) {

@@ -1,8 +1,8 @@
 <?php
 session_start();
-$Email=$_SESSION['Email'];
+$EmailSubAdmin=$_SESSION['EmailSubAdmin'];
 
-if(!isset($_SESSION['Email']))
+if(!isset($_SESSION['EmailSubAdmin']))
 {
 	header("Location:SubAdminLogin.php");
 }

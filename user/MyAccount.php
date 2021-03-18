@@ -27,7 +27,7 @@ if (!$db) {
                         , livingarrangement = '".$_POST['livingarrangement']."'
                         , sourceofincome = '".$_POST['sourceofincome']."'
                         , occupation = '".$_POST['occupation']."' 
-                        WHERE emailaddress = '".$Email."'";
+                        WHERE emailaddress = '".$EmailStudent."'";
       // (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($_POST['password'])."')";
       $ret = pg_query($db, $RegisterSql);
       if($ret){
@@ -42,7 +42,7 @@ if (!$db) {
 if(isset($_POST['delete'])&&!empty($_POST['delete'])){
       $RegisterSql = "Delete FROM public.cmhauser 
                         
-                        WHERE emailaddress = '".$Email."'";
+                        WHERE emailaddress = '".$EmailStudent."'";
       // (firstname, middlename, lastname, emailaddress, phonenumber, dateofbirth, city, province, gender, ethnicity, indigenousidentity, languagespoken, housingstatus, sourceofincome, occupation, username, password) VALUES ('".pg_escape_string($_POST['firstname'])."','".pg_escape_string($_POST['middlename'])."','".pg_escape_string($_POST['lastname'])."','".pg_escape_string($_POST['emailaddress'])."','".pg_escape_string($_POST['phonenumber'])."','".pg_escape_string($_POST['dateofbirth'])."','".pg_escape_string($_POST['city'])."','".pg_escape_string($_POST['province'])."','".pg_escape_string($_POST['gender'])."','".pg_escape_string($_POST['ethnicity'])."','".pg_escape_string($_POST['indigenousidentity'])."','".pg_escape_string($_POST['languagespoken'])."','".pg_escape_string($_POST['housingstatus'])."','".pg_escape_string($_POST['sourceofincome'])."','".pg_escape_string($_POST['occupation'])."','".pg_escape_string($_POST['username'])."','".pg_escape_string($_POST['password'])."')";
       $ret = pg_query($db, $RegisterSql);
       if($ret){
@@ -106,7 +106,7 @@ pg_close($db);
                 <?php
               $sr_no = 1;
               $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cmhauser where emailaddress='".$Email."' ;")));
+              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cmhauser where emailaddress='".$EmailStudent."' ;")));
                 echo"<td><input type='text' name='username' class='form-control' disabled='true' value='".$sql2['username']."'></td>
                
                 <td>Email Address :</td>
@@ -138,8 +138,8 @@ pg_close($db);
                 <td>Province :</td>
                 <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>
                
-                <td>Gender :</td>
-                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."' placeholder='Optional'></td>
+                <td>*Gender :</td>
+                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."'></td>
                </tr>
                <tr>
                 <td>Ethnicity :</td>

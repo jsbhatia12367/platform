@@ -1,6 +1,6 @@
 <?php
 session_start();
 ob_start();
-unset($_SESSION['Roll_no']);
+unset($_SESSION['EmailStudent']);
 header("Location:../HomePage.php");
 ?>
