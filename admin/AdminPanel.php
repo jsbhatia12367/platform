@@ -1,3 +1,4 @@
+<?php include 'userinfo_admin.php'; ?>
 <link href='../css/studentStyle.css' rel='stylesheet' type="text/css"/>
 <link href='../css/admin_table.css' rel='stylesheet' type="text/css"/>
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>

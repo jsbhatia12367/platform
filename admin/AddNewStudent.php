@@ -1,3 +1,4 @@
+<?php include 'userinfo_admin.php'; ?>
 <?php
  $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
  if (!$db){  

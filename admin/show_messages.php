@@ -1,4 +1,5 @@
-<?php
+<?php include 'userinfo_admin.php'; ?><?php
+
 // Initialize the session
 //session_start();
  $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
@@ -18,7 +19,7 @@ echo "<center><h1>Doesn't work =(</h1></center>";
     if($data){ 
       //  console.log("testing3");
         // session_start();
-        // $_SESSION["Email"] = $_POST['email'];
+        // $_SESSION["EmailAdmin"] = $_POST['email'];
         header('Location: show_messages.php');    
     }else{
         echo "<div class='alert alert-danger'>

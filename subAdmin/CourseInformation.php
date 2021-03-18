@@ -44,7 +44,7 @@ ob_start();
         
                 <?php
                   $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                  $sql = pg_query(sprintf("SELECT * FROM public.courses where owner_email='".$_SESSION['Email']."';"));
+                  $sql = pg_query(sprintf("SELECT * FROM public.courses where owner_email='".$_SESSION['EmailSubAdmin']."';"));
                   $count = 0;
                   while ($row = pg_fetch_assoc($sql)) {
                     $count = $count + 1;
@@ -61,7 +61,7 @@ ob_start();
                   }
                   if($count == 0)
                   {
-                    echo "<tr><td>No </td><td>Course </td><td>Information </td><td>Available</td></tr>";
+                    echo "<tr><td colspan='8'><center>No Course Information Available</center></td></tr>";
                   }
                 ?>
                 <!-- <td></td>

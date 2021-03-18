@@ -35,7 +35,7 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
 
         if(!empty($sql2)){
         pg_query(sprintf("UPDATE public.cart SET emailaddress='" . $_SESSION['EmailStudent'] . "' WHERE emailaddress='" . $mac . "';"));
-        header('Location: StudentDashboard.php');
+        header('Location: MyCart.php');
         }
         else{
             header('Location: StudentDashboard.php');

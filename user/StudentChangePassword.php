@@ -14,17 +14,17 @@ echo "<center><h1>Doesn't work =(</h1></center>";
  if(isset($_POST['change'])&&!empty($_POST['change'])){
     //console.log("testing1");
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from public.cmhauser where emailaddress = '".$Email."' and password ='".$hashpassword."'";
+    $sql ="select * from public.cmhauser where emailaddress = '".$EmailStudent."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     //console.log("testing2");
     if($login_check > 0){ 
       //  console.log("testing3");
         //session_start();
-        //$_SESSION["Email"] = $_POST['email'];
+        //$_SESSION["EmailStudent"] = $_POST['email'];
 
                 $sql = "UPDATE public.cmhauser 
-                        SET password = '".md5($_POST['new_password'])."' WHERE emailaddress = '".$Email."'";
+                        SET password = '".md5($_POST['new_password'])."' WHERE emailaddress = '".$EmailStudent."'";
             $ret = pg_query($dbconn, $sql);
             if($ret){
                 

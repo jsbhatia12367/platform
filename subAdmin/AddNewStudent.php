@@ -1,4 +1,5 @@
 <?php
+include("userinfo_sub_admin.php");
  $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
  if (!$db){  
   echo "<center><h1>Doesn't work =(</h1></center>";  

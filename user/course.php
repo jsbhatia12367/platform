@@ -70,10 +70,10 @@
                 <td><a href='../admin/uploads/" . $sql['course_data'] . "'>" . $sql['course_data'] . "</a></td>
                </tr>
                <tr>";
-                            $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.enroll where course_id ='" . $_GET['course_id'] . "' AND emailaddress='".$_SESSION['Email']."';")));
+                            $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.enroll where course_id ='" . $_GET['course_id'] . "' AND emailaddress='".$_SESSION['EmailStudent']."';")));
                             $status = $sql2['completed'] === 'f';
                             if ($status) {
-                                echo "<td><button id='" . $sql['course_id'] . "' value='" . $_SESSION['Email'] . "' class='btn btn-primary'>Completed</button></td>";
+                                echo "<td><button id='" . $sql['course_id'] . "' value='" . $_SESSION['EmailStudent'] . "' class='btn btn-primary'>Completed</button></td>";
                                 // echo "<td><form><input name='accept' type='submit' id='".$row['course_id']."' value='".$row['emailaddress']."'></td></form>";
                             } else
                                 echo "<td>Already Completed</td>";

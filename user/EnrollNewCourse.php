@@ -63,7 +63,7 @@
                 <?php
 
                 $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-                $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (select course_id From public.enroll where emailaddress='".$_SESSION['Email']."');"));
+                $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (select course_id From public.enroll where emailaddress='".$_SESSION['EmailStudent']."');"));
                
 
                 while ($row = pg_fetch_assoc($sql)) {
@@ -98,7 +98,7 @@
                               <div class='card__footer'>";
 
                               // Sql Query to find 
-                              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='".$row['course_id']."' and emailaddress='".$_SESSION['Email']."';")));
+                              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cart where course_id='".$row['course_id']."' and emailaddress='".$_SESSION['EmailStudent']."';")));
 
                               if($row['capacity']>$row['currently_enrolled'] && empty($sql2))
                               {

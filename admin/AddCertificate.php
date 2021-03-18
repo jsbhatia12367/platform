@@ -1,3 +1,4 @@
+<?php include 'userinfo_admin.php'; ?>
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 
