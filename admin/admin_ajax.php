@@ -1,8 +1,8 @@
 <?php
-if($_GET['Email'])
-{
 
-}
+$db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+
+
 if ($_POST['action'] == 'checkfilealreadyexist') { // file already exist check
    $filename = $_FILES['file']['name'];
 
@@ -40,12 +40,20 @@ if (isset($_FILES['file']['name'])) {
    $response = 0;
    if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
       $response = 1;
-      $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
       pg_query(sprintf("UPDATE public.enroll SET certificate_generated=TRUE, certificate='" . $filename . "' WHERE course_id =" . $course_id . " AND emailaddress='" . $emailaddress . "';"));
-      pg_close($db);
    }
 
    echo $response;
    exit;
 }
 }
+
+if($_POST['action'] == 'delete_perticular_message')
+{
+   pg_query(sprintf("DELETE from public.messages where sno=".$_POST['sno'].";"));
+   pg_close($db);
+}
+
+pg_close($db);
+
+?>
