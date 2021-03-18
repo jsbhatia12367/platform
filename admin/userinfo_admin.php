@@ -1,8 +1,8 @@
 <?php
 session_start();
-$Email=$_SESSION['Email'];
+$EmailAdmin=$_SESSION['EmailAdmin'];
 
-if(!isset($_SESSION['Email']))
+if(!isset($_SESSION['EmailAdmin']))
 {
 	header("Location:AdminLogin.php");
 }
