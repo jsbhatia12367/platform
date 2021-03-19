@@ -64,6 +64,7 @@ pg_close($db);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link href='../css/studentStyle.css' rel='stylesheet' type="text/css"/>
 <link href='../css/admin_table.css' rel='stylesheet' type="text/css"/>
+<link rel="stylesheet" id="site_styles-css" href="../css/main_styles.css?ver=1.7" type="text/css" media="all">
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 <svg style="display:none;">
 </svg>
@@ -128,11 +129,18 @@ pg_close($db);
                </tr>
                <tr>
                 <td>Province :</td>
-                <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>
+                <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>";
                
-                <td>Gender :</td>
-                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."' placeholder='Optional'></td>
-               </tr>
+                if($sql2['gender']=='male'){
+                  echo "<td>Gender: <input type='radio'  id='male' name='gender' value='male' checked ><label for='male'>Male</label></td>
+                  <td><input type='radio' id='female' name='gender' value='female'><label for='female'>Female</label></td>";
+                  }
+                  else
+                  {
+                    echo "<td>Gender: <input type='radio' id='male' name='gender' value='male'><label for='male'>Male</label></td>
+                    <td><input type='radio' id='female' name='gender' value='female' checked><label for='female'>Female</label></td>";
+                  }
+               echo "</tr>
                <tr>
                 <td>Ethnicity :</td>
                 <td> <input type='text' name='ethnicity' class='form-control'  value='".$sql2['ethnicity']."' placeholder='Optional'></td>

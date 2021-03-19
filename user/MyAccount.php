@@ -138,9 +138,19 @@ pg_close($db);
                 <td>Province :</td>
                 <td> <input type='text' name='province' class='form-control'  value='".$sql2['province']."' placeholder='Optional'></td>
                
-                <td>*Gender :</td>
-                <td> <input type='text' name='gender' class='form-control'  value='".$sql2['gender']."'></td>
-               </tr>
+                ";
+
+                if($sql2['gender']=='male'){
+                echo "<td>Gender: <input type='radio'  id='male' name='gender' value='male' checked ><label for='male'>Male</label></td>
+                <td><input type='radio' id='female' name='gender' value='female'><label for='female'>Female</label></td>";
+                }
+                else
+                {
+                  echo "<td>Gender: <input type='radio' id='male' name='gender' value='male'><label for='male'>Male</label></td>
+                  <td><input type='radio' id='female' name='gender' value='female' checked><label for='female'>Female</label></td>";
+                }
+
+               echo "</tr>
                <tr>
                 <td>Ethnicity :</td>
                 <td> <input type='text' name='ethnicity' class='form-control'  value='".$sql2['ethnicity']."' placeholder='Optional'></td>

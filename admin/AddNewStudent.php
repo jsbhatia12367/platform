@@ -32,6 +32,7 @@ pg_close($db);
 <link href='../css/studentStyle.css' rel='stylesheet' type="text/css"/>
 <link href='../css/admin_table.css' rel='stylesheet' type="text/css"/>
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<link rel="stylesheet" id="site_styles-css" href="../css/main_styles.css?ver=1.7" type="text/css" media="all">
 <svg style="display:none;">
 </svg>
 </head>
@@ -90,8 +91,8 @@ pg_close($db);
               <td><input type="text" name="province" class="form-control" placeholder="Optional"></td>
             </tr>
             <tr>
-              <td>Gender : </td>
-              <td><input type="text" name="gender" class="form-control" placeholder="Optional"></td>
+              <td>Gender: <input type='radio'  id='male' name='gender' value='male'><label for='male'>Male</label></td>
+              <td><input type='radio' id='female' name='gender' value='female'><label for='female'>Female</label></td>
               <td>Ethnicity : </td>
               <td><input type="text" name="ethnicity" class="form-control" placeholder="Optional"></td>
             </tr>
