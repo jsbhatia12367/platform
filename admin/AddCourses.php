@@ -54,6 +54,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
   <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
   <link href='../css/admin_table.css' rel='stylesheet' type="text/css" />
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  
   <svg style="display:none;"></svg>
   <script type="text/javascript">
     function validateInputDate() {

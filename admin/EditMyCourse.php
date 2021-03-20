@@ -6,7 +6,9 @@ $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres passwor
 
 if (isset($_POST['update']) && !empty($_POST['update'])) {
 
-  if ($_FILES['course_data']['size'] == 0 && $_FILES['cover_image']['error'] == 0) {
+  if ( !is_uploaded_file($_FILES['course_data']['tmp_name'])) {
+
+  // if ($_FILES['course_data']['size'] == 0 && $_FILES['course_data']['error'] == 0) {
     $sql = "update public.courses set 
     course_name = '" . $_POST['course_name'] . " ',
     start_date =' " . $_POST['start_date'] . "',
