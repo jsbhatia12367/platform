@@ -47,7 +47,7 @@ if(isset($_POST['delete'])&&!empty($_POST['delete'])){
       $ret = pg_query($db, $RegisterSql);
       if($ret){
           echo '<script>alert("Account Deleted Successfully")</script>';
-              echo "<script>setTimeout(\"location.href = 'StudentLogin.php';\",1);</script>";
+              echo "<script>setTimeout(\"location.href = '../AddNewStudentNew.php';\",1);</script>";
       }else{
           
               echo "Soething Went Wrong";
