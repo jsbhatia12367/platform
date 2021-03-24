@@ -42,7 +42,7 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
 
         }
         if (empty(pg_fetch_assoc($sql2)))
-            header('Location: StudentDashboard.php');
+            header('Location: EnrollNewCourse.php');
         else
             header('Location: MyCart.php');
     } else {

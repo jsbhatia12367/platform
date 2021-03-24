@@ -16,8 +16,11 @@
       <div class="main__container">
         <div class="main__title">
             <div class="main__greeting">
-              <h1>Admin Dashboard</h1>
-              <p>Welcome to your CMHA admin dashboard</p>
+             <?php 
+              $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.admin where email='".$EmailAdmin."' ;")));
+              echo"<h1>Welcome  ".$sql2['first_name']. " </h1>"
+              ?>
             </div>
             </div>
      <?php 
