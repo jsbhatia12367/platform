@@ -46,10 +46,10 @@
 
             $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
             $sql = pg_query(sprintf("SELECT * FROM public.enroll where completed=true AND certificate_generated=true AND emailaddress ='" . pg_escape_string($_SESSION['EmailStudent']) . "';"));
-
+            $count = 0;
 
             while ($row = pg_fetch_assoc($sql)) {
-
+              $count = $count + 1;
               $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT course_name FROM public.courses where course_id='".$row['course_id']."' ;")));
             echo "
                           <div class='col-12 col-md-3 card-container'>
@@ -66,12 +66,13 @@
                           </div>";
 
                                   }
+                echo "</div><br><br>";                  
+                if($count == 0){
+                  echo "<center><p>There is no certificate to show, If you have completed the course wait till admin generates your certificate</p></center>";
+                }
 
             ?>
 
-            
-
-          </div>
         </div>
 
       </section>

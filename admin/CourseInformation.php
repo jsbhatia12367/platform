@@ -42,7 +42,9 @@
                 <?php
                   $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
                   $sql = pg_query(sprintf("SELECT * FROM public.courses;"));
+                  $count = 0;
                   while ($row = pg_fetch_assoc($sql)) {
+                    $count = $count + 1;
                     echo "<tr>
                       <td>".htmlspecialchars($row['course_id'])."</td>
                       <td>". htmlspecialchars($row['course_name'])."</td>
@@ -55,6 +57,9 @@
                       <td><a href='EditMyCourse.php?CourseId=".htmlspecialchars($row['course_id'])."'>Edit</a></td>
                   </tr>";
                   }
+
+                  if($count==0)
+                    echo"<tr><td>No Course Available</td></tr>";
                 ?>
                 <!-- <td></td>
                 <td></td>

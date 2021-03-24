@@ -25,7 +25,7 @@
         <div id="content" class="site-content">
           <!-- <section class="page-content"> -->
             <section class="grid">
-              <article><B>DASHBOAD</B></article>
+              <article><B>DASHBOARD</B></article>
               <article></article>
               <article></article>
               <article></article>
