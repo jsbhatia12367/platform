@@ -67,9 +67,10 @@
 
                 $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
                 $sql = pg_query(sprintf("SELECT * FROM public.enroll where emailaddress ='" . pg_escape_string($_SESSION['EmailStudent']) . "';"));
-
+                $count = 0;
 
                 while ($row = pg_fetch_assoc($sql)) {
+                  $count = $count + 1;
 
                   $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.courses where course_id = " . $row['course_id'] . ";")));
                   echo "
@@ -110,12 +111,17 @@
                           </div>";
                 }
 
+                echo "</div><br><br>";
+
+                if ($count == 0)
+                      echo "<center><p>You have not enrolled any courses</p></center>";
+
+
                 ?>
 
-
-
               </div>
-            </div>
+
+              
 
           </section>
 

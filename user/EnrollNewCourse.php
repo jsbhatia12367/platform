@@ -64,9 +64,10 @@
 
                 $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
                 $sql = pg_query(sprintf("SELECT * FROM public.courses where course_id NOT IN (select course_id From public.enroll where emailaddress='".$_SESSION['EmailStudent']."');"));
-               
+               $count = 0;
 
                 while ($row = pg_fetch_assoc($sql)) {
+                  $count = $count + 1;
                   echo "
                           <div class='col-12 col-md-6 card-container'>
                             <div id='tribe-event-content--5068' class='card tribe-events-single events-single-card' data-filter-container=''>
@@ -118,11 +119,13 @@
                           </div>";
                 }
 
+                echo "</div><br>";
+
+                if ($count == 0)
+                    echo "<center><p>No course available to enroll</p></center>";
+
                 ?>
 
-
-
-              </div>
             </div>
 
           </section>
