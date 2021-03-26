@@ -5,10 +5,11 @@
       <ul class="admin-menu">
        
         <li>
-          <a href="StudentDashboard.php">
-              <span class="iconify" data-icon="fa-solid:house-user" data-inline="false"></span>
-            <span>Dashboard</span>
-          </a>
+          <?php 
+              $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+              $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.cmhauser where emailaddress='".$EmailStudent."' ;")));
+              echo"<h4>Welcome ".$sql2['firstname']. " </h4>"
+              ?>
         </li>
         <li>
           <a href="MyCourses.php">
