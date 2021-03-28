@@ -45,4 +45,6 @@ if ($_POST['action'] == 'delete_course_from_my_course') {
 
 
 
+
+
 ?>

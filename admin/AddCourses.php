@@ -6,41 +6,49 @@ ob_start();
 <?php
 
 if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
+
+  $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+
   if (isset($_SESSION['EmailAdmin'])) {
     $session_email = $_SESSION["EmailAdmin"];
   } else {
     $session_email = "error value";
   }
 
+  $total = count($_FILES['course_data']['name']);
   $target_dir = "uploads/";
-  $target_file = $target_dir . basename($_FILES["course_data"]["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  $succesfull = 0;
 
-  if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-  }
+  for ($i = 0; $i < $total; $i++) {
+    $target_file = $target_dir . basename($_FILES["course_data"]["name"][$i]);
+    $uploadOk = 1;
+    if (move_uploaded_file($_FILES["course_data"]["tmp_name"][$i], $target_file)) {
 
-  if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-  } else {
-    if (move_uploaded_file($_FILES["course_data"]["tmp_name"], $target_file)) {
-      $dbconn = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
-      $sql = "insert into public.courses(course_name,owner_email,course_data,start_date,end_date,description,capacity)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . basename($_FILES["course_data"]["name"]) . "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
-      $ret = pg_query($dbconn, $sql);
-      if ($ret) {
-        echo '<script>alert("Course Added Successfully")</script>';
-        // echo "Data saved Successfully";
-      } else {
-
-        echo "Something Went Wrong";
+      if($i == 0){
+      $sql = "insert into public.courses(course_name,owner_email,start_date,end_date,description,capacity)values('" . $_POST['course_name'] . "','"  . $_POST['owner_email'] .  "','" . $_POST['start_date'] . "','" . $_POST['end_date'] . "','" . $_POST['description'] . "','" . $_POST['capacity'] . "')";
+      $ret = pg_query($sql);
       }
-      pg_close($dbconn);
-    } else {
-      echo "Sorry, there was an error uploading your file.";
+      $sql3 = pg_fetch_assoc(pg_query("select course_id from public.courses where course_name='".$_POST['course_name']."'"));
+      
+      if ($ret) {
+        $sql2 = "insert into public.course_specific_data(course_id,course_data)values(" . $sql3['course_id'] . ",'" . basename($_FILES["course_data"]["name"][$i]) . "')";
+        $ret2 = pg_query($sql2);
+        if ($ret2)
+          $succesfull = $succesfull + 1;
+        else
+          echo '<script>alert("Something went wrong")</script>';
+      } else {
+        echo '<script>alert("Something went wrong")</script>';
+      }
     }
   }
+    if($succesfull == $total){
+      echo '<script>alert("Course Added Successfully")</script>';
+    }
+    else {
+      echo "<script>alert('Sorry, there was an error uploading your file.')</script>";
+    }
+  pg_close($db);
 }
 
 ?>
@@ -54,7 +62,7 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
   <link href='../css/studentStyle.css' rel='stylesheet' type="text/css" />
   <link href='../css/admin_table.css' rel='stylesheet' type="text/css" />
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  
+
   <svg style="display:none;"></svg>
   <script type="text/javascript">
     function validateInputDate() {
@@ -144,7 +152,8 @@ if (isset($_POST['submit2']) && !empty($_POST['submit2'])) {
                     <tr>
                     <tr>
                       <td>Data File : </td>
-                      <td><input type="file" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data" required onchange='courseFileAlreadyExistCheck(this.id)'></td>
+                      <td><input type="file" multiple="multiple" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data[]" required></td>
+                      <!-- <td><input type="file" multiple="multiple" class="form-control" id="course_data" placeholder="Insert Data File" name="course_data[]" required onchange='courseFileAlreadyExistCheck(this.id)'></td> -->
                     </tr>
                     <tr>
                       <td>Start Date : </td>
