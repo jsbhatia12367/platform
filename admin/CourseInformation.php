@@ -1,4 +1,8 @@
-<?php include 'userinfo_admin.php'; ?>
+<?php 
+  include 'userinfo_admin.php';
+  ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en-CA" class="no-js">
 
