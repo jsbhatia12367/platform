@@ -39,7 +39,7 @@
 
                             $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
                             $sql = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.courses where course_id ='" . $_GET['course_id'] . "';")));
-
+                            $sql3 = pg_query(sprintf("SELECT * FROM public.course_specific_data where course_id ='" . $_GET['course_id'] . "';"));
                             echo "
               <tr>
                 <td>Course Name :</td>
@@ -67,7 +67,11 @@
                </tr>
                <tr>
                 <td>Course Data :</td>
-                <td><a href='../admin/uploads/" . $sql['course_data'] . "'>" . $sql['course_data'] . "</a></td>
+                <td>";
+                    while($row=pg_fetch_assoc($sql3)){
+                        echo "<a href='../admin/uploads/" . $row['course_data'] . "'>" . $row['course_data'] . "</a>";
+                    }
+                echo "</td>
                </tr>
                <tr>";
                             $sql2 = pg_fetch_assoc(pg_query(sprintf("SELECT * FROM public.enroll where course_id ='" . $_GET['course_id'] . "' AND emailaddress='".$_SESSION['EmailStudent']."';")));

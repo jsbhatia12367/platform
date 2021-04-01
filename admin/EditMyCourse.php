@@ -6,9 +6,6 @@ $db = pg_connect("host=localhost port=5432 dbname=platform user=postgres passwor
 
 if (isset($_POST['update']) && !empty($_POST['update'])) {
 
-  if ( !is_uploaded_file($_FILES['course_data']['tmp_name'])) {
-
-  // if ($_FILES['course_data']['size'] == 0 && $_FILES['course_data']['error'] == 0) {
     $sql = "update public.courses set 
     course_name = '" . $_POST['course_name'] . " ',
     start_date =' " . $_POST['start_date'] . "',
@@ -22,41 +19,6 @@ if (isset($_POST['update']) && !empty($_POST['update'])) {
     } else {
       echo "Something Went Wrong";
     }
-  } else {
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["course_data"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
-    } else {
-      if (move_uploaded_file($_FILES["course_data"]["tmp_name"], $target_file)) {
-        $sql = "update public.courses set 
-      course_name = '" . $_POST['course_name'] . " ',
-       course_data = '" . basename($_FILES['course_data']['name']) . " ', 
-       start_date =' " . $_POST['start_date'] . "',
-      end_date = '" . $_POST['end_date'] . "',
-      description = '" . $_POST['description'] . "',
-      capacity = '" . $_POST['capacity'] . " '
-      where course_id = '" . $CourseId . "';";
-        $ret = pg_query($sql);
-        if ($ret) {
-          echo '<script>alert("Course Updated Successfully")</script>';
-        } else {
-          echo "Something Went Wrong";
-        }
-      } else {
-        echo "Sorry, there was an error uploading your file.";
-      }
-    }
-  }
-
 }
 
 if (isset($_POST['delete']) && !empty($_POST['delete'])) {
@@ -123,16 +85,6 @@ pg_close($db);
                               <td>Owner Email : </td>
                               <td><p>". htmlspecialchars($sql['owner_email']) ."</p>
                             </tr>
-
-                      <tr id='current_data_file' >
-                         <td>Current Data File : </td>
-                         <td><a href='../admin/uploads/" . htmlspecialchars($sql['course_data']) . "'>" . htmlspecialchars($sql['course_data']) . "</a><button type='button' onclick='showUpdateDataField()'>&nbsp &nbsp Update</button></td>
-                       </tr>
-                  
-                      <tr id='update_data_file' style='display:none;' >
-                        <td>Data File : </td>
-                        <td><input type='file'  class='form-control' id='course_data' placeholder='Insert Data File' name='course_data' onchange='courseFileAlreadyExistCheck(this.id)'></td>
-                      </tr>
                       <tr>
                         <td>Start Date : </td>
                         <td><input type='date' class='form-control' id='start_date' placeholder='dd/mm/yyyy' name='start_date' value = '" . htmlspecialchars($sql['start_date']) . "' required onchange='validateInputDate()'></td>

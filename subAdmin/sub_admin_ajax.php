@@ -1,4 +1,7 @@
 <?php
+
+$db = pg_connect("host=localhost port=5432 dbname=platform user=postgres password=postgres");
+
 if ($_POST['action'] == 'checkfilealreadyexist') { // file already exist check
    $filename = $_FILES['file']['name'];
 
@@ -47,5 +50,38 @@ if (isset($_FILES['file']['name'])) {  // upload file
 }
 echo 0;
 }
+
+
+if ($_POST['action'] == 'delete_course_data') {
+   pg_query(sprintf("DELETE from public.course_specific_data where course_id=" . $_POST['course_id'] . " and course_data='" . $_POST['data'] . "';"));
+}
+
+
+if ($_POST['action'] == 'add_course_data') {
+
+   $countfiles = count($_FILES['files']['name']);
+   $upload_location = "../admin/uploads/";
+
+   $count = 0;
+   for($i=0;$i < $countfiles;$i++){
+
+   // File name
+   $filename = $_FILES['files']['name'][$i];
+
+   // File path
+   $path = $upload_location.$filename;
+
+
+      // Upload file
+      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$path)){
+        $count += 1;
+        $sql2 = "INSERT INTO public.course_specific_data(course_id,course_data)values(" . pg_escape_string($_POST['course_id']) . ",'" . basename($_FILES["files"]["name"][$i]) . "')";
+        $ret2 = pg_query($sql2);
+      } 
+
+}
+}
+
+pg_close($db);
 
 ?>
