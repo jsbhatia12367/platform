@@ -126,6 +126,7 @@ ob_start();
                     <th>Edit Information</th>
                     <th>Add Data</th>
                     <th>Delete Data</th>
+
                   </tr>
                 </thead>
                 <tbody>
